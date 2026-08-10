@@ -55,6 +55,16 @@
   </head>
 
   <body class="bg-[#1E1E2E] w-full custom-scroll">
+    <script>
+      const isMobileUA = /Android|iPhone|iPod|Windows Phone/i.test(
+        navigator.userAgent,
+      );
+      const isNarrowScreen = window.innerWidth <= 768;
+      if (!isMobileUA && !isNarrowScreen) {
+        window.location.replace("index.html");
+      }
+    </script>
+
     <section
       class="bg-[#1E1E2E] w-full sm:min-w-[816px]"
       style="height: calc(100vh - 64px - 80px)"

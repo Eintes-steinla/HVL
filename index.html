@@ -55,6 +55,12 @@
   </head>
 
   <body class="bg-[#1E1E2E] w-full custom-scroll">
+    <script>
+      if (window.innerWidth <= 768) {
+        window.location.replace("mobile.html");
+      }
+    </script>
+
     <header class="items-center w-full sm:min-w-[816px] h-[64px]">
       <nav
         class="flex justify-between items-center bg-[#000000] px-[8px] w-full h-full"
