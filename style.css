@@ -1,0 +1,376 @@
+@font-face {
+  font-family: "SpotifyMixUI";
+  src: url("./public/fonts/SpotifyMixUI-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "SpotifyMixUIBold";
+  src: url("./public/fonts/SpotifyMixUI-Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "SpotifyMixUITitleBold";
+  src: url("./public/fonts/SpotifyMixUI-Title-Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "SpotifyMixUITitleExtrabold";
+  src: url("./public/fonts/SpotifyMixUI-Title-Extrabold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "SpotifyMixUIVariable";
+  src: url("./public/fonts/SpotifyMixUI-Title-Variable.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: "SpotifyMixUI";
+  user-select: none;
+}
+
+.custom-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+  background-color: #ffffff2b;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+  background-color: #ffffff62;
+  display: block;
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.slide:hover .play-button-bg {
+  opacity: 1;
+  transform: translateY(-5px);
+}
+
+/* * play progress */
+#play-progress {
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(to right, white 0%, gray 0%);
+  border-radius: 9999px;
+  transition: background 0.3s;
+  cursor: pointer;
+}
+
+/* Ẩn nút kéo mặc định */
+#play-progress::-webkit-slider-thumb {
+  appearance: none;
+  width: 0;
+  height: 0;
+}
+
+#play-progress::-moz-range-thumb {
+  width: 0;
+  height: 0;
+}
+
+/* Khi hover, active hoặc đang kéo: nền xanh lá, hiện lại nút kéo */
+#play-progress:hover,
+#play-progress:active,
+#play-progress.dragging {
+  background: linear-gradient(to right, #1db954 0%, gray 0%);
+}
+
+/* hiện nút kéo */
+#play-progress:hover::-webkit-slider-thumb,
+#play-progress:active::-webkit-slider-thumb,
+#play-progress.dragging::-webkit-slider-thumb {
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#play-progress:hover::-moz-range-thumb,
+#play-progress:active::-moz-range-thumb,
+#play-progress.dragging::-moz-range-thumb {
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* * volume */
+#volume {
+  margin: 0 8px 0 2px;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(to right, white 0%, gray 0%);
+  border-radius: 9999px;
+  transition: background 0.3s;
+  cursor: pointer;
+}
+
+/* Ẩn nút kéo mặc định */
+#volume::-webkit-slider-thumb {
+  appearance: none;
+  width: 0;
+  height: 0;
+}
+
+#volume::-moz-range-thumb {
+  width: 0;
+  height: 0;
+}
+
+/* Khi hover, active hoặc đang kéo: nền xanh lá, hiện lại nút kéo */
+#volume:hover,
+#volume:active,
+#volume.dragging {
+  background: linear-gradient(to right, #1db954 0%, gray 0%);
+}
+
+/* hiện nút kéo */
+#volume:hover::-webkit-slider-thumb,
+#volume:active::-webkit-slider-thumb,
+#volume.dragging::-webkit-slider-thumb {
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#volume:hover::-moz-range-thumb,
+#volume:active::-moz-range-thumb,
+#volume.dragging::-moz-range-thumb {
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* * 5 line */
+
+.playing {
+  /* display: flex; */
+  position: relative;
+  justify-content: center;
+  gap: 1px;
+  width: 30px;
+  height: 20px;
+}
+
+.greenline {
+  background-color: #1db954;
+  height: 15px;
+  width: 2px;
+  position: relative;
+  transform-origin: bottom;
+}
+
+.line-1 {
+  animation: infinite playing 1s ease-in-out;
+  animation-delay: 0.2s;
+}
+
+.line-2 {
+  animation: infinite playing 1s ease-in-out;
+  animation-delay: 0.5s;
+}
+
+.line-3 {
+  animation: infinite playing 1s ease-in-out;
+  animation-delay: 0.6s;
+}
+
+.line-4 {
+  animation: infinite playing 1s ease-in-out;
+  animation-delay: 0s;
+}
+
+.line-5 {
+  animation: infinite playing 1s ease-in-out;
+  animation-delay: 0.4s;
+}
+
+@keyframes playing {
+  0% {
+    transform: scaleY(0.1);
+  }
+
+  33% {
+    transform: scaleY(0.6);
+  }
+
+  66% {
+    transform: scaleY(0.9);
+  }
+
+  100% {
+    transform: scaleY(0.1);
+  }
+}
+
+.track-main:hover .playing {
+  display: none;
+}
+
+/* * play button */
+
+.play-button {
+  --color: black;
+  --size: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  font-size: var(--size);
+  user-select: none;
+  fill: var(--color);
+}
+
+.play-button .play {
+  position: absolute;
+  animation: keyframes-fill 0.3s;
+  display: none;
+}
+
+.play-button .pause {
+  position: absolute;
+  animation: keyframes-fill 0.3s;
+}
+
+/* ------ On check event ------ */
+.play-button input:checked ~ .play {
+  display: block;
+}
+
+.play-button input:checked ~ .pause {
+  display: none;
+}
+
+/* ------ Hide the default checkbox ------ */
+.play-button input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* ------ Animation ------ */
+@keyframes keyframes-fill {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@media (max-width: 639px) {
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hidden {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+}
+/* @media (max-width: 639px) {
+  #five-line-stop {
+    display: none;
+  }
+} */
+/* Khung chứa marquee: phải cắt phần tràn */
+.marquee-viewport {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* Track chứa 2 bản copy text nối nhau, mặc định đứng yên */
+.marquee-track {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: marquee-scroll var(--marquee-duration, 8s) linear infinite;
+  animation-play-state: paused;
+}
+
+/* always: true -> chạy liên tục */
+.marquee-always .marquee-track {
+  animation-play-state: running;
+}
+
+/* always: false -> chỉ chạy khi hover phần tử cha .track-main */
+.track-main:hover .marquee-viewport:not(.marquee-always) .marquee-track {
+  animation-play-state: running;
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Mặc định ẩn hết 3 icon, chỉ hiện số */
+.track-stt-play-icon,
+.track-play-icon,
+.track-pause-icon,
+.track-playing-icon {
+  display: none;
+}
+
+/* 1. Không phát, không hover -> hiện số */
+.track-main:not(.is-playing):not(:hover) .track-stt {
+  display: inline;
+}
+
+/* 2. Không phát, có hover -> hiện nút play */
+.track-main:not(.is-playing):hover .track-stt {
+  display: none;
+}
+.track-main:not(.is-playing):hover .track-play-icon {
+  display: inline-flex;
+  cursor: pointer;
+}
+
+/* 3. Đang phát, không hover -> hiện vạch xanh nhấp nháy */
+.track-main.is-playing:not(:hover) .track-stt {
+  display: none;
+}
+.track-main.is-playing:not(:hover) .track-playing-icon {
+  display: flex;
+}
+
+/* 4. Đang phát, có hover -> hiện nút pause */
+.track-main.is-playing:hover .track-stt {
+  display: none;
+}
+.track-main.is-playing:hover .track-pause-icon {
+  display: inline-flex;
+  cursor: pointer;
+}
+
+/* Đổi màu tên bài khi đang phát */
+.track-main.is-playing .track-title {
+  color: #1ed760;
+}

@@ -1,0 +1,9 @@
+min-w-[812px]
+min-w-[620px]
+w-[230px]
+// id="picture-song"
+// id="title-song"
+// id="artist-song"
+// id = "nextBtn";
+// id="prevBtn"
+// id="audio-song"

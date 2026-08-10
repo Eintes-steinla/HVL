@@ -1,0 +1,1590 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- * tailwindcss -->
+    <!-- <script src="https://unpkg.com/@tailwindcss/browser@4"></script> -->
+
+    <!-- * style -->
+    <link rel="stylesheet" href="./src/output.css" />
+    <link rel="stylesheet" href="./style.css" />
+
+    <!-- * favicon -->
+    <link
+      type="image/png"
+      sizes="16x16"
+      rel="icon"
+      href="./public/favicon/icons8-spotify-windows-11-color-16.png"
+    />
+    <link
+      type="image/png"
+      sizes="32x32"
+      rel="icon"
+      href="./public/favicon/icons8-spotify-windows-11-color-32.png"
+    />
+    <link
+      type="image/png"
+      sizes="96x96"
+      rel="icon"
+      href="./public/favicon/icons8-spotify-windows-11-color-96.png"
+    />
+    <link
+      type="image/png"
+      sizes="120x120"
+      rel="icon"
+      href="./public/favicon/icons8-spotify-windows-11-color-120.png"
+    />
+    <meta
+      name="msapplication-square70x70logo"
+      content="./public/favicon/icons8-spotify-windows-11-color-70.png"
+    />
+    <meta
+      name="msapplication-TileImage"
+      content="./public/favicon/icons8-spotify-windows-11-color-144.png"
+    />
+    <meta
+      name="msapplication-square150x150logo"
+      content="./public/favicon/icons8-spotify-windows-11-color-150.png"
+    />
+    <meta
+      name="msapplication-square310x310logo"
+      content="./public/favicon/icons8-spotify-windows-11-color-310.png"
+    />
+    <title>Spotify</title>
+  </head>
+
+  <body class="bg-[#1E1E2E] w-full custom-scroll">
+    <header class="items-center w-full sm:min-w-[816px] h-[64px]">
+      <nav
+        class="flex justify-between items-center bg-[#000000] px-[8px] w-full h-full"
+      >
+        <!-- * logo -->
+        <a href="#">
+          <svg
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            xmlns="http://www.w3.org/2000/svg"
+            role="img"
+            viewBox="0 0 24 24"
+            class="mx-[12px]"
+            aria-label="Spotify"
+            aria-hidden="false"
+            data-encore-id="logoSpotify"
+            style="--encore-logo-fill-color: var(--decorative-base)"
+            height="30"
+            width="30"
+          >
+            <title stroke-opacity="0" stroke="#000000" fill="#FFFFFF">
+              Spotify
+            </title>
+            <path
+              d="M13.427.01C6.805-.253 1.224 4.902.961 11.524.698 18.147 5.853 23.728 12.476 23.99c6.622.263 12.203-4.892 12.466-11.514S20.049.272 13.427.01m5.066 17.579a.717.717 0 0 1-.977.268 14.4 14.4 0 0 0-5.138-1.747 14.4 14.4 0 0 0-5.42.263.717.717 0 0 1-.338-1.392c1.95-.474 3.955-.571 5.958-.29 2.003.282 3.903.928 5.647 1.92a.717.717 0 0 1 .268.978m1.577-3.15a.93.93 0 0 1-1.262.376 17.7 17.7 0 0 0-5.972-1.96 17.7 17.7 0 0 0-6.281.238.93.93 0 0 1-1.11-.71.93.93 0 0 1 .71-1.11 19.5 19.5 0 0 1 6.94-.262 19.5 19.5 0 0 1 6.599 2.165c.452.245.62.81.376 1.263m1.748-3.551a1.147 1.147 0 0 1-1.546.488 21.4 21.4 0 0 0-6.918-2.208 21.4 21.4 0 0 0-7.259.215 1.146 1.146 0 0 1-.456-2.246 23.7 23.7 0 0 1 8.034-.24 23.7 23.7 0 0 1 7.657 2.445c.561.292.78.984.488 1.546m13.612-.036-.832-.247c-1.67-.495-2.14-.681-2.14-1.353 0-.637.708-1.327 2.264-1.327 1.539 0 2.839.752 3.51 1.31.116.096.24.052.24-.098V6.935c0-.097-.027-.15-.098-.203-.83-.62-2.272-1.07-3.723-1.07-2.953 0-4.722 1.68-4.722 3.59 0 2.157 1.371 2.91 3.626 3.546l.973.274c1.689.478 1.998.902 1.998 1.556 0 1.097-.831 1.433-2.07 1.433-1.556 0-3.457-.911-4.35-2.025-.08-.098-.177-.053-.177.062v2.423c0 .097.01.141.08.22.743.814 2.52 1.53 4.59 1.53 2.546 0 4.456-1.485 4.456-3.784 0-1.787-1.052-2.865-3.625-3.635m10.107-1.76c-1.68 0-2.653 1.026-3.219 2.052V9.376c0-.08-.044-.124-.124-.124h-2.22c-.079 0-.123.044-.123.124V20.72c0 .08.044.124.124.124h2.22c.079 0 .123-.044.123-.124v-4.536c.566 1.025 1.521 2.034 3.237 2.034 2.264 0 3.89-1.955 3.89-4.581s-1.644-4.545-3.908-4.545m-.654 6.986c-1.185 0-2.211-1.167-2.618-2.458.407-1.362 1.344-2.405 2.618-2.405 1.211 0 2.051.92 2.051 2.423s-.84 2.44-2.051 2.44m40.633-6.826h-2.264c-.08 0-.115.017-.15.097l-2.282 5.483-2.29-5.483c-.035-.08-.07-.097-.15-.097h-3.661v-.584c0-.955.645-1.397 1.476-1.397.496 0 1.035.256 1.415.486.089.053.15-.008.115-.088l-.796-1.901a.26.26 0 0 0-.124-.133c-.389-.203-1.025-.38-1.644-.38-1.875 0-2.954 1.432-2.954 3.254v.743h-1.503c-.08 0-.124.044-.124.124v1.768c0 .08.044.124.124.124h1.503v6.668c0 .08.044.123.124.123h2.264c.08 0 .124-.044.124-.123v-6.668h1.936l2.812 6.11-1.512 3.325c-.044.098.009.142.097.142h2.414c.08 0 .116-.018.15-.097l4.997-11.355c.035-.08-.009-.141-.097-.141M54.964 9.04c-2.865 0-4.837 2.025-4.837 4.616 0 2.573 1.971 4.616 4.837 4.616 2.856 0 4.846-2.043 4.846-4.616 0-2.591-1.99-4.616-4.846-4.616m.008 7.065c-1.37 0-2.343-1.043-2.343-2.45 0-1.405.973-2.449 2.343-2.449 1.362 0 2.335 1.043 2.335 2.45 0 1.406-.973 2.45-2.335 2.45m33.541-6.334a1.24 1.24 0 0 0-.483-.471 1.4 1.4 0 0 0-.693-.17q-.384 0-.693.17a1.24 1.24 0 0 0-.484.471q-.174.302-.174.681 0 .375.174.677.175.3.484.471t.693.17.693-.17.483-.471.175-.676q0-.38-.175-.682m-.211 1.247a1 1 0 0 1-.394.39 1.15 1.15 0 0 1-.571.14 1.16 1.16 0 0 1-.576-.14 1 1 0 0 1-.391-.39 1.14 1.14 0 0 1-.14-.566q0-.316.14-.562t.391-.388.576-.14q.32 0 .57.14.253.141.395.39t.142.565q0 .312-.142.56m-19.835-5.78c-.85 0-1.468.6-1.468 1.396s.619 1.397 1.468 1.397c.866 0 1.485-.6 1.485-1.397 0-.796-.619-1.397-1.485-1.397m19.329 5.19a.31.31 0 0 0 .134-.262q0-.168-.132-.266-.132-.099-.381-.099h-.588v1.229h.284v-.489h.154l.374.489h.35l-.41-.518a.5.5 0 0 0 .215-.084m-.424-.109h-.26v-.3h.27q.12 0 .184.036a.12.12 0 0 1 .065.116.12.12 0 0 1-.067.111.4.4 0 0 1-.192.037M69.607 9.252h-2.263c-.08 0-.124.044-.124.124v8.56c0 .08.044.123.124.123h2.263c.08 0 .124-.044.124-.123v-8.56c0-.08-.044-.124-.124-.124m-3.333 6.605a2.1 2.1 0 0 1-1.053.257c-.725 0-1.185-.425-1.185-1.362v-3.484h2.211c.08 0 .124-.044.124-.124V9.376c0-.08-.044-.124-.124-.124h-2.21V6.944c0-.097-.063-.15-.15-.08l-3.954 3.113c-.053.044-.07.088-.07.16v1.007c0 .08.044.124.123.124h1.539v3.855c0 2.087 1.203 3.06 2.918 3.06.743 0 1.46-.194 1.884-.442.062-.035.07-.07.07-.133v-1.68c0-.088-.044-.115-.123-.07"
+              transform="translate(-0.95,0)"
+              stroke-opacity="0"
+              stroke="#000000"
+              fill="#FFFFFF"
+            ></path>
+          </svg>
+        </a>
+
+        <!-- * form -->
+        <div class="flex items-center gap-2">
+          <!-- * home -->
+          <div
+            class="group relative bg-[#212132] hover:bg-[#2f2f48] rounded-full h-[30px]"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              x="0px"
+              y="0px"
+              width="29"
+              height="29"
+              viewBox="0,0,256,256"
+              class="p-[5px] group-active:scale-95 group-hover:scale-110 duration-500 cursor-pointer transform need-description"
+            >
+              <g fill="#989FB9">
+                <g transform="scale(5.33333,5.33333)">
+                  <path
+                    d="M23.95117,4c-0.31984,0.01092 -0.62781,0.12384 -0.87891,0.32227l-14.21289,11.19727c-1.8039,1.42163 -2.85937,3.59398 -2.85937,5.89063v19.08984c0,1.36359 1.13641,2.5 2.5,2.5h10c1.36359,0 2.5,-1.13641 2.5,-2.5v-10c0,-0.29504 0.20496,-0.5 0.5,-0.5h5c0.29504,0 0.5,0.20496 0.5,0.5v10c0,1.36359 1.13641,2.5 2.5,2.5h10c1.36359,0 2.5,-1.13641 2.5,-2.5v-19.08984c0,-2.29665 -1.05548,-4.46899 -2.85937,-5.89062l-14.21289,-11.19727c-0.27738,-0.21912 -0.62324,-0.33326 -0.97656,-0.32227zM24,7.41016l13.28516,10.4668c1.0841,0.85437 1.71484,2.15385 1.71484,3.5332v18.58984h-9v-9.5c0,-1.91495 -1.58505,-3.5 -3.5,-3.5h-5c-1.91495,0 -3.5,1.58505 -3.5,3.5v9.5h-9v-18.58984c0,-1.37935 0.63074,-2.67883 1.71484,-3.5332z"
+                  ></path>
+                </g>
+              </g>
+            </svg>
+            <span
+              class="hidden z-50 absolute bg-gray-700 opacity-0 mt-[5px] ml-[-10px] px-[5px] py-[3px] rounded text-white text-sm transition-all translate-y-2 duration-500 ease-in-out transform description"
+              >Home</span
+            >
+          </div>
+
+          <form
+            role="search"
+            class="flex sm:justify-start items-center bg-[#212132] hover:bg-[#2f2f48] rounded-full w-[200px] sm:w-[300px] h-[30px] transition-all duration-600"
+          >
+            <!-- * search -->
+            <div class="relative min-w-[26px]">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                x="0px"
+                y="0px"
+                width="26"
+                height="26"
+                viewBox="0,0,256,256"
+                class="group mr-[10px] ml-[2px] p-[2px] w-full cursor-pointer need-description"
+              >
+                <g fill="#989FB9" class="group-hover:fill-white">
+                  <g transform="scale(8.53333,8.53333)">
+                    <path
+                      d="M13,3c-5.511,0 -10,4.489 -10,10c0,5.511 4.489,10 10,10c2.39651,0 4.59738,-0.85101 6.32227,-2.26367l5.9707,5.9707c0.25082,0.26124 0.62327,0.36648 0.97371,0.27512c0.35044,-0.09136 0.62411,-0.36503 0.71547,-0.71547c0.09136,-0.35044 -0.01388,-0.72289 -0.27512,-0.97371l-5.9707,-5.9707c1.41266,-1.72488 2.26367,-3.92576 2.26367,-6.32227c0,-5.511 -4.489,-10 -10,-10zM13,5c4.43012,0 8,3.56988 8,8c0,4.43012 -3.56988,8 -8,8c-4.43012,0 -8,-3.56988 -8,-8c0,-4.43012 3.56988,-8 8,-8z"
+                    ></path>
+                  </g>
+                </g>
+              </svg>
+              <span
+                class="hidden z-50 absolute bg-gray-700 opacity-0 mt-[7px] ml-[-7px] px-[5px] py-[3px] rounded text-white text-sm transition-all translate-y-2 duration-500 ease-in-out transform description"
+                >Search</span
+              >
+            </div>
+            <div class="relative flex items-center">
+              <input
+                type="text"
+                id="input-1"
+                class="group peer pr-[60px] focus:outline-none w-full max-w-[130px] sm:max-w-[230px] text-white active:text-white text-sm"
+              />
+              <span
+                id="input-playholder"
+                class="hidden peer-focus:hidden md:inline-block absolute text-[#989FB9] text-sm cursor-pointer"
+                >What do you want to play?</span
+              >
+            </div>
+
+            <svg
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              xmlns="http://www.w3.org/2000/svg"
+              data-encore-id="icon"
+              role="img"
+              aria-hidden="true"
+              class="hidden cursor-pointer"
+              viewBox="0 0 16 16"
+              width="16"
+              height="16"
+              id="clear-x-1"
+            >
+              <path
+                d="M2.47 2.47a.75.75 0 0 1 1.06 0L8 6.94l4.47-4.47a.75.75 0 1 1 1.06 1.06L9.06 8l4.47 4.47a.75.75 0 1 1-1.06 1.06L8 9.06l-4.47 4.47a.75.75 0 0 1-1.06-1.06L6.94 8 2.47 3.53a.75.75 0 0 1 0-1.06Z"
+                fill-opacity="0.7"
+                fill="#CDD6F4"
+              ></path>
+            </svg>
+          </form>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <!-- * noti -->
+          <div class="group relative rounded-full h-[30px]">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              x="0px"
+              y="0px"
+              width="30"
+              height="30"
+              viewBox="0,0,256,256"
+              class="p-[5px] group-active:scale-95 group-hover:scale-110 duration-500 cursor-pointer need-description"
+            >
+              <g fill="#989FB9">
+                <g transform="scale(5.33333,5.33333)">
+                  <path
+                    d="M23.27734,4.01758c-8.08348,0.38074 -14.27734,7.32581 -14.27734,15.36328v7.26758l-2.65039,5.33203c-0.00466,0.00972 -0.00922,0.01948 -0.01367,0.0293c-1.06626,2.2675 0.65977,4.99023 3.16602,4.99023h8.49805c0,3.29586 2.70414,6 6,6c3.29586,0 6,-2.70414 6,-6h8.49609c2.50624,0 4.23449,-2.72217 3.16797,-4.99023c-0.00445,-0.00981 -0.00901,-0.01958 -0.01367,-0.0293l-2.65039,-5.33203v-7.64844c0,-8.5062 -7.13671,-15.38664 -15.72266,-14.98242zM23.41797,7.01367c6.92006,-0.32579 12.58203,5.14853 12.58203,11.98633v8c-0.00021,0.23174 0.05327,0.46037 0.15625,0.66797l2.79297,5.62109c0.17961,0.38495 -0.0282,0.71094 -0.45312,0.71094h-28.99414c-0.42493,0 -0.63105,-0.32543 -0.45117,-0.71094v-0.00195l2.79297,-5.61914c0.10298,-0.2076 0.15646,-0.43623 0.15625,-0.66797v-7.61914c0,-6.50053 4.97945,-12.06393 11.41797,-12.36719zM21,37h6c0,1.67413 -1.32587,3 -3,3c-1.67413,0 -3,-1.32587 -3,-3z"
+                  ></path>
+                </g>
+              </g>
+            </svg>
+            <span
+              class="hidden z-50 absolute bg-gray-700 opacity-0 mt-[5px] ml-[-22px] px-[5px] py-[3px] rounded text-white text-xs transition-all translate-y-2 duration-500 ease-in-out transform description"
+              >Notification</span
+            >
+          </div>
+
+          <!-- * user -->
+          <div
+            class="group relative flex flex-col items-center bg-[#1E1E2E] rounded-full w-[30px] h-[30px]"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="26"
+              height="26"
+              fill="#989FB9"
+              class="p-[2px] group-active:scale-95 group-hover:scale-110 duration-500 bi bi-person need-description"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"
+              />
+            </svg>
+            <span
+              class="hidden z-50 absolute bg-gray-700 opacity-0 mt-[35px] px-[5px] py-[3px] rounded text-white text-xs transition-all translate-y-2 duration-500 ease-in-out transform description"
+              >User</span
+            >
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <section
+      class="bg-[#1E1E2E] w-full sm:min-w-[816px]"
+      style="height: calc(100vh - 64px - 80px)"
+    >
+      <div
+        class="gap-2 grid sm:grid-cols-[3fr_1fr] grid-rows-1 sm:px-[8px] w-full h-full max-h-full"
+      >
+        <!-- ? main -->
+        <div class="relative bg-[#19191E] h-full overflow-hidden">
+          <div
+            id="main"
+            class="scrollbar-hidden h-full max-h-full overflow-x-hidden sm:overflow-y-auto custom-scroll"
+          >
+            <!-- * header -->
+            <div
+              class="bg-[url('../public/assets/artists/MCK/MCK_bg.jpg')] bg-linear-to-b from-[#545454] to-[#2C2C2C] bg-cover bg-center px-4 pt-6 pb-4 cursor-default"
+            >
+              <div class="flex items-center gap-4">
+                <!-- * RPTMCK-avatar -->
+                <div class="rounded">
+                  <img
+                    src="./public/assets/artists/MCK/MCK_avt.jpg"
+                    alt="RPT MCK-avatar"
+                    class="rounded-full w-[20vw] sm:w-36 sm:min-w-36 h-[20vw] sm:h-36 sm:min-h-36 object-cover"
+                  />
+                </div>
+
+                <div class="text-white">
+                  <div class="flex items-center gap-2">
+                    <span>
+                      <svg
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        xmlns="http://www.w3.org/2000/svg"
+                        data-encore-id="verifiedBadge"
+                        role="img"
+                        aria-hidden="false"
+                        viewBox="0 0 24 24"
+                        style="
+                          position: relative;
+                          background-image: linear-gradient(
+                            var(--text-base),
+                            var(--text-base)
+                          );
+                          background-size: 50% 50%;
+                          background-position: center center;
+                          background-repeat: no-repeat;
+                        "
+                        width="24"
+                        height="24"
+                      >
+                        <title fill="#4CB3FF">Verified account</title>
+                        <path
+                          d="M10.814.5a1.658 1.658 0 0 1 2.372 0l2.512 2.572 3.595-.043a1.658 1.658 0 0 1 1.678 1.678l-.043 3.595 2.572 2.512c.667.65.667 1.722 0 2.372l-2.572 2.512.043 3.595a1.658 1.658 0 0 1-1.678 1.678l-3.595-.043-2.512 2.572a1.658 1.658 0 0 1-2.372 0l-2.512-2.572-3.595.043a1.658 1.658 0 0 1-1.678-1.678l.043-3.595L.5 13.186a1.658 1.658 0 0 1 0-2.372l2.572-2.512-.043-3.595a1.658 1.658 0 0 1 1.678-1.678l3.595.043L10.814.5zm6.584 9.12a1 1 0 0 0-1.414-1.413l-6.011 6.01-1.894-1.893a1 1 0 0 0-1.414 1.414l3.308 3.308 7.425-7.425z"
+                          fill="#4CB3FF"
+                        ></path>
+                      </svg>
+                    </span>
+                    <span class="w-full text-sm text-nowrap"
+                      >Verified Artist</span
+                    >
+                  </div>
+                  <div>
+                    <span
+                      class="font-[SpotifyMixUITitleExtrabold] text-[#CDD6F4] text-[7.3vw] sm:text-[4.3vw]"
+                      >RPT MCK
+                    </span>
+                  </div>
+                  <div class="mt-1">
+                    <span class="w-full text-md text-nowrap"
+                      >02,03,1999 monthly listeners</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- * play header sticky -->
+            <div
+              id="sticky-header"
+              class="hidden top-0 left-0 z-40 absolute bg-[#212121] opacity-0 px-4 py-2 w-full transition-all duration-300 ease-in-out"
+            >
+              <div class="flex items-center gap-2">
+                <button
+                  class="flex justify-center items-center bg-[#1ED760] play-button-bg-song hover:bg-[#3BE377] rounded-full w-[48px] min-w-[48px] h-[48px] hover:scale-105 active:scale-95 cursor-pointer transform"
+                >
+                  <!-- From Uiverse.io by bbaginuk -->
+                  <label class="play-button play-button-song">
+                    <input checked="checked" type="checkbox" />
+                    <svg
+                      viewBox="0 0 384 512"
+                      height="24px"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="ml-1 play"
+                    >
+                      <path
+                        d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"
+                      ></path>
+                    </svg>
+                    <svg
+                      viewBox="0 0 320 512"
+                      height="24px"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="pause"
+                    >
+                      <path
+                        d="M48 64C21.5 64 0 85.5 0 112V400c0 26.5 21.5 48 48 48H80c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zm192 0c-26.5 0-48 21.5-48 48V400c0 26.5 21.5 48 48 48h32c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H240z"
+                      ></path>
+                    </svg>
+                  </label>
+                </button>
+                <span
+                  class="font-[SpotifyMixUITitleBold] text-white text-2xl cursor-default"
+                  >RPT MCK</span
+                >
+              </div>
+            </div>
+            <!-- * play header -->
+            <div
+              class="bg-gradient-to-b from-[#212121] to-[#1C1C20] px-4 py-4 w-full"
+            >
+              <div class="flex items-center gap-5">
+                <!-- * play -->
+                <button
+                  class="flex justify-center items-center bg-[#1ED760] play-button-bg-song hover:bg-[#3BE377] rounded-full w-14 min-w-14 h-14 hover:scale-105 active:scale-95 cursor-pointer transform"
+                >
+                  <!-- From Uiverse.io by bbaginuk -->
+                  <label class="play-button play-button-song">
+                    <input checked="checked" type="checkbox" />
+                    <svg
+                      viewBox="0 0 384 512"
+                      height="24px"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="ml-1 play"
+                    >
+                      <path
+                        d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"
+                      ></path>
+                    </svg>
+                    <svg
+                      viewBox="0 0 320 512"
+                      height="24px"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="pause"
+                    >
+                      <path
+                        d="M48 64C21.5 64 0 85.5 0 112V400c0 26.5 21.5 48 48 48H80c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zm192 0c-26.5 0-48 21.5-48 48V400c0 26.5 21.5 48 48 48h32c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H240z"
+                      ></path>
+                    </svg>
+                  </label>
+                </button>
+                <!-- * Following -->
+                <div>
+                  <button
+                    id="follow-button"
+                    class="px-[15px] py-[3px] border-[#989FB9] border-1 hover:border-white rounded-full hover:scale-105 active:scale-95 transition-all duration-100 ease-in-out cursor-pointer transform"
+                  >
+                    <span class="font-[SpotifyMixUIBold] text-[#CDD6F4] text-sm"
+                      >Following</span
+                    >
+                  </button>
+                </div>
+                <!-- * 3 dots -->
+                <div class="relative">
+                  <svg
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xmlns="http://www.w3.org/2000/svg"
+                    data-encore-id="icon"
+                    role="img"
+                    aria-hidden="true"
+                    class="group relative hover:scale-105 active:scale-95 cursor-pointer need-description"
+                    viewBox="0 0 24 24"
+                    width="32"
+                    height="32"
+                  >
+                    <path
+                      d="M4.5 13.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm15 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm-7.5 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"
+                      fill-opacity="0.7"
+                      fill="#CDD6F4"
+                      class="group-active:fill-[#CDD6F4] group-hover:fill-white"
+                    ></path>
+                  </svg>
+                  <span
+                    class="hidden z-50 absolute bg-gray-700 opacity-0 mt-[-80px] ml-[-90px] px-[5px] py-[3px] rounded text-white text-sm text-nowrap transition-all translate-y-2 duration-500 ease-in-out transform description"
+                    >More options for RPT MCK</span
+                  >
+                </div>
+              </div>
+            </div>
+            <!-- * popular -->
+            <div class="mb-[16px] px-4 py-2">
+              <!-- * h2 popular -->
+              <div class="pb-4">
+                <h2 class="font-[SpotifyMixUITitleBold] text-[#CDD6F4] text-xl">
+                  Popular
+                </h2>
+              </div>
+
+              <!-- * content -->
+              <div>
+                <ul id="playlist"></ul>
+              </div>
+              <!-- * see more -->
+              <div>
+                <button id="see-more" class="group p-[16px]">
+                  <span
+                    class="font-[SpotifyMixUIBold] text-[#CDD6F4] group-hover:text-white text-sm"
+                    >See more</span
+                  >
+                </button>
+              </div>
+            </div>
+            <!-- * discography -->
+            <div class="px-[16px]">
+              <div class="flex justify-between items-center mb-2">
+                <div class="pt-[16px]">
+                  <a href="#">
+                    <span
+                      class="font-[SpotifyMixUITitleBold] text-white text-2xl hover:underline cursor-pointer"
+                      >Discography</span
+                    >
+                  </a>
+                </div>
+                <div class="pt-[16px]">
+                  <span
+                    class="font-[SpotifyMixUIBold] text-[#CDD6F4] text-sm hover:underline text-nowrap cursor-pointer"
+                    >Show all</span
+                  >
+                </div>
+              </div>
+
+              <!-- * content -->
+              <div class="py-[8px]">
+                <ul
+                  class="flex items-center gap-2 text-[#CDD6F4] text-sm text-nowrap"
+                >
+                  <li>
+                    <button
+                      class="bg-[#33333b] hover:bg-[#41414c] focus:bg-white active:bg-[#4c4c5a] px-3 py-2 rounded-full focus:text-black sm:text-base transition-all duration-200 ease-in-out cursor-pointer"
+                    >
+                      Popular releases
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      class="bg-[#33333b] hover:bg-[#41414c] focus:bg-white active:bg-[#4c4c5a] px-3 py-2 rounded-full focus:text-black transition-all duration-200 ease-in-out cursor-pointer"
+                    >
+                      Albums
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      class="bg-[#33333b] hover:bg-[#41414c] focus:bg-white active:bg-[#4c4c5a] px-3 py-2 rounded-full focus:text-black transition-all duration-200 ease-in-out cursor-pointer"
+                    >
+                      Singles and EPs
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      class="hidden sm:block bg-[#33333b] hover:bg-[#41414c] focus:bg-white active:bg-[#4c4c5a] px-3 py-2 rounded-full focus:text-black transition-all duration-200 ease-in-out cursor-pointer"
+                    >
+                      Compilations
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- * carousel -->
+            <div class="group relative mx-auto w-full overflow-hidden">
+              <!-- * Carousel Wrapper -->
+              <div
+                id="carousel"
+                class="flex transition-transform duration-500 ease-in-out"
+              >
+                <!-- * Slide 1 -->
+                <div
+                  class="flex-shrink-0 space-y-2 p-4 w-1/3 cursor-pointer slide"
+                >
+                  <div class="relative">
+                    <img
+                      src="./public/assets/albs/MCK/HVL.jpg"
+                      class="rounded w-full"
+                      alt="Slide 1"
+                    />
+
+                    <div
+                      class="right-0 bottom-0 absolute flex justify-center items-center bg-[#1ED760] hover:bg-[#3BE377] opacity-0 rounded-full w-[48px] min-w-[48px] h-[48px] hover:scale-105 active:scale-95 transition-all translate-x-[-5px] duration-300 ease-in-out cursor-pointer transform play-button-bg"
+                    >
+                      <!-- From Uiverse.io by bbaginuk -->
+                      <label class="play-button">
+                        <input checked="checked" type="checkbox" />
+                        <svg
+                          viewBox="0 0 384 512"
+                          height="24px"
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="ml-1 play"
+                        >
+                          <path
+                            d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"
+                          ></path>
+                        </svg>
+                        <svg
+                          viewBox="0 0 320 512"
+                          height="24px"
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="pause"
+                        >
+                          <path
+                            d="M48 64C21.5 64 0 85.5 0 112V400c0 26.5 21.5 48 48 48H80c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zm192 0c-26.5 0-48 21.5-48 48V400c0 26.5 21.5 48 48 48h32c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H240z"
+                          ></path>
+                        </svg>
+                      </label>
+                    </div>
+                  </div>
+                  <div>
+                    <span class="text-md text-white hover:underline">
+                      HVL
+                    </span>
+                    <div class="text-[#CDD6F4] text-sm text-nowrap">
+                      2026 • Album
+                    </div>
+                  </div>
+                </div>
+                <!-- * Slide 2 -->
+                <div
+                  class="flex-shrink-0 space-y-2 p-4 w-1/3 cursor-pointer slide"
+                >
+                  <div class="relative">
+                    <img
+                      src="./public/assets/albs/MCK/99percent.jpg"
+                      class="rounded w-full"
+                      alt="Slide 2"
+                    />
+                    <div
+                      class="right-0 bottom-0 absolute flex justify-center items-center bg-[#1ED760] hover:bg-[#3BE377] opacity-0 rounded-full w-[48px] min-w-[48px] h-[48px] hover:scale-105 active:scale-95 transition-all translate-x-[-5px] duration-300 ease-in-out cursor-pointer transform play-button-bg"
+                    >
+                      <!-- From Uiverse.io by bbaginuk -->
+                      <label class="play-button">
+                        <input checked="checked" type="checkbox" />
+                        <svg
+                          viewBox="0 0 384 512"
+                          height="24px"
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="ml-1 play"
+                        >
+                          <path
+                            d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"
+                          ></path>
+                        </svg>
+                        <svg
+                          viewBox="0 0 320 512"
+                          height="24px"
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="pause"
+                        >
+                          <path
+                            d="M48 64C21.5 64 0 85.5 0 112V400c0 26.5 21.5 48 48 48H80c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zm192 0c-26.5 0-48 21.5-48 48V400c0 26.5 21.5 48 48 48h32c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H240z"
+                          ></path>
+                        </svg>
+                      </label>
+                    </div>
+                  </div>
+
+                  <div>
+                    <span class="text-md text-white hover:underline">
+                      99%
+                    </span>
+                    <div class="text-[#CDD6F4] text-sm text-nowrap">
+                      2023 • Album
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- * Navigation Buttons -->
+              <button
+                id="prevBtn"
+                class="top-2/5 left-6 absolute bg-gray-900 opacity-0 group-hover:opacity-60 p-2 rounded-full text-white hover:scale-105 active:scale-95 -translate-y-1/2 duration-200 cursor-pointer transform"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22px"
+                  height="22px"
+                  viewBox="0 0 24 24"
+                  class="stroke-white"
+                >
+                  <path
+                    stroke-linejoin="round"
+                    stroke-linecap="round"
+                    stroke-width="1.5"
+                    d="M11 6L5 12M5 12L11 18M5 12H19"
+                  ></path>
+                </svg>
+              </button>
+
+              <button
+                id="nextBtn"
+                class="top-2/5 right-6 absolute bg-gray-900 opacity-0 group-hover:opacity-60 p-2 rounded-full text-white rotate-180 hover:scale-105 active:scale-95 -translate-y-1/2 duration-200 cursor-pointer transform"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22px"
+                  height="22px"
+                  viewBox="0 0 24 24"
+                  class="stroke-white"
+                >
+                  <path
+                    stroke-linejoin="round"
+                    stroke-linecap="round"
+                    stroke-width="1.5"
+                    d="M11 6L5 12M5 12L11 18M5 12H19"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+
+            <!-- * About -->
+            <div id="about" class="mt-4 mb-4 px-4">
+              <div class="pb-[12px]">
+                <h2 class="font-[SpotifyMixUITitleBold] text-[#CDD6F4] text-xl">
+                  About
+                </h2>
+              </div>
+              <div>
+                <button
+                  id="about-view"
+                  class="relative bg-transparent rounded-lg hover:scale-101 transition-all duration-600 ease-in-out"
+                >
+                  <img
+                    src="./public/assets/artists/MCK/MCK_about.jpg"
+                    alt="about"
+                    class="opacity-70 rounded-lg w-full"
+                  />
+                  <!-- * description about -->
+                  <div
+                    class="bottom-0 absolute space-y-2 p-[3vw] truncate text-wrap"
+                  >
+                    <div
+                      class="font-[SpotifyMixUIBold] text-[#CDD6F4] text-left line-clamp-1"
+                    >
+                      02,03,1999 Monthly Listeners
+                    </div>
+                    <div class="hidden md:block">
+                      <div
+                        class="w-fit text-[#CDD6F4] text-sm text-left line-clamp-3"
+                      >
+                        Nghiêm Vũ Hoàng Long, also known as MCK, is a
+                        rapper/singer-songwriter from Hanoi, Vietnam. His music
+                        career started in early 2018 as an independent
+                        singer/songwriter under the alias Ngơ. His debut single
+                        was the smashing hit "Tình Đắng Như Ly Cà Phê" featuring
+                        Nân, accumulating over 60 million streams across the
+                        DSPs since its upload, kick-starting one of the most
+                        successful debuts in the local independent scene.
+                      </div>
+                    </div>
+                  </div>
+                  <!-- * rank -->
+                  <div
+                    class="top-0 right-0 absolute bg-[#0074E0] p-10 rounded-full -translate-x-4 translate-y-4"
+                  >
+                    <div class="relative flex justify-center items-center">
+                      <div class="absolute">
+                        <div
+                          class="font-[SpotifyMixUITitleBold] text-white text-xl leading-none"
+                        >
+                          #1
+                        </div>
+                        <div class="text-white text-xs text-nowrap">
+                          in the world
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ? playing view -->
+        <div
+          class="hidden sm:block bg-[#11111B] min-w-[260px] h-full overflow-hidden"
+        >
+          <div
+            class="h-full max-h-full overflow-x-hidden overflow-y-auto custom-scroll"
+          >
+            <!--  *sticky view -->
+            <div class="top-0 z-[49] sticky bg-[#11111B] px-[16px] py-[16px]">
+              <div class="flex justify-between items-center">
+                <div>
+                  <h1
+                    class="font-[SpotifyMixUITitleBold] text-[#CDD6F4] text-md hover:underline cursor-pointer"
+                  >
+                    RPT MCK
+                  </h1>
+                </div>
+                <div>
+                  <div class="flex items-center">
+                    <button
+                      class="group ml-2 p-2 rounded-full cursor-pointer need-description"
+                    >
+                      <svg
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        xmlns="http://www.w3.org/2000/svg"
+                        data-encore-id="icon"
+                        role="img"
+                        aria-hidden="true"
+                        class="group-active:scale-95 group-hover:scale-105"
+                        viewBox="0 0 16 16"
+                        width="16"
+                        height="16"
+                      >
+                        <path
+                          d="M3 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm6.5 0a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM16 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"
+                          fill-opacity="0.7"
+                          fill="#CDD6F4"
+                        ></path>
+                      </svg>
+                      <span
+                        id="playing-view-more-desc"
+                        class="hidden absolute bg-gray-700 opacity-0 mt-[-40px] ml-[-130px] px-[5px] py-[3px] rounded text-white text-sm text-nowrap transition-all translate-y-2 duration-500 ease-in-out transform description"
+                        >More options for Elegie</span
+                      >
+                    </button>
+                    <button
+                      class="group hover:bg-[#292932] ml-2 p-2 rounded-full cursor-pointer need-description"
+                    >
+                      <svg
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        xmlns="http://www.w3.org/2000/svg"
+                        data-encore-id="icon"
+                        role="img"
+                        aria-hidden="true"
+                        class="group-active:scale-95 group-hover:scale-105"
+                        viewBox="0 0 16 16"
+                        width="16"
+                        height="16"
+                      >
+                        <path
+                          d="M2.47 2.47a.75.75 0 0 1 1.06 0L8 6.94l4.47-4.47a.75.75 0 1 1 1.06 1.06L9.06 8l4.47 4.47a.75.75 0 1 1-1.06 1.06L8 9.06l-4.47 4.47a.75.75 0 0 1-1.06-1.06L6.94 8 2.47 3.53a.75.75 0 0 1 0-1.06Z"
+                          fill-opacity="0.7"
+                          fill="#CDD6F4"
+                        ></path>
+                      </svg>
+
+                      <span
+                        class="hidden absolute bg-gray-700 opacity-0 mt-[-40px] ml-[-23px] px-[5px] py-[3px] rounded text-white text-sm text-nowrap transition-all translate-y-2 duration-500 ease-in-out transform description"
+                        >Close</span
+                      >
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- * Elegie -->
+            <div class="space-y-4 px-[16px] pb-[16px]">
+              <!-- * img -->
+              <div>
+                <img
+                  id="playing-view-img"
+                  src="./public/assets/tracks/hvl_art/HVL_MCK_Elegie_Track01_N0L4B3L.png"
+                  alt="Elegie"
+                  class="rounded-lg w-full"
+                />
+              </div>
+              <!-- * des img -->
+              <div class="flex justify-between items-center">
+                <div class="flex flex-col min-w-0">
+                  <a
+                    href="#"
+                    id="playing-view-title"
+                    class="block font-[SpotifyMixUITitleBold] text-white text-2xl hover:underline text-nowrap"
+                    >Elegie</a
+                  >
+                  <a
+                    href="#"
+                    id="playing-view-artist"
+                    class="text-[#A7A7A7] hover:text-white hover:underline uppercase leading-none cursor-pointer"
+                  >
+                    RPT MCK
+                  </a>
+                </div>
+                <!-- * svg -->
+                <div class="flex items-center gap-3">
+                  <div class="cursor-pointer">
+                    <svg
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      xmlns="http://www.w3.org/2000/svg"
+                      data-encore-id="icon"
+                      role="img"
+                      aria-hidden="true"
+                      class="group hover:scale-105 active:scale-95"
+                      viewBox="0 0 16 16"
+                      width="16"
+                      height="16"
+                    >
+                      <path
+                        d="M1 5.75A.75.75 0 0 1 1.75 5H4v1.5H2.5v8h11v-8H12V5h2.25a.75.75 0 0 1 .75.75v9.5a.75.75 0 0 1-.75.75H1.75a.75.75 0 0 1-.75-.75v-9.5z"
+                        fill-opacity="1"
+                        fill="#CDD6F4"
+                        class="group-hover:fill-white"
+                      ></path>
+                      <path
+                        d="M8 9.576a.75.75 0 0 0 .75-.75V2.903l1.454 1.454a.75.75 0 0 0 1.06-1.06L8 .03 4.735 3.296a.75.75 0 0 0 1.06 1.061L7.25 2.903v5.923c0 .414.336.75.75.75z"
+                        fill-opacity="1"
+                        fill="#CDD6F4"
+                        class="group-hover:fill-white"
+                      ></path>
+                    </svg>
+                  </div>
+                  <!-- * add to playlist -->
+                  <div
+                    class="relative add-to-playlist py-2 cursor-pointer need-description"
+                  >
+                    <svg
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      xmlns="http://www.w3.org/2000/svg"
+                      data-encore-id="icon"
+                      role="img"
+                      aria-hidden="true"
+                      class="hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out"
+                      viewBox="0 0 16 16"
+                      width="16"
+                      height="16"
+                    >
+                      <path
+                        d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm11.748-1.97a.75.75 0 0 0-1.06-1.06l-4.47 4.47-1.405-1.406a.75.75 0 1 0-1.061 1.06l2.466 2.467 5.53-5.53z"
+                        fill="#1ED78B"
+                      ></path>
+                    </svg>
+                    <svg
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      xmlns="http://www.w3.org/2000/svg"
+                      data-encore-id="icon"
+                      role="img"
+                      aria-hidden="true"
+                      class="hidden hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out"
+                      viewBox="0 0 24 24"
+                      width="16"
+                      height="16"
+                    >
+                      <path
+                        d="M11.999 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm-11 9c0-6.075 4.925-11 11-11s11 4.925 11 11-4.925 11-11 11-11-4.925-11-11z"
+                        fill="#CDD6F4"
+                      ></path>
+                      <path
+                        d="M17.999 12a1 1 0 0 1-1 1h-4v4a1 1 0 1 1-2 0v-4h-4a1 1 0 1 1 0-2h4V7a1 1 0 1 1 2 0v4h4a1 1 0 0 1 1 1z"
+                        fill="#CDD6F4"
+                      ></path>
+                    </svg>
+                    <span
+                      class="hidden z-50 absolute bg-gray-700 opacity-0 mt-[-55px] ml-[-80px] px-[5px] py-[3px] rounded text-white text-sm text-nowrap transition-all translate-y-2 duration-500 ease-in-out transform description"
+                      >Add to playlist</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <!-- * credits -->
+              <div class="bg-[#1E1E2E] p-4 rounded-lg">
+                <div class="space-y-3">
+                  <!-- * credits -->
+                  <div class="flex justify-between items-center">
+                    <div class="font-[SpotifyMixUIBold] text-[#CDD6F4] text-md">
+                      Credits
+                    </div>
+                    <button
+                      class="hover:scale-105 active:scale-95 cursor-pointer"
+                    >
+                      <span
+                        class="font-[SpotifyMixUIBold] text-[#a7a7a7] hover:text-[#cdd6f4] active:text-[#a7a7a7] text-sm hover:underline"
+                        >Show all</span
+                      >
+                    </button>
+                  </div>
+                  <!-- * follow -->
+                  <div>
+                    <div class="flex justify-between items-center">
+                      <div class="flex flex-col">
+                        <span class="text-white hover:underline cursor-pointer"
+                          >RPT MCK</span
+                        >
+                        <span class="text-[#a7a7a7] text-sm">Main Artist</span>
+                      </div>
+                      <button
+                        id="follow-button-credits"
+                        class="px-4 py-1 border-[#A7A7A7] border-1 hover:border-white rounded-full hover:scale-105 active:scale-95 cursor-pointer"
+                      >
+                        <span
+                          class="font-[SpotifyMixUIBold] text-[#CDD6F4] text-xs"
+                          >Unfollow</span
+                        >
+                      </button>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="text-[#CDD6F4]">maiki</div>
+                    <div class="text-[#a7a7a7] text-sm">Producer</div>
+                  </div>
+                  <div>
+                    <div class="text-[#CDD6F4]">fujibynight</div>
+                    <div class="text-[#a7a7a7] text-sm">Producer</div>
+                  </div>
+                  <div>
+                    <div class="text-[#CDD6F4]">M</div>
+                    <div class="text-[#a7a7a7] text-sm">cốt đơ</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <aside
+      id="about-des"
+      class="hidden top-[80px] left-1/2 z-[999] absolute opacity-0 overflow-hidden transition-all -translate-x-1/2 duration-300 ease-in-out"
+    >
+      <!-- * about description -->
+      <div
+        id="hideAbout"
+        class="bg-black rounded-xl w-[90vw] sm:w-[55vw] sm:min-w-[500px] h-[70vh] overflow-y-auto custom-scroll"
+      >
+        <!-- * img -->
+        <div class="flex justify-center">
+          <div class="max-w-[500px]">
+            <img
+              src="./public/assets/artists/MCK/MCK_about.jpg"
+              alt="about-description"
+              class="rounded-xl w-full"
+            />
+          </div>
+        </div>
+        <!-- * x -->
+        <div
+          id="x-about"
+          class="top-0 right-0 absolute -translate-x-5 translate-y-5"
+        >
+          <button class="group p-2 rounded-full cursor-pointer">
+            <svg
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              xmlns="http://www.w3.org/2000/svg"
+              data-encore-id="icon"
+              role="img"
+              aria-hidden="true"
+              class=""
+              viewBox="0 0 16 16"
+              width="16"
+              height="16"
+            >
+              <path
+                d="M2.47 2.47a.75.75 0 0 1 1.06 0L8 6.94l4.47-4.47a.75.75 0 1 1 1.06 1.06L9.06 8l4.47 4.47a.75.75 0 1 1-1.06 1.06L8 9.06l-4.47 4.47a.75.75 0 0 1-1.06-1.06L6.94 8 2.47 3.53a.75.75 0 0 1 0-1.06Z"
+                fill-opacity="1"
+                fill="#CDD6F4"
+                class="group-hover:fill-white"
+              ></path>
+            </svg>
+          </button>
+        </div>
+        <!-- * des -->
+        <div class="space-x-10 grid grid-flow-col p-[40px]">
+          <div class="space-y-10 text-nowrap">
+            <!-- * rank -->
+            <div class="bg-[#0074E0] p-10 rounded-full w-fit">
+              <div class="relative flex justify-center items-center">
+                <div class="absolute">
+                  <div
+                    class="font-[SpotifyMixUITitleBold] text-white text-xl text-center leading-none"
+                  >
+                    #1
+                  </div>
+                  <div class="text-white text-xs text-center text-nowrap">
+                    in the world
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- * title -->
+            <div class="space-y-10">
+              <div>
+                <div
+                  class="font-[SpotifyMixUITitleBold] text-[#CDD6F4] text-3xl"
+                >
+                  17,06,2026
+                </div>
+                <div class="text-[#A7A7A7] text-sm leading-none">Followers</div>
+              </div>
+              <div>
+                <div
+                  class="font-[SpotifyMixUITitleBold] text-[#CDD6F4] text-3xl"
+                >
+                  02,03,1999
+                </div>
+                <div class="text-[#A7A7A7] text-sm leading-none">
+                  Monthly Listeners
+                </div>
+              </div>
+            </div>
+            <!-- * ul -->
+            <div>
+              <ul class="space-y-4">
+                <li>
+                  <div class="font-[SpotifyMixUIBold] text-[#CDD6F4] text-sm">
+                    Hạ Long, VN
+                  </div>
+                  <div class="text-[#A7A7A7] text-sm">403,135 listeners</div>
+                </li>
+                <li>
+                  <div class="font-[SpotifyMixUIBold] text-[#CDD6F4] text-sm">
+                    Hà Nội, VN
+                  </div>
+                  <div class="text-[#A7A7A7] text-sm">386,498 listeners</div>
+                </li>
+                <li>
+                  <div class="font-[SpotifyMixUIBold] text-[#CDD6F4] text-sm">
+                    Hồ Chí Minh, VN
+                  </div>
+                  <div class="text-[#A7A7A7] text-sm">373,694 listeners</div>
+                </li>
+                <li>
+                  <div class="font-[SpotifyMixUIBold] text-[#CDD6F4] text-sm">
+                    Đà Nẵng, VN
+                  </div>
+                  <div class="text-[#A7A7A7] text-sm">365,456 listeners</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- * des about -->
+          <div>
+            <ul class="space-y-4">
+              <li>
+                <p class="text-[#A7A7A7] text-sm text-left">
+                  Hanoi born-and-raised. CDSL // RPT
+                </p>
+              </li>
+              <li>
+                <p class="text-[#A7A7A7] text-sm text-left">
+                  <span class="text-white hover:underline cursor-pointer"
+                    >Nghiêm Vũ Hoàng Long</span
+                  >, also known as
+                  <span class="text-white hover:underline cursor-pointer"
+                    >MCK</span
+                  >, is a rapper/singer-songwriter from Hanoi, Vietnam. His
+                  music career started in early 2018 as an independent
+                  singer/songwriter under the alias Ngơ. His debut single was
+                  the smashing hit "Tình Đắng Như Ly Cà Phê" featuring Nân,
+                  accumulating over 60 million streams across the DSPs since its
+                  upload, kick-starting one of the most successful debuts in the
+                  local independent scene.
+                </p>
+              </li>
+              <li>
+                <p class="text-[#A7A7A7] text-sm text-left">
+                  In 2014, Onfroy uploaded his first track to SoundCloud, "Vice
+                  MCK's career took a turn in 2020 when he appeared as a
+                  contestant on the hit TV show "Rap Việt" and became one of the
+                  show's finalists with fan-favourite songs such as "Giàu Vì
+                  Bạn, Sang Vì Vợ; Dân Chơi Xóm; Va Vào Giai Điệu Này,"... He
+                  has proven himself to be a force to be reckoned with in
+                  Vietnam's hip-hop scene as one of the most prominent
+                  independent rappers. MCK further solidified his position in
+                  the industry by winning the WeChoice Awards for Most Promising
+                  Hip-hop Act in 2020.
+                </p>
+              </li>
+              <li>
+                <p class="text-[#A7A7A7] text-sm text-left">
+                  In recent years, he has become a household name and an
+                  unstoppable force on the local chart, especially with the
+                  release of his debut album "99%." The album was immediately
+                  received with critical acclaim by the media and fans alike,
+                  with the single "Chìm Sâu" being the most streamed song on
+                  Spotify Việt Nam in 2022, and the rest of the album dominating
+                  Billboard Vietnam's charts with 5 tracks in the top 10."
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <footer class="bg-black sm:bg-[#000000] sm:px-2 py-4 w-full h-[80px]">
+      <div class="grid sm:grid-cols-[1fr_2fr_1fr] grid-rows-1 w-full">
+        <div class="hidden sm:block px-2 h-full max-h-full">
+          <div class="flex items-center gap-4">
+            <!-- * img -->
+            <div class="w-14 min-w-14 h-14">
+              <img
+                id="picture-song"
+                src="./public/assets/tracks/hvl_art/HVL_MCK_Elegie_Track01_N0L4B3L.png"
+                alt="Elegie"
+                class="rounded"
+              />
+            </div>
+            <!-- * title -->
+            <div class="min-w-0">
+              <a
+                href="#"
+                id="title-song"
+                class="block text-white text-sm hover:underline truncate"
+                >Elegie</a
+              >
+              <p
+                id="artist-song"
+                class="opacity-80 text-[#CDD6F4] hover:text-white text-xs hover:underline truncate cursor-pointer"
+              >
+                RPT MCK
+              </p>
+            </div>
+            <!-- * add to playlist -->
+            <div
+              class="relative add-to-playlist py-2 cursor-pointer need-description"
+            >
+              <svg
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns="http://www.w3.org/2000/svg"
+                data-encore-id="icon"
+                role="img"
+                aria-hidden="true"
+                class="hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out"
+                viewBox="0 0 16 16"
+                width="16"
+                height="16"
+              >
+                <path
+                  d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm11.748-1.97a.75.75 0 0 0-1.06-1.06l-4.47 4.47-1.405-1.406a.75.75 0 1 0-1.061 1.06l2.466 2.467 5.53-5.53z"
+                  fill="#1ED78B"
+                ></path>
+              </svg>
+              <svg
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns="http://www.w3.org/2000/svg"
+                data-encore-id="icon"
+                role="img"
+                aria-hidden="true"
+                class="hidden hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out"
+                viewBox="0 0 24 24"
+                width="16"
+                height="16"
+              >
+                <path
+                  d="M11.999 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm-11 9c0-6.075 4.925-11 11-11s11 4.925 11 11-4.925 11-11 11-11-4.925-11-11z"
+                  fill="#CDD6F4"
+                ></path>
+                <path
+                  d="M17.999 12a1 1 0 0 1-1 1h-4v4a1 1 0 1 1-2 0v-4h-4a1 1 0 1 1 0-2h4V7a1 1 0 1 1 2 0v4h4a1 1 0 0 1 1 1z"
+                  fill="#CDD6F4"
+                ></path>
+              </svg>
+              <span
+                class="hidden z-50 absolute bg-gray-700 opacity-0 mt-[-55px] ml-[-45px] px-[5px] py-[3px] rounded text-white text-sm text-nowrap transition-all translate-y-2 duration-500 ease-in-out transform description"
+                >Add to playlist</span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="h-full max-h-full">
+          <div>
+            <div class="flex justify-center items-center gap-4 w-full">
+              <!-- * enable shuffle -->
+              <button
+                id="shuffle-btn"
+                class="group p-2 rounded-full hover:scale-105 active:scale-95 cursor-pointer"
+              >
+                <svg
+                  id="shuffle-icon"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  xmlns="http://www.w3.org/2000/svg"
+                  data-encore-id="icon"
+                  role="img"
+                  aria-hidden="true"
+                  class="dYnaPI e-9541-icon Svg-sc-ytk21e-0"
+                  viewBox="0 0 16 16"
+                  width="16"
+                  height="16"
+                >
+                  <path
+                    d="M13.151.922a.75.75 0 1 0-1.06 1.06L13.109 3H11.16a3.75 3.75 0 0 0-2.873 1.34l-6.173 7.356A2.25 2.25 0 0 1 .39 12.5H0V14h.391a3.75 3.75 0 0 0 2.873-1.34l6.173-7.356a2.25 2.25 0 0 1 1.724-.804h1.947l-1.017 1.018a.75.75 0 0 0 1.06 1.06L15.98 3.75 13.15.922zM.391 3.5H0V2h.391c1.109 0 2.16.49 2.873 1.34L4.89 5.277l-.979 1.167-1.796-2.14A2.25 2.25 0 0 0 .39 3.5z"
+                    fill-opacity="1"
+                    fill="#999FB9"
+                  ></path>
+                  <path
+                    d="m7.5 10.723.98-1.167.957 1.14a2.25 2.25 0 0 0 1.724.804h1.947l-1.017-1.018a.75.75 0 1 1 1.06-1.06l2.829 2.828-2.829 2.828a.75.75 0 1 1-1.06-1.06L13.109 13H11.16a3.75 3.75 0 0 1-2.873-1.34l-.787-.938z"
+                    fill-opacity="1"
+                    fill="#999FB9"
+                  ></path>
+                </svg>
+              </button>
+              <!-- * previous -->
+              <button
+                id="prev-song"
+                class="p-2 rounded-full hover:scale-105 active:scale-95 cursor-pointer"
+              >
+                <svg
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  xmlns="http://www.w3.org/2000/svg"
+                  data-encore-id="icon"
+                  role="img"
+                  aria-hidden="true"
+                  class="dYnaPI e-9541-icon Svg-sc-ytk21e-0"
+                  viewBox="0 0 16 16"
+                  width="16"
+                  height="16"
+                >
+                  <path
+                    d="M3.3 1a.7.7 0 0 1 .7.7v5.15l9.95-5.744a.7.7 0 0 1 1.05.606v12.575a.7.7 0 0 1-1.05.607L4 9.149V14.3a.7.7 0 0 1-.7.7H1.7a.7.7 0 0 1-.7-.7V1.7a.7.7 0 0 1 .7-.7h1.6z"
+                    fill-opacity="0.7"
+                    fill="#CDD6F4"
+                  ></path>
+                </svg>
+              </button>
+              <!-- * play -->
+              <button
+                class="relative bg-white play-button-bg-song p-4 rounded-full hover:scale-105 active:scale-95 cursor-pointer"
+              >
+                <!-- From Uiverse.io by bbaginuk -->
+                <label class="play-button play-button-song">
+                  <input checked="checked" type="checkbox" />
+                  <svg
+                    viewBox="0 0 384 512"
+                    height="20px"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="ml-1 play"
+                  >
+                    <path
+                      d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"
+                    ></path>
+                  </svg>
+                  <svg
+                    viewBox="0 0 320 512"
+                    height="20px"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="pause"
+                  >
+                    <path
+                      d="M48 64C21.5 64 0 85.5 0 112V400c0 26.5 21.5 48 48 48H80c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zm192 0c-26.5 0-48 21.5-48 48V400c0 26.5 21.5 48 48 48h32c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H240z"
+                    ></path>
+                  </svg>
+                </label>
+              </button>
+              <!-- * next -->
+              <button
+                id="next-song"
+                class="p-2 rounded-full hover:scale-105 active:scale-95 cursor-pointer"
+              >
+                <svg
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  xmlns="http://www.w3.org/2000/svg"
+                  data-encore-id="icon"
+                  role="img"
+                  aria-hidden="true"
+                  class="dYnaPI e-9541-icon Svg-sc-ytk21e-0"
+                  viewBox="0 0 16 16"
+                  width="16"
+                  height="16"
+                >
+                  <path
+                    d="M12.7 1a.7.7 0 0 0-.7.7v5.15L2.05 1.107A.7.7 0 0 0 1 1.712v12.575a.7.7 0 0 0 1.05.607L12 9.149V14.3a.7.7 0 0 0 .7.7h1.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7h-1.6z"
+                    fill-opacity="0.7"
+                    fill="#CDD6F4"
+                  ></path>
+                </svg>
+              </button>
+              <!-- * repeat -->
+              <button
+                id="repeat-btn"
+                class="group p-2 rounded-full hover:scale-105 active:scale-95 cursor-pointer"
+              >
+                <!-- lặp lại tất cả -->
+                <svg
+                  id="repeat-icon"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  xmlns="http://www.w3.org/2000/svg"
+                  data-encore-id="icon"
+                  role="img"
+                  aria-hidden="true"
+                  class="dYnaPI e-9541-icon Svg-sc-ytk21e-0"
+                  viewBox="0 0 16 16"
+                  width="16"
+                  height="16"
+                >
+                  <path
+                    d="M0 4.75A3.75 3.75 0 0 1 3.75 1h8.5A3.75 3.75 0 0 1 16 4.75v5a3.75 3.75 0 0 1-3.75 3.75H9.81l1.018 1.018a.75.75 0 1 1-1.06 1.06L6.939 12.75l2.829-2.828a.75.75 0 1 1 1.06 1.06L9.811 12h2.439a2.25 2.25 0 0 0 2.25-2.25v-5a2.25 2.25 0 0 0-2.25-2.25h-8.5A2.25 2.25 0 0 0 1.5 4.75v5A2.25 2.25 0 0 0 3.75 12H5v1.5H3.75A3.75 3.75 0 0 1 0 9.75v-5z"
+                    fill-opacity="1"
+                    fill="#999FB9"
+                  ></path>
+                </svg>
+                <!-- lặp 1 bài -->
+                <svg
+                  id="repeat-one-icon"
+                  class="hidden"
+                  viewBox="0 0 16 16"
+                  width="16"
+                  height="16"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 4.75A3.75 3.75 0 0 1 3.75 1h.75v1.5h-.75A2.25 2.25 0 0 0 1.5 4.75v5A2.25 2.25 0 0 0 3.75 12H5v1.5H3.75A3.75 3.75 0 0 1 0 9.75zM12.25 2.5a2.25 2.25 0 0 1 2.25 2.25v5A2.25 2.25 0 0 1 12.25 12H9.81l1.018-1.018a.75.75 0 0 0-1.06-1.06L6.939 12.75l2.829 2.828a.75.75 0 1 0 1.06-1.06L9.811 13.5h2.439A3.75 3.75 0 0 0 16 9.75v-5A3.75 3.75 0 0 0 12.25 1h-.75v1.5z"
+                    fill="#999FB9"
+                  ></path>
+                  <path
+                    d="m8 1.85.77.694H6.095V1.488q1.046-.077 1.507-.385.474-.308.583-.913h1.32V8H8z"
+                    fill="#999FB9"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+            <!-- * label ranger -->
+            <div>
+              <div class="flex justify-center items-end gap-2 w-full">
+                <div
+                  id="play-time"
+                  class="w-[30px] text-[#999FB9] text-xs text-right"
+                >
+                  0:00
+                </div>
+                <div class="w-[60%] min-w-[260px]">
+                  <label class="h-fit">
+                    <audio
+                      id="audio-song"
+                      src="./public/songs/hvl/Elegie_spotdown.org.mp3"
+                    ></audio>
+                    <input
+                      id="play-progress"
+                      type="range"
+                      min="0"
+                      step="1"
+                      value="0"
+                    />
+                  </label>
+                </div>
+                <div id="end-time" class="w-[30px] text-[#999FB9] text-xs">
+                  2:06
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hidden sm:block h-full max-h-full">
+          <div class="flex justify-end items-center w-full h-full">
+            <!-- * playing view -->
+            <button
+              class="group p-2 rounded-full hover:scale-105 active:scale-95 cursor-pointer"
+            >
+              <svg
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns="http://www.w3.org/2000/svg"
+                data-encore-id="icon"
+                role="img"
+                aria-hidden="true"
+                class="dYnaPI e-9541-icon Svg-sc-ytk21e-0"
+                viewBox="0 0 16 16"
+                width="16"
+                height="16"
+              >
+                <path
+                  d="M11.196 8 6 5v6l5.196-3z"
+                  fill="#1DB954"
+                  class="group-focus:fill-[#BCBCC1]"
+                ></path>
+                <path
+                  d="M15.002 1.75A1.75 1.75 0 0 0 13.252 0h-10.5a1.75 1.75 0 0 0-1.75 1.75v12.5c0 .966.783 1.75 1.75 1.75h10.5a1.75 1.75 0 0 0 1.75-1.75V1.75zm-1.75-.25a.25.25 0 0 1 .25.25v12.5a.25.25 0 0 1-.25.25h-10.5a.25.25 0 0 1-.25-.25V1.75a.25.25 0 0 1 .25-.25h10.5z"
+                  fill="#1DB954"
+                  class="group-focus:fill-[#BCBCC1]"
+                ></path>
+              </svg>
+            </button>
+            <!-- * lyrics -->
+            <button
+              class="group p-2 rounded-full hover:scale-105 active:scale-95 cursor-pointer"
+            >
+              <svg
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns="http://www.w3.org/2000/svg"
+                data-encore-id="icon"
+                role="img"
+                aria-hidden="true"
+                class="dYnaPI e-9541-icon Svg-sc-ytk21e-0"
+                viewBox="0 0 16 16"
+                width="16"
+                height="16"
+              >
+                <path
+                  d="M13.426 2.574a2.831 2.831 0 0 0-4.797 1.55l3.247 3.247a2.831 2.831 0 0 0 1.55-4.797zM10.5 8.118l-2.619-2.62A63303.13 63303.13 0 0 0 4.74 9.075L2.065 12.12a1.287 1.287 0 0 0 1.816 1.816l3.06-2.688 3.56-3.129zM7.12 4.094a4.331 4.331 0 1 1 4.786 4.786l-3.974 3.493-3.06 2.689a2.787 2.787 0 0 1-3.933-3.933l2.676-3.045 3.505-3.99z"
+                  fill-opacity="1"
+                  fill="#BCBCC1"
+                  class="group-focus:fill-[#1DB954]"
+                ></path>
+              </svg>
+            </button>
+            <!-- * queue -->
+            <button
+              class="group p-2 rounded-full hover:scale-105 active:scale-95 cursor-pointer"
+            >
+              <svg
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns="http://www.w3.org/2000/svg"
+                data-encore-id="icon"
+                role="img"
+                aria-hidden="true"
+                class="dYnaPI e-9541-icon Svg-sc-ytk21e-0"
+                viewBox="0 0 16 16"
+                width="16"
+                height="16"
+              >
+                <path
+                  d="M15 15H1v-1.5h14V15zm0-4.5H1V9h14v1.5zm-14-7A2.5 2.5 0 0 1 3.5 1h9a2.5 2.5 0 0 1 0 5h-9A2.5 2.5 0 0 1 1 3.5zm2.5-1a1 1 0 0 0 0 2h9a1 1 0 1 0 0-2h-9z"
+                  fill-opacity="1"
+                  fill="#BCBCC1"
+                  class="group-focus:fill-[#1DB954]"
+                ></path>
+              </svg>
+            </button>
+            <!-- * volume -->
+            <div class="w-[45%] min-w-[100px]">
+              <div class="flex items-center">
+                <button
+                  id="volume-btn"
+                  class="group p-2 rounded-full hover:scale-105 active:scale-95 cursor-pointer"
+                >
+                  <!-- * unmute -->
+                  <svg
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xmlns="http://www.w3.org/2000/svg"
+                    data-encore-id="icon"
+                    role="presentation"
+                    aria-label="Volume high"
+                    aria-hidden="false"
+                    id="unmute"
+                    class=""
+                    viewBox="0 0 16 16"
+                    width="16"
+                    height="16"
+                  >
+                    <path
+                      d="M9.741.85a.75.75 0 0 1 .375.65v13a.75.75 0 0 1-1.125.65l-6.925-4a3.642 3.642 0 0 1-1.33-4.967 3.639 3.639 0 0 1 1.33-1.332l6.925-4a.75.75 0 0 1 .75 0zm-6.924 5.3a2.139 2.139 0 0 0 0 3.7l5.8 3.35V2.8l-5.8 3.35zm8.683 4.29V5.56a2.75 2.75 0 0 1 0 4.88z"
+                      fill-opacity="0.7"
+                      fill="#CDD6F4"
+                    ></path>
+                    <path
+                      d="M11.5 13.614a5.752 5.752 0 0 0 0-11.228v1.55a4.252 4.252 0 0 1 0 8.127v1.55z"
+                      fill-opacity="0.7"
+                      fill="#CDD6F4"
+                    ></path>
+                  </svg>
+                  <!-- * mute -->
+                  <svg
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xmlns="http://www.w3.org/2000/svg"
+                    data-encore-id="icon"
+                    role="presentation"
+                    aria-label="Volume off"
+                    aria-hidden="false"
+                    id="mute"
+                    class="hidden"
+                    viewBox="0 0 16 16"
+                    width="16"
+                    height="16"
+                  >
+                    <path
+                      d="M13.86 5.47a.75.75 0 0 0-1.061 0l-1.47 1.47-1.47-1.47A.75.75 0 0 0 8.8 6.53L10.269 8l-1.47 1.47a.75.75 0 1 0 1.06 1.06l1.47-1.47 1.47 1.47a.75.75 0 0 0 1.06-1.06L12.39 8l1.47-1.47a.75.75 0 0 0 0-1.06z"
+                      fill-opacity="0.7"
+                      fill="#CDD6F4"
+                    ></path>
+                    <path
+                      d="M10.116 1.5A.75.75 0 0 0 8.991.85l-6.925 4a3.642 3.642 0 0 0-1.33 4.967 3.639 3.639 0 0 0 1.33 1.332l6.925 4a.75.75 0 0 0 1.125-.649v-1.906a4.73 4.73 0 0 1-1.5-.694v1.3L2.817 9.852a2.141 2.141 0 0 1-.781-2.92c.187-.324.456-.594.78-.782l5.8-3.35v1.3c.45-.313.956-.55 1.5-.694V1.5z"
+                      fill-opacity="0.7"
+                      fill="#CDD6F4"
+                    ></path>
+                  </svg>
+                </button>
+                <input
+                  id="volume"
+                  class=""
+                  type="range"
+                  value="0"
+                  min="0"
+                  max="100"
+                />
+              </div>
+            </div>
+            <!-- * miniplayer -->
+            <button
+              class="group p-2 rounded-full hover:scale-105 active:scale-95 cursor-pointer"
+            >
+              <svg
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns="http://www.w3.org/2000/svg"
+                data-encore-id="icon"
+                role="img"
+                aria-hidden="true"
+                class="dYnaPI e-9541-icon Svg-sc-ytk21e-0"
+                viewBox="0 0 16 16"
+                width="16"
+                height="16"
+              >
+                <path
+                  d="M16 2.45c0-.8-.65-1.45-1.45-1.45H1.45C.65 1 0 1.65 0 2.45v11.1C0 14.35.65 15 1.45 15h5.557v-1.5H1.5v-11h13V7H16V2.45z"
+                  fill-opacity="1"
+                  fill="#BCBCC1"
+                  class="group-focus:fill-[#1DB954]"
+                ></path>
+                <path
+                  d="M15.25 9.007a.75.75 0 0 1 .75.75v4.493a.75.75 0 0 1-.75.75H9.325a.75.75 0 0 1-.75-.75V9.757a.75.75 0 0 1 .75-.75h5.925z"
+                  fill-opacity="1"
+                  fill="#BCBCC1"
+                  class="group-focus:fill-[#1DB954]"
+                ></path>
+              </svg>
+            </button>
+            <!-- * full screen -->
+            <button
+              id="full-screen"
+              class="mr-1 p-2 rounded-full hover:scale-105 active:scale-95 cursor-pointer"
+            >
+              <svg
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns="http://www.w3.org/2000/svg"
+                data-encore-id="icon"
+                role="img"
+                aria-hidden="true"
+                class="dYnaPI e-9541-icon Svg-sc-ytk21e-0"
+                viewBox="0 0 16 16"
+                width="16"
+                height="16"
+              >
+                <path
+                  d="M6.53 9.47a.75.75 0 0 1 0 1.06l-2.72 2.72h1.018a.75.75 0 0 1 0 1.5H1.25v-3.579a.75.75 0 0 1 1.5 0v1.018l2.72-2.72a.75.75 0 0 1 1.06 0zm2.94-2.94a.75.75 0 0 1 0-1.06l2.72-2.72h-1.018a.75.75 0 1 1 0-1.5h3.578v3.579a.75.75 0 0 1-1.5 0V3.81l-2.72 2.72a.75.75 0 0 1-1.06 0z"
+                  fill-opacity="0.7"
+                  fill="#CDD6F4"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ? JS -->
+    <script src="./JS/search-input.js"></script>
+    <script src="./JS/description.js"></script>
+    <script src="./JS/clear-search.js"></script>
+    <script src="./JS/plus.js"></script>
+    <script src="./JS/sticky-scroll.js"></script>
+    <script src="./JS/play-button.js"></script>
+    <script src="./JS/follow-button.js"></script>
+    <script src="./JS/add-to-playlist.js"></script>
+    <script src="./JS/see-more.js"></script>
+    <script src="./JS/carousel.js"></script>
+    <script src="./JS/x-about.js"></script>
+    <script src="./JS/hide-about.js"></script>
+    <script src="./JS/play-progress.js"></script>
+    <script src="./JS/volume.js"></script>
+    <script src="./JS/marquee.js"></script>
+    <script src="./JS/tracks.js"></script>
+    <script src="./JS/shuffle-repeat.js"></script>
+    <script src="./JS/next-song.js"></script>
+  </body>
+</html>
