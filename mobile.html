@@ -2,7 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
     <!-- * tailwindcss -->
     <!-- <script src="https://unpkg.com/@tailwindcss/browser@4"></script> -->
 
@@ -65,10 +69,7 @@
       }
     </script>
 
-    <section
-      class="bg-[#1E1E2E] w-full sm:min-w-[816px]"
-      style="height: calc(100vh - 64px - 80px)"
-    >
+    <section class="bg-[#1E1E2E] w-full sm:min-w-[816px] h-[calc(100dvh-80px)]">
       <div
         class="gap-2 grid sm:grid-cols-[1fr] grid-rows-1 sm:px-[8px] w-full h-full max-h-full"
       >
@@ -143,13 +144,13 @@
             <!-- * play header sticky -->
             <div
               id="sticky-header"
-              class="hidden top-0 left-0 z-40 absolute bg-[#212121] opacity-0 px-4 py-2 w-full transition-all duration-300 ease-in-out"
+              class="bottom-0 left-0 z-40 absolute bg-[#212121] px-4 py-2 w-full transition-all duration-300 ease-in-out"
             >
               <div class="flex justify-start items-center">
                 <div class="block px-2 h-full max-h-full">
                   <div class="flex items-center gap-4">
                     <!-- * img -->
-                    <div class="w-14 min-w-14 h-14">
+                    <div class="w-10 min-w-10 h-10">
                       <img
                         id="picture-song"
                         src="./public/assets/tracks/hvl_art/HVL_MCK_Elegie_Track01_N0L4B3L.png"
@@ -608,7 +609,7 @@
             <div class="space-y-10">
               <div>
                 <div
-                  class="font-[SpotifyMixUITitleBold] text-[#CDD6F4] text-3xl"
+                  class="font-[SpotifyMixUITitleBold] text-[#CDD6F4] text-xl"
                 >
                   17,06,2026
                 </div>
@@ -616,7 +617,7 @@
               </div>
               <div>
                 <div
-                  class="font-[SpotifyMixUITitleBold] text-[#CDD6F4] text-3xl"
+                  class="font-[SpotifyMixUITitleBold] text-[#CDD6F4] text-xl"
                 >
                   02,03,1999
                 </div>
@@ -710,7 +711,9 @@
       </div>
     </aside>
 
-    <footer class="bg-black sm:bg-[#000000] sm:px-2 py-4 w-full h-[80px]">
+    <footer
+      class="bottom-0 sticky pb-[env(safe-area-inset-bottom)] bg-black sm:bg-[#000000] sm:px-2 py-4 w-full h-[80px]"
+    >
       <div class="grid sm:grid-cols-[1fr] grid-rows-1 w-full">
         <div class="h-full max-h-full">
           <div>
@@ -898,20 +901,20 @@
     </footer>
 
     <!-- ? JS -->
-    <script src="./JS/search-input.js"></script>
+    <!-- <script src="./JS/search-input.js"></script> -->
     <script src="./JS/description.js"></script>
-    <script src="./JS/clear-search.js"></script>
-    <script src="./JS/plus.js"></script>
-    <script src="./JS/sticky-scroll.js"></script>
+    <!-- <script src="./JS/clear-search.js"></script> -->
+    <!-- <script src="./JS/plus.js"></script> -->
+    <!-- <script src="./JS/sticky-scroll.js"></script> -->
     <script src="./JS/play-button.js"></script>
-    <script src="./JS/follow-button.js"></script>
+    <!-- <script src="./JS/follow-button.js"></script> -->
     <script src="./JS/add-to-playlist.js"></script>
-    <script src="./JS/see-more.js"></script>
+    <!-- <script src="./JS/see-more.js"></script> -->
     <script src="./JS/carousel.js"></script>
     <script src="./JS/x-about.js"></script>
     <script src="./JS/hide-about.js"></script>
     <script src="./JS/play-progress.js"></script>
-    <script src="./JS/volume.js"></script>
+    <!-- <script src="./JS/volume.js"></script> -->
     <script src="./JS/marquee.js"></script>
     <script src="./JS/tracks-mobile.js"></script>
     <script src="./JS/shuffle-repeat.js"></script>
