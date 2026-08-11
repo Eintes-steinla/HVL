@@ -1,245 +1,280 @@
 // 1. Danh sách dữ liệu các bài hát
+// >>> URL gốc của R2 bucket (thay bằng URL thật của bạn sau khi Enable Public Development URL) <<<
+const R2_BASE = "https://pub-5cee7735d10d4f61896814b089cfc9a8.r2.dev";
 const tracks = [
   {
     stt: 1,
     title: "Elegie",
     artist: "RPT MCK",
-    img: "./public/assets/tracks/hvl_art/HVL_MCK_Elegie_Track01_N0L4B3L.png",
-    audio: "./public/songs/hvl/Elegie_spotdown.org.mp3",
+    img: R2_BASE + "/assets/tracks/hvl_art/HVL_MCK_Elegie_Track01_N0L4B3L.png",
+    audio: R2_BASE + "/hvl/Elegie_spotdown.org.mp3",
     duration: "0:00",
   },
   {
     stt: 2,
     title: "IDK",
     artist: "RPT MCK",
-    img: "./public/assets/tracks/hvl_art/HVL_MCK_IDK_Track02_N0L4B3L.png",
-    audio: "./public/songs/hvl/IDK_spotdown.org.mp3",
+    img: R2_BASE + "/assets/tracks/hvl_art/HVL_MCK_IDK_Track02_N0L4B3L.png",
+    audio: R2_BASE + "/hvl/IDK_spotdown.org.mp3",
     duration: "0:00",
   },
   {
     stt: 3,
     title: "Wtf Bby I'm Lit",
     artist: "RPT MCK",
-    img: "./public/assets/tracks/hvl_art/HVL_MCK_Wtf_Bby_Im_Lit_Track03_N0L4B3L.png",
-    audio: "./public/songs/hvl/Wtf_Bby_Im_Lit_spotdown.org.mp3",
+    img:
+      R2_BASE +
+      "/assets/tracks/hvl_art/HVL_MCK_Wtf_Bby_Im_Lit_Track03_N0L4B3L.png",
+    audio: R2_BASE + "/hvl/Wtf_Bby_Im_Lit_spotdown.org.mp3",
     duration: "0:00",
   },
   {
     stt: 4,
     title: "Anh Không Muốn Nó Dễ Dàng",
     artist: "RPT MCK",
-    img: "./public/assets/tracks/hvl_art/HVL_MCK_Anh_Khong_Muon_No_De_Dang_Track04_N0L4B3L.png",
-    audio: "./public/songs/hvl/Anh_Khong_Muon_No_De_Dang_spotdown.org.mp3",
+    img:
+      R2_BASE +
+      "/assets/tracks/hvl_art/HVL_MCK_Anh_Khong_Muon_No_De_Dang_Track04_N0L4B3L.png",
+    audio: R2_BASE + "/hvl/Anh_Khong_Muon_No_De_Dang_spotdown.org.mp3",
     duration: "0:00",
   },
   {
     stt: 5,
     title: "Baby",
     artist: "RPT MCK (feat. marzuz)",
-    img: "./public/assets/tracks/hvl_art/HVL_MCK_Baby_Track05_N0L4B3L.png",
-    audio: "./public/songs/hvl/Baby_feat_marzuz_spotdown.org.mp3",
+    img: R2_BASE + "/assets/tracks/hvl_art/HVL_MCK_Baby_Track05_N0L4B3L.png",
+    audio: R2_BASE + "/hvl/Baby_feat_marzuz_spotdown.org.mp3",
     duration: "0:00",
   },
   {
     stt: 6,
     title: "Yêu Anh Giết Anh",
     artist: "RPT MCK",
-    img: "./public/assets/tracks/hvl_art/HVL_MCK_Yeu_Anh_Giet_Anh_Track06_N0L4B3L.png",
-    audio: "./public/songs/hvl/Yeu_Anh_Giet_Anh_spotdown.org.mp3",
+    img:
+      R2_BASE +
+      "/assets/tracks/hvl_art/HVL_MCK_Yeu_Anh_Giet_Anh_Track06_N0L4B3L.png",
+    audio: R2_BASE + "/hvl/Yeu_Anh_Giet_Anh_spotdown.org.mp3",
     duration: "0:00",
   },
   {
     stt: 7,
     title: "Mắt Môi Tay Chân",
     artist: "RPT MCK (feat. Tage)",
-    img: "./public/assets/tracks/hvl_art/HVL_MCK_Mat_Moi_Tay_Chan_Track07_N0L4B3L.png",
-    audio: "./public/songs/hvl/Mat_Moi_Tay_Chan_feat_Tage_spotdown.org.mp3",
+    img:
+      R2_BASE +
+      "/assets/tracks/hvl_art/HVL_MCK_Mat_Moi_Tay_Chan_Track07_N0L4B3L.png",
+    audio: R2_BASE + "/hvl/Mat_Moi_Tay_Chan_feat_Tage_spotdown.org.mp3",
     duration: "0:00",
   },
   {
     stt: 8,
     title: "Đao Của Anh Vừa",
     artist: "RPT MCK",
-    img: "./public/assets/tracks/hvl_art/HVL_MCK_Dao_Cua_Anh_Vua_Track08_N0L4B3L.png",
-    audio: "./public/songs/hvl/Dao_Cua_Anh_Vua_spotdown.org.mp3",
+    img:
+      R2_BASE +
+      "/assets/tracks/hvl_art/HVL_MCK_Dao_Cua_Anh_Vua_Track08_N0L4B3L.png",
+    audio: R2_BASE + "/hvl/Dao_Cua_Anh_Vua_spotdown.org.mp3",
     duration: "0:00",
   },
   {
     stt: 9,
     title: "Là Gì Của Nhau",
     artist: "RPT MCK",
-    img: "./public/assets/tracks/hvl_art/HVL_MCK_La_Gi_Cua_Nhau_Track09_N0L4B3L.png",
-    audio: "./public/songs/hvl/La_Gi_Cua_Nhau_spotdown.org.mp3",
+    img:
+      R2_BASE +
+      "/assets/tracks/hvl_art/HVL_MCK_La_Gi_Cua_Nhau_Track09_N0L4B3L.png",
+    audio: R2_BASE + "/hvl/La_Gi_Cua_Nhau_spotdown.org.mp3",
     duration: "0:00",
   },
   {
     stt: 10,
     title: "Night In Prague",
     artist: "RPT MCK",
-    img: "./public/assets/tracks/hvl_art/HVL_MCK_Night_In_Prague_Track10_N0L4B3L.png",
-    audio: "./public/songs/hvl/Night_In_Prague_spotdown.org.mp3",
+    img:
+      R2_BASE +
+      "/assets/tracks/hvl_art/HVL_MCK_Night_In_Prague_Track10_N0L4B3L.png",
+    audio: R2_BASE + "/hvl/Night_In_Prague_spotdown.org.mp3",
     duration: "0:00",
   },
   {
     stt: 11,
     title: "Một Cái Ôm",
     artist: "RPT MCK",
-    img: "./public/assets/tracks/hvl_art/HVL_MCK_Mot_Cai_Om_Track11_N0L4B3L.png",
-    audio: "./public/songs/hvl/Mot_Cai_Om_spotdown.org.mp3",
+    img:
+      R2_BASE + "/assets/tracks/hvl_art/HVL_MCK_Mot_Cai_Om_Track11_N0L4B3L.png",
+    audio: R2_BASE + "/hvl/Mot_Cai_Om_spotdown.org.mp3",
     duration: "0:00",
   },
   {
     stt: 12,
     title: "Liệm",
     artist: "RPT MCK",
-    img: "./public/assets/tracks/hvl_art/HVL_MCK_Liem_Track12_N0L4B3L.png",
-    audio: "./public/songs/hvl/Liem_spotdown.org.mp3",
+    img: R2_BASE + "/assets/tracks/hvl_art/HVL_MCK_Liem_Track12_N0L4B3L.png",
+    audio: R2_BASE + "/hvl/Liem_spotdown.org.mp3",
     duration: "0:00",
   },
   {
     stt: 13,
     title: "Nếu Như Ta Chẳng Còn",
     artist: "RPT MCK (feat. A$AP Ướt Mi)",
-    img: "./public/assets/tracks/hvl_art/HVL_MCK_Neu_Nhu_Ta_Chang_Con_Track13_N0L4B3L.png",
+    img:
+      R2_BASE +
+      "/assets/tracks/hvl_art/HVL_MCK_Neu_Nhu_Ta_Chang_Con_Track13_N0L4B3L.png",
     audio:
-      "./public/songs/hvl/Neu_Nhu_Ta_Chang_Con_feat_ ASAP_Uot_Mi_spotdown.org.mp3",
+      R2_BASE + "/hvl/Neu_Nhu_Ta_Chang_Con_feat_ ASAP_Uot_Mi_spotdown.org.mp3",
     duration: "0:00",
   },
   {
     stt: 14,
     title: "Ai Mới Là Kẻ Xấu Xa",
     artist: "RPT MCK",
-    img: "./public/assets/tracks/hvl_art/HVL_MCK_Ai_Moi_La_Ke_Xau_Xa_Track14_N0L4B3L.png",
-    audio: "./public/songs/hvl/Ai_Moi_La_Ke_Xau_Xa_spotdown.org.mp3",
+    img:
+      R2_BASE +
+      "/assets/tracks/hvl_art/HVL_MCK_Ai_Moi_La_Ke_Xau_Xa_Track14_N0L4B3L.png",
+    audio: R2_BASE + "/hvl/Ai_Moi_La_Ke_Xau_Xa_spotdown.org.mp3",
     duration: "0:00",
   },
   {
     stt: 15,
     title: "Slippery",
     artist: "RPT MCK (feat. Tùng Dương)",
-    img: "./public/assets/tracks/hvl_art/HVL_MCK_Slippery_Track15_N0L4B3L.png",
-    audio: "./public/songs/hvl/Slippery_feat_Tung_Duong_spotdown.org.mp3",
+    img:
+      R2_BASE + "/assets/tracks/hvl_art/HVL_MCK_Slippery_Track15_N0L4B3L.png",
+    audio: R2_BASE + "/hvl/Slippery_feat_Tung_Duong_spotdown.org.mp3",
     duration: "0:00",
   },
   {
     stt: 16,
     title: "Interpol",
     artist: "RPT MCK",
-    img: "./public/assets/tracks/hvl_art/HVL_MCK_Intenpol_Track16_N0L4B3L.png",
-    audio: "./public/songs/hvl/Intenpol_spotdown.org.mp3",
+    img:
+      R2_BASE + "/assets/tracks/hvl_art/HVL_MCK_Intenpol_Track16_N0L4B3L.png",
+    audio: R2_BASE + "/hvl/Intenpol_spotdown.org.mp3",
     duration: "0:00",
   },
   {
     stt: 17,
     title: "Tây Thi",
     artist: "RPT MCK",
-    img: "./public/assets/tracks/hvl_art/HVL_MCK_Tay_Thi_Track17_N0L4B3L.png",
-    audio: "./public/songs/hvl/Tay_Thi_spotdown.org.mp3",
+    img: R2_BASE + "/assets/tracks/hvl_art/HVL_MCK_Tay_Thi_Track17_N0L4B3L.png",
+    audio: R2_BASE + "/hvl/Tay_Thi_spotdown.org.mp3",
     duration: "0:00",
   },
   {
     stt: 18,
     title: "Hút và Hút",
     artist: "RPT MCK",
-    img: "./public/assets/tracks/hvl_art/HVL_MCK_Hut_Va_Hut_Track18_N0L4B3L.png",
-    audio: "./public/songs/hvl/Hut_va_Hut_spotdown.org.mp3",
+    img:
+      R2_BASE + "/assets/tracks/hvl_art/HVL_MCK_Hut_Va_Hut_Track18_N0L4B3L.png",
+    audio: R2_BASE + "/hvl/Hut_va_Hut_spotdown.org.mp3",
     duration: "0:00",
   },
   {
     stt: 19,
     title: "Dưa Chua",
     artist: "RPT MCK",
-    img: "./public/assets/tracks/hvl_art/HVL_MCK_Dua_Chua_Track19_N0L4B3L.png",
-    audio: "./public/songs/hvl/Dua_Chua_spotdown.org.mp3",
+    img:
+      R2_BASE + "/assets/tracks/hvl_art/HVL_MCK_Dua_Chua_Track19_N0L4B3L.png",
+    audio: R2_BASE + "/hvl/Dua_Chua_spotdown.org.mp3",
     duration: "0:00",
   },
   {
     stt: 20,
     title: "Xa Xôi",
     artist: "RPT MCK (feat. Obito)",
-    img: "./public/assets/tracks/hvl_art/HVL_MCK_Xa_Xoi_Track20_N0L4B3L.png",
-    audio: "./public/songs/hvl/Xa_Xoi_feat_Obito_spotdown.org.mp3",
+    img: R2_BASE + "/assets/tracks/hvl_art/HVL_MCK_Xa_Xoi_Track20_N0L4B3L.png",
+    audio: R2_BASE + "/hvl/Xa_Xoi_feat_Obito_spotdown.org.mp3",
     duration: "0:00",
   },
   {
     stt: 21,
     title: "Che Phủ",
     artist: "RPT MCK",
-    img: "./public/assets/tracks/hvl_art/HVL_MCK_Che_Phu_Track21_N0L4B3L.png",
-    audio: "./public/songs/hvl/Che_Phu_spotdown.org.mp3",
+    img: R2_BASE + "/assets/tracks/hvl_art/HVL_MCK_Che_Phu_Track21_N0L4B3L.png",
+    audio: R2_BASE + "/hvl/Che_Phu_spotdown.org.mp3",
     duration: "0:00",
   },
   {
     stt: 22,
     title: "Oanh M = Thuoc",
     artist: "RPT MCK",
-    img: "./public/assets/tracks/hvl_art/HVL_MCK_Oanh_M_Thuoc_Track22_N0L4B3L.png",
-    audio: "./public/songs/hvl/Oanh_M_bang_Thuoc_spotdown.org.mp3",
+    img:
+      R2_BASE +
+      "/assets/tracks/hvl_art/HVL_MCK_Oanh_M_Thuoc_Track22_N0L4B3L.png",
+    audio: R2_BASE + "/hvl/Oanh_M_bang_Thuoc_spotdown.org.mp3",
     duration: "0:00",
   },
   {
     stt: 23,
     title: "Ghet Xog Lai Thik",
     artist: "RPT MCK",
-    img: "./public/assets/tracks/hvl_art/HVL_MCK_Ghet_Xog_Lai_Thik_Track23_N0L4B3L.png",
-    audio: "./public/songs/hvl/Ghet_Xog_Lai_Thik_spotdown.org.mp3",
+    img:
+      R2_BASE +
+      "/assets/tracks/hvl_art/HVL_MCK_Ghet_Xog_Lai_Thik_Track23_N0L4B3L.png",
+    audio: R2_BASE + "/hvl/Ghet_Xog_Lai_Thik_spotdown.org.mp3",
     duration: "0:00",
   },
   {
     stt: 24,
     title: "Nhìn Kẻ Thù Của Tao",
     artist: "RPT MCK",
-    img: "./public/assets/tracks/hvl_art/HVL_MCK_Nhin_Ke_Thu_Cua_Tao_Track24_N0L4B3L.png",
-    audio: "./public/songs/hvl/Nhin_Ke_Thu_Cua_Tao_spotdown.org.mp3",
+    img:
+      R2_BASE +
+      "/assets/tracks/hvl_art/HVL_MCK_Nhin_Ke_Thu_Cua_Tao_Track24_N0L4B3L.png",
+    audio: R2_BASE + "/hvl/Nhin_Ke_Thu_Cua_Tao_spotdown.org.mp3",
     duration: "0:00",
   },
   {
     stt: 25,
     title: "Envy",
     artist: "RPT MCK (feat. Thành Draw)",
-    img: "./public/assets/tracks/hvl_art/HVL_MCK_Envy_Track25_N0L4B3L.png",
-    audio: "./public/songs/hvl/Envy_feat_Thanh_Draw_spotdown.org.mp3",
+    img: R2_BASE + "/assets/tracks/hvl_art/HVL_MCK_Envy_Track25_N0L4B3L.png",
+    audio: R2_BASE + "/hvl/Envy_feat_Thanh_Draw_spotdown.org.mp3",
     duration: "0:00",
   },
   {
     stt: 26,
     title: "Cảm Ơn",
     artist: "RPT MCK",
-    img: "./public/assets/tracks/hvl_art/HVL_MCK_Cam_On_Track26_N0L4B3L.png",
-    audio: "./public/songs/hvl/Cam_On_spotdown.org.mp3",
+    img: R2_BASE + "/assets/tracks/hvl_art/HVL_MCK_Cam_On_Track26_N0L4B3L.png",
+    audio: R2_BASE + "/hvl/Cam_On_spotdown.org.mp3",
     duration: "0:00",
   },
   {
     stt: 27,
     title: "Không Cần Lo Cho Tao",
     artist: "RPT MCK",
-    img: "./public/assets/tracks/hvl_art/HVL_MCK_Khong_Can_Lo_Cho_Tao_Track27_N0L4B3L.png",
-    audio: "./public/songs/hvl/Khong_Can_Lo_Cho_Tao_spotdown.org.mp3",
+    img:
+      R2_BASE +
+      "/assets/tracks/hvl_art/HVL_MCK_Khong_Can_Lo_Cho_Tao_Track27_N0L4B3L.png",
+    audio: R2_BASE + "/hvl/Khong_Can_Lo_Cho_Tao_spotdown.org.mp3",
     duration: "0:00",
   },
   {
     stt: 28,
     title: "Huh",
     artist: "RPT MCK (feat. RPT Orijinn & Thành Draw)",
-    img: "./public/assets/tracks/hvl_art/HVL_MCK_Huh_Track28_N0L4B3L.png",
-    audio:
-      "./public/songs/hvl/Huh_feat_RPT_Orijinn_Thanh_Draw)_spotdown.org.mp3",
+    img: R2_BASE + "/assets/tracks/hvl_art/HVL_MCK_Huh_Track28_N0L4B3L.png",
+    audio: R2_BASE + "/hvl/Huh_feat_RPT_Orijinn_Thanh_Draw)_spotdown.org.mp3",
     duration: "0:00",
   },
   {
     stt: 29,
     title: "Nguyễn Văn Mười",
     artist: "RPT MCK",
-    img: "./public/assets/tracks/hvl_art/HVL_MCK_Nguyen_Van_Muoi_Track29_N0L4B3L.png",
-    audio: "./public/songs/hvl/Nguyen_Van_Muoi_spotdown.org.mp3",
+    img:
+      R2_BASE +
+      "/assets/tracks/hvl_art/HVL_MCK_Nguyen_Van_Muoi_Track29_N0L4B3L.png",
+    audio: R2_BASE + "/hvl/Nguyen_Van_Muoi_spotdown.org.mp3",
     duration: "0:00",
   },
   {
     stt: 30,
     title: "Thịt Lợn",
     artist: "RPT MCK",
-    img: "./public/assets/tracks/hvl_art/HVL_MCK_Thit_Lon_Track30_N0L4B3L.png",
-    audio: "./public/songs/hvl/Thit_Lon_spotdown.org.mp3",
+    img:
+      R2_BASE + "/assets/tracks/hvl_art/HVL_MCK_Thit_Lon_Track30_N0L4B3L.png",
+    audio: R2_BASE + "/hvl/Thit_Lon_spotdown.org.mp3",
     duration: "0:00",
   },
 ];
