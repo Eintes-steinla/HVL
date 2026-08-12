@@ -1,6 +1,7 @@
 // 1. Danh sách dữ liệu các bài hát
 // >>> URL gốc của R2 bucket (thay bằng URL thật của bạn sau khi Enable Public Development URL) <<<
-const R2_BASE = "https://pub-5cee7735d10d4f61896814b089cfc9a8.r2.dev";
+// const R2_BASE = "https://pub-5cee7735d10d4f61896814b089cfc9a8.r2.dev";
+const R2_BASE = "/media";
 const tracks = [
   {
     stt: 1,

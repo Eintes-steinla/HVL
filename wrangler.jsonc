@@ -1,0 +1,20 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "hvl",
+  "compatibility_date": "2026-08-11",
+  "main": "src/worker.js",
+  "observability": {
+    "enabled": true,
+  },
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS",
+  },
+  "r2_buckets": [
+    {
+      "binding": "MEDIA_BUCKET",
+      "bucket_name": "hvl",
+    },
+  ],
+  "compatibility_flags": ["nodejs_compat"],
+}
