@@ -7,6 +7,8 @@
 // - Hover: hien overlay toi + cac nut dieu khien + thanh progress.
 // - Resize lech ti le: anh giu vuong, can giua, phan du to mau den (letterbox).
 // - Trang thai truc quan (shuffle/repeat/volume) duoc dong bo hai chieu voi nut goc.
+// - Nut follow trong mini player la TOGGLE CUC BO (khong doc/goi nut follow cua trang
+//   chinh) - bam vao chi doi mau/icon tai cho, khong lam gi khac.
 // - Thanh progress dung dung mau xanh la (#1DB954), khong dung mau accent mac dinh cua browser.
 //
 // * Da chuyen toan bo CSS trong mpStyle sang class Tailwind, gan truc tiep tren tung the.
@@ -23,9 +25,75 @@ const INFO_HEIGHT = 78;
 //   gioi han nay, anh se ngung co lai (chieu cao toi thieu = chieu rong toi thieu vi
 //   anh luon la hinh vuong 1:1); phan du se bi cat (letterbox/tran ra ngoai container).
 const MIN_SQUARE_SIZE = 160;
+// * kich thuoc canvas dung de doc pixel tinh mau chu dao - cang nho cang nhanh,
+//   40px la du chinh xac cho muc dich lam mau nen (khong can chi tiet).
+const COLOR_SAMPLE_SIZE = 40;
+// * cache mau chu dao theo URL anh - tranh tinh lai khi quay lai bai da phat
+const dominantColorCache = new Map();
 
 function isPiPSupported() {
   return "documentPictureInPicture" in window;
+}
+
+// * doc pixel cua anh (da resize xuong COLOR_SAMPLE_SIZE) va tra ve mau trung binh
+//   dang "r, g, b" (khong bao "rgb(...)" de con ghep vao rgba() khi can do trong suot).
+//   Anh cung origin (R2_BASE = "/media") nen khong dinh loi CORS khi getImageData.
+function extractDominantColor(imgSrc) {
+  if (dominantColorCache.has(imgSrc)) {
+    return Promise.resolve(dominantColorCache.get(imgSrc));
+  }
+
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.crossOrigin = "anonymous";
+    img.onload = () => {
+      try {
+        const canvas = document.createElement("canvas");
+        canvas.width = COLOR_SAMPLE_SIZE;
+        canvas.height = COLOR_SAMPLE_SIZE;
+        const ctx = canvas.getContext("2d", { willReadFrequently: true });
+        ctx.drawImage(img, 0, 0, COLOR_SAMPLE_SIZE, COLOR_SAMPLE_SIZE);
+        const { data } = ctx.getImageData(
+          0,
+          0,
+          COLOR_SAMPLE_SIZE,
+          COLOR_SAMPLE_SIZE,
+        );
+
+        let r = 0,
+          g = 0,
+          b = 0,
+          count = 0;
+        for (let i = 0; i < data.length; i += 4) {
+          if (data[i + 3] < 125) continue; // bo pixel gan nhu trong suot
+          r += data[i];
+          g += data[i + 1];
+          b += data[i + 2];
+          count++;
+        }
+        if (count === 0) {
+          dominantColorCache.set(imgSrc, null);
+          resolve(null);
+          return;
+        }
+        r = Math.round(r / count);
+        g = Math.round(g / count);
+        b = Math.round(b / count);
+        const color = `${r}, ${g}, ${b}`;
+        dominantColorCache.set(imgSrc, color);
+        resolve(color);
+      } catch (err) {
+        console.warn("Khong doc duoc mau chu dao cua anh:", err);
+        dominantColorCache.set(imgSrc, null);
+        resolve(null);
+      }
+    };
+    img.onerror = () => {
+      dominantColorCache.set(imgSrc, null);
+      resolve(null);
+    };
+    img.src = imgSrc;
+  });
 }
 
 function setMiniPlayerActive(active) {
@@ -141,7 +209,7 @@ async function openMiniPlayer() {
 
   pipWindow.document.body.innerHTML = `
     <div id="mp-root" class="bg-black h-screen w-screen flex flex-col overflow-hidden">
-      <div id="mp-square-wrap" class="group flex-1 min-h-0 flex items-center justify-center bg-black relative overflow-hidden">
+      <div id="mp-square-wrap" class="group flex-1 min-h-0 flex items-center justify-center bg-black relative overflow-hidden transition-colors duration-500 ease-in-out">
         <div id="mp-square" class="relative overflow-hidden shrink-0">
           <img id="mp-bg" src="" alt="" class="w-full h-full object-cover block" />
           <div id="mp-overlay" class="absolute inset-0 flex flex-col justify-between opacity-0 transition-opacity duration-200 ease-in-out group-hover:opacity-100 bg-[linear-gradient(to_top,rgba(0,0,0,.8),rgba(0,0,0,.1)_45%,rgba(0,0,0,.35))]">
@@ -216,11 +284,11 @@ async function openMiniPlayer() {
           <span id="mp-title" class="text-white text-[15px] font-bold whitespace-nowrap overflow-hidden text-ellipsis block"></span>
           <span id="mp-artist" class="text-[#CDD6F4] text-xs whitespace-nowrap overflow-hidden text-ellipsis block"></span>
         </div>
-        <button id="mp-follow" title="Follow/Unfollow" class="bg-transparent border-none cursor-pointer p-0 shrink-0 transition-transform duration-150 ease-in-out hover:scale-[1.08] active:scale-[0.94]">
-          <svg id="mp-follow-check" viewBox="0 0 16 16" width="22" height="22">
+        <button id="mp-follow" title="Follow" class="bg-transparent border-none cursor-pointer p-0 shrink-0 transition-transform duration-150 ease-in-out hover:scale-[1.08] active:scale-[0.94]">
+          <svg id="mp-follow-check" viewBox="0 0 16 16" width="22" height="22" style="display:none;">
             <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm11.748-1.97a.75.75 0 0 0-1.06-1.06l-4.47 4.47-1.405-1.406a.75.75 0 1 0-1.061 1.06l2.466 2.467 5.53-5.53z" fill="#1ED78B"></path>
           </svg>
-          <svg id="mp-follow-plus" viewBox="0 0 24 24" width="22" height="22" style="display:none;">
+          <svg id="mp-follow-plus" viewBox="0 0 24 24" width="22" height="22">
             <path d="M11.999 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm-11 9c0-6.075 4.925-11 11-11s11 4.925 11 11-4.925 11-11 11-11-4.925-11-11z" fill="#CDD6F4"></path>
             <path d="M17.999 12a1 1 0 0 1-1 1h-4v4a1 1 0 1 1-2 0v-4h-4a1 1 0 1 1 0-2h4V7a1 1 0 1 1 2 0v4h4a1 1 0 0 1 1 1z" fill="#CDD6F4"></path>
           </svg>
@@ -259,6 +327,12 @@ async function openMiniPlayer() {
 
   const audio = document.getElementById("audio-song");
   let isSeeking = false;
+  // * dem so lan doi bai - dung de "huy" ket qua tinh mau cua bai truoc do neu
+  //   nguoi dung chuyen bai qua nhanh (tranh mau nen ap sai bai).
+  let mpBgRequestToken = 0;
+  // * trang thai follow CUC BO trong mini player - khong doc/ghi gi tu nut follow
+  //   cua trang chinh, chi doi mau/icon tai cho khi bam.
+  let mpIsFollowed = false;
 
   // * giu vuong 1:1, phan du to den (letterbox) - kich thuoc dong nen van gan qua JS,
   //   khong the thay bang class Tailwind tinh (compile-time)
@@ -275,6 +349,23 @@ async function openMiniPlayer() {
   const resizeObserver = new pipWindow.ResizeObserver(fitSquare);
   resizeObserver.observe(squareWrap);
 
+  // * ap dung mau nen chu dao cho khung anh (letterbox). Rieng #mp-info luon giu
+  //   mau den mac dinh, khong doi theo mau chu dao cua anh.
+  function applyDominantBackground(imgSrc, requestToken) {
+    extractDominantColor(imgSrc).then((rgb) => {
+      // * neu trong luc cho anh khac da duoc chon (doi bai lien tuc) thi bo qua
+      //   ket qua cu, tranh mau nen "tre" mot nhip so voi bai dang phat.
+      if (requestToken !== mpBgRequestToken) return;
+      if (!rgb) {
+        squareWrap.style.backgroundColor = "";
+        return;
+      }
+      // * lam toi mau chu dao mot chut (thay vi dung nguyen) de chu/icon trang
+      //   tren nen van de doc, giong cach Spotify/Apple Music lam.
+      squareWrap.style.backgroundColor = `rgba(${rgb}, 0.55)`;
+    });
+  }
+
   function updateMiniPlayerInfo() {
     const list = window.tracks || [];
     const index =
@@ -286,6 +377,8 @@ async function openMiniPlayer() {
     mpBg.src = track.img;
     mpTitle.textContent = track.title;
     mpArtist.textContent = track.artist ?? "";
+    mpBgRequestToken++;
+    applyDominantBackground(track.img, mpBgRequestToken);
   }
 
   function updatePlayIcon() {
@@ -336,6 +429,7 @@ async function openMiniPlayer() {
   });
 
   // ===== DONG BO TRANG THAI TRUC QUAN (hieu ung mau/icon toggle) =====
+  // * Luu y: follow KHONG con trong danh sach dong bo nay - xem mpFollow ben duoi.
   function copyFill(sourceEl, targetEl) {
     if (!sourceEl || !targetEl) return;
     const srcPaths = sourceEl.querySelectorAll("path");
@@ -372,26 +466,24 @@ async function openMiniPlayer() {
     mpVolumeMute.style.display = muted ? "block" : "none";
   }
 
-  function syncFollowIcon() {
-    const followBtn = document.getElementById("follow-button");
-    const isFollowing =
-      !!followBtn && followBtn.textContent.trim().toLowerCase() === "following";
-    mpFollowCheck.style.display = isFollowing ? "block" : "none";
-    mpFollowPlus.style.display = isFollowing ? "none" : "block";
+  // * ve lai icon follow theo trang thai cuc bo (mpIsFollowed) - khong dinh gi
+  //   toi nut follow cua trang chinh.
+  function renderMpFollowIcon() {
+    mpFollowCheck.style.display = mpIsFollowed ? "block" : "none";
+    mpFollowPlus.style.display = mpIsFollowed ? "none" : "block";
   }
 
   function syncAllVisualStates() {
     syncShuffleState();
     syncRepeatState();
     syncVolumeState();
-    syncFollowIcon();
+    renderMpFollowIcon();
   }
 
   const mainShuffleIconEl = document.getElementById("shuffle-icon");
   const mainRepeatIconEl = document.getElementById("repeat-icon");
   const mainRepeatOneIconEl = document.getElementById("repeat-one-icon");
   const mainMuteEl = document.getElementById("mute");
-  const mainFollowBtnEl = document.getElementById("follow-button");
 
   const stateObserver = new MutationObserver(syncAllVisualStates);
   [
@@ -407,12 +499,6 @@ async function openMiniPlayer() {
         subtree: true,
       });
   });
-  if (mainFollowBtnEl)
-    stateObserver.observe(mainFollowBtnEl, {
-      characterData: true,
-      subtree: true,
-      childList: true,
-    });
 
   // * dong bo hanh dong voi cac nut goc
   mpPlayBtn.addEventListener("click", () => {
@@ -439,9 +525,10 @@ async function openMiniPlayer() {
   mpShare.addEventListener("click", () => {
     document.querySelector(".add-to-playlist")?.click();
   });
+  // * follow: chi doi trang thai/mau cuc bo, khong bam ho nut follow cua trang chinh.
   mpFollow.addEventListener("click", () => {
-    document.getElementById("follow-button")?.click();
-    pipWindow.requestAnimationFrame(syncFollowIcon);
+    mpIsFollowed = !mpIsFollowed;
+    renderMpFollowIcon();
   });
 
   mpProgress.addEventListener("input", () => {
