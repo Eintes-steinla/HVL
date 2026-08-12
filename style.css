@@ -374,3 +374,8 @@ body {
 .track-main.is-playing .track-title {
   color: #1ed760;
 }
+
+/* mini-player */
+#mini-player-btn.is-active .mini-player-icon {
+  fill: #1ed760;
+}
