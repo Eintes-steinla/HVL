@@ -1257,7 +1257,7 @@
               <!-- * enable shuffle -->
               <button
                 id="shuffle-btn"
-                class="group p-2 rounded-full hover:scale-105 active:scale-95 cursor-pointer"
+                class="group relative p-2 rounded-full hover:scale-105 active:scale-95 cursor-pointer need-description"
               >
                 <svg
                   id="shuffle-icon"
@@ -1282,11 +1282,15 @@
                     fill="#999FB9"
                   ></path>
                 </svg>
+                <span
+                  class="hidden absolute bg-gray-700 opacity-0 mt-[-50px] ml-[-27px] px-[5px] py-[3px] rounded text-white text-sm text-nowrap transition-all translate-y-2 duration-500 ease-in-out transform description"
+                  >Shuffle</span
+                >
               </button>
               <!-- * previous -->
               <button
                 id="prev-song"
-                class="p-2 rounded-full hover:scale-105 active:scale-95 cursor-pointer"
+                class="group relative p-2 rounded-full hover:scale-105 active:scale-95 cursor-pointer need-description"
               >
                 <svg
                   xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -1305,6 +1309,10 @@
                     fill="#CDD6F4"
                   ></path>
                 </svg>
+                <span
+                  class="hidden absolute bg-gray-700 opacity-0 mt-[-50px] ml-[-33px] px-[5px] py-[3px] rounded text-white text-sm text-nowrap transition-all translate-y-2 duration-500 ease-in-out transform description"
+                  >Previous</span
+                >
               </button>
               <!-- * play -->
               <button
@@ -1338,7 +1346,7 @@
               <!-- * next -->
               <button
                 id="next-song"
-                class="p-2 rounded-full hover:scale-105 active:scale-95 cursor-pointer"
+                class="group relative p-2 rounded-full hover:scale-105 active:scale-95 cursor-pointer need-description"
               >
                 <svg
                   xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -1357,11 +1365,15 @@
                     fill="#CDD6F4"
                   ></path>
                 </svg>
+                <span
+                  class="hidden absolute bg-gray-700 opacity-0 mt-[-50px] ml-[-20px] px-[5px] py-[3px] rounded text-white text-sm text-nowrap transition-all translate-y-2 duration-500 ease-in-out transform description"
+                  >Next</span
+                >
               </button>
               <!-- * repeat -->
               <button
                 id="repeat-btn"
-                class="group p-2 rounded-full hover:scale-105 active:scale-95 cursor-pointer"
+                class="group relative p-2 rounded-full hover:scale-105 active:scale-95 cursor-pointer need-description"
               >
                 <!-- lặp lại tất cả -->
                 <svg
@@ -1400,6 +1412,10 @@
                     fill="#999FB9"
                   ></path>
                 </svg>
+                <span
+                  class="hidden absolute bg-gray-700 opacity-0 mt-[-50px] ml-[-28px] px-[5px] py-[3px] rounded text-white text-sm text-nowrap transition-all translate-y-2 duration-500 ease-in-out transform description"
+                  >Repeat</span
+                >
               </button>
             </div>
             <!-- * label ranger -->
@@ -1437,7 +1453,7 @@
           <div class="flex justify-end items-center w-full h-full">
             <!-- * playing view -->
             <button
-              class="group p-2 rounded-full hover:scale-105 active:scale-95 cursor-pointer"
+              class="group relative p-2 rounded-full hover:scale-105 active:scale-95 cursor-pointer need-description"
             >
               <svg
                 xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -1461,10 +1477,14 @@
                   class="group-focus:fill-[#BCBCC1]"
                 ></path>
               </svg>
+              <span
+                class="hidden absolute bg-gray-700 opacity-0 mt-[-50px] ml-[-17px] px-[5px] py-[3px] rounded text-white text-sm text-nowrap transition-all translate-y-2 duration-500 ease-in-out transform description"
+                >MV</span
+              >
             </button>
             <!-- * lyrics -->
             <button
-              class="group p-2 rounded-full hover:scale-105 active:scale-95 cursor-pointer lyrics-btn"
+              class="group relative p-2 rounded-full hover:scale-105 active:scale-95 cursor-pointer need-description lyrics-btn"
             >
               <svg
                 xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -1483,10 +1503,14 @@
                   fill="#BCBCC1"
                 ></path>
               </svg>
+              <span
+                class="hidden absolute bg-gray-700 opacity-0 mt-[-50px] ml-[-22px] px-[5px] py-[3px] rounded text-white text-sm text-nowrap transition-all translate-y-2 duration-500 ease-in-out transform description"
+                >Lyrics</span
+              >
             </button>
             <!-- * queue -->
             <button
-              class="group p-2 rounded-full hover:scale-105 active:scale-95 cursor-pointer"
+              class="group relative p-2 rounded-full hover:scale-105 active:scale-95 cursor-pointer need-description"
             >
               <svg
                 xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -1506,13 +1530,17 @@
                   class="group-focus:fill-[#1DB954]"
                 ></path>
               </svg>
+              <span
+                class="hidden absolute bg-gray-700 opacity-0 mt-[-50px] ml-[-27px] px-[5px] py-[3px] rounded text-white text-sm text-nowrap transition-all translate-y-2 duration-500 ease-in-out transform description"
+                >Queue</span
+              >
             </button>
             <!-- * volume -->
             <div class="w-[45%] min-w-[100px]">
               <div class="flex items-center">
                 <button
                   id="volume-btn"
-                  class="group p-2 rounded-full hover:scale-105 active:scale-95 cursor-pointer"
+                  class="group relative p-2 rounded-full hover:scale-105 active:scale-95 cursor-pointer need-description"
                 >
                   <!-- * unmute -->
                   <svg
@@ -1564,6 +1592,10 @@
                       fill="#CDD6F4"
                     ></path>
                   </svg>
+                  <span
+                    class="hidden absolute bg-gray-700 opacity-0 mt-[-50px] ml-[-22px] px-[5px] py-[3px] rounded text-white text-sm text-nowrap transition-all translate-y-2 duration-500 ease-in-out transform description"
+                    >Mute</span
+                  >
                 </button>
                 <input
                   id="volume"
@@ -1578,7 +1610,7 @@
             <!-- * miniplayer -->
             <button
               id="mini-player-btn"
-              class="group p-2 rounded-full hover:scale-105 active:scale-95 cursor-pointer"
+              class="group relative p-2 rounded-full hover:scale-105 active:scale-95 cursor-pointer need-description"
             >
               <svg
                 xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -1604,11 +1636,15 @@
                   class="mini-player-icon"
                 ></path>
               </svg>
+              <span
+                class="hidden absolute bg-gray-700 opacity-0 mt-[-50px] ml-[-40px] px-[5px] py-[3px] rounded text-white text-sm text-nowrap transition-all translate-y-2 duration-500 ease-in-out transform description"
+                >Mini Player</span
+              >
             </button>
             <!-- * full screen -->
             <button
               id="full-screen"
-              class="mr-1 p-2 rounded-full hover:scale-105 active:scale-95 cursor-pointer"
+              class="group relative mr-1 p-2 rounded-full hover:scale-105 active:scale-95 cursor-pointer need-description"
             >
               <svg
                 xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -1627,6 +1663,10 @@
                   fill="#CDD6F4"
                 ></path>
               </svg>
+              <span
+                class="hidden absolute bg-gray-700 opacity-0 mt-[-50px] ml-[-60px] px-[5px] py-[3px] rounded text-white text-sm text-nowrap transition-all translate-y-2 duration-500 ease-in-out transform description"
+                >Full Screen</span
+              >
             </button>
           </div>
         </div>
