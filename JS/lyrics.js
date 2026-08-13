@@ -16,7 +16,7 @@ let currentLineIndex = -1;
 let lastColorTrackTitle = null;
 
 // Mau mac dinh khi khong doc duoc mau anh (vi du bi chan CORS)
-const DEFAULT_BG_COLOR = { r: 30, g: 30, b: 46 }; // tuong ung #1E1E2E
+const LYRICS_DEFAULT_BG_COLOR = { r: 30, g: 30, b: 46 }; // tuong ung #1E1E2E
 
 function getCurrentTrack() {
   const list = window.tracks || [];
@@ -28,7 +28,7 @@ function getCurrentTrack() {
 }
 
 // Lay mau trung binh (chu dao tho) tu 1 anh, tra ve Promise<{r,g,b}>
-function extractDominantColor(imageUrl) {
+function extractLyricsDominantColor(imageUrl) {
   return new Promise((resolve) => {
     const img = new Image();
     img.crossOrigin = "anonymous";
@@ -62,11 +62,11 @@ function extractDominantColor(imageUrl) {
         resolve({ r, g, b });
       } catch (err) {
         // Anh bi chan CORS (tainted canvas) -> dung mau mac dinh
-        resolve(DEFAULT_BG_COLOR);
+        resolve(LYRICS_DEFAULT_BG_COLOR);
       }
     };
 
-    img.onerror = () => resolve(DEFAULT_BG_COLOR);
+    img.onerror = () => resolve(LYRICS_DEFAULT_BG_COLOR);
     img.src = imageUrl;
   });
 }
@@ -102,9 +102,9 @@ async function updateBackgroundForTrack(track) {
   lastColorTrackTitle = track.title;
 
   // Ap mau mac dinh truoc trong luc dang doc anh, tranh nhap nhay
-  applyBackgroundColor(DEFAULT_BG_COLOR);
+  applyBackgroundColor(LYRICS_DEFAULT_BG_COLOR);
 
-  const color = await extractDominantColor(track.img);
+  const color = await extractLyricsDominantColor(track.img);
 
   // Neu nguoi dung da chuyen sang bai khac trong luc doi anh tai -> bo qua ket qua cu
   const stillSameTrack = getCurrentTrack()?.title === track.title;
