@@ -601,6 +601,9 @@
   .grid-cols-\[22px_1fr_auto\] {
     grid-template-columns: 22px 1fr auto;
   }
+  .grid-cols-\[22px_2fr_1fr_50px_auto\] {
+    grid-template-columns: 22px 2fr 1fr 50px auto;
+  }
   .grid-rows-1 {
     grid-template-rows: repeat(1, minmax(0, 1fr));
   }

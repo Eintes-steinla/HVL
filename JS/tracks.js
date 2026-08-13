@@ -322,7 +322,7 @@ function createTrackHTML(track, index) {
     <!-- * track ${track.stt} -->
     <li
       data-index="${index}"
-      class="group justify-normal items-center gap-4 grid grid-cols-[22px_1fr_1fr_50px_auto] hover:bg-[#282831] px-[16px] py-[8px] rounded track-main"
+      class="group justify-normal items-center gap-4 grid grid-cols-[22px_2fr_1fr_50px_auto] hover:bg-[#282831] px-[16px] py-[8px] rounded track-main"
     >
       <!-- * stt -->
       <div class="flex justify-center items-center w-[22px] h-full stt-play">
