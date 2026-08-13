@@ -445,8 +445,18 @@ function highlightPlayingTrack(index) {
   });
 
   const active = document.querySelector(`.track-main[data-index="${index}"]`);
-  if (!active) return;
+  if (active) active.classList.add("is-playing");
 
-  active.classList.add("is-playing");
+  // * đồng bộ label tên bài hát + ca sĩ ở đầu lyrics view
+  const track = tracks[index];
+  if (track) {
+    const lyricsTitle = document.getElementById("lyrics-view-title");
+    const lyricsArtist = document.getElementById("lyrics-view-artist");
+    const lyricsCover = document.getElementById("lyrics-view-cover");
+
+    if (lyricsTitle) lyricsTitle.textContent = track.title;
+    if (lyricsArtist) lyricsArtist.textContent = track.artist || "";
+    if (lyricsCover) lyricsCover.src = track.img;
+  }
 }
 window.highlightPlayingTrack = highlightPlayingTrack;

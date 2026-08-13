@@ -6,7 +6,10 @@ const lyricsBtn = document.querySelector(".lyrics-btn");
 const lyricsAudioEl = document.getElementById("audio-song");
 const mainContent = document.getElementById("main");
 const lyricsView = document.getElementById("lyrics-view");
+const lyricsViewHeader = document.getElementById("lyrics-view-header");
 const lyricsViewLines = document.getElementById("lyrics-view-lines");
+const lyricsScrollContainer =
+  document.getElementById("lyrics-view-scroll") || lyricsView;
 
 let lyricsPanelOpen = false;
 let currentLineIndex = -1;
@@ -83,6 +86,12 @@ function applyBackgroundColor({ r, g, b }) {
   const bottom = `rgb(${bottomColor.r}, ${bottomColor.g}, ${bottomColor.b})`;
 
   lyricsView.style.background = `linear-gradient(to bottom, ${top} 0%, ${bottom} 400px, #121212 800px)`;
+
+  // * dong bo mau header (mobile) theo mau chu dao cua anh bai hat
+  if (lyricsViewHeader) {
+    const headerColor = darken({ r, g, b }, 0.7); // hơi tối hơn 1 chút để chữ dễ đọc
+    lyricsViewHeader.style.background = `rgba(${headerColor.r}, ${headerColor.g}, ${headerColor.b}, 0.85)`;
+  }
 }
 
 async function updateBackgroundForTrack(track) {
@@ -114,7 +123,7 @@ function renderLyricsForCurrentTrack() {
     (window.lyricsDatabase && window.lyricsDatabase[track.title]) || [];
 
   currentLineIndex = -1;
-  lyricsView.scrollTop = 0;
+  lyricsScrollContainer.scrollTop = 0;
 
   if (!lyrics.length) {
     lyricsViewLines.innerHTML = `

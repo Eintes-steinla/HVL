@@ -541,6 +541,49 @@
               </div>
             </div>
           </div>
+          <!-- * lyrics view (mobile) -->
+          <div
+            id="lyrics-view"
+            class="hidden z-30 absolute inset-0 overflow-hidden"
+          >
+            <!-- * label bài hát + ca sĩ - luôn nổi trên cùng, không cuộn theo -->
+            <div
+              id="lyrics-view-header"
+              class="top-0 right-0 left-0 z-20 absolute flex justify-center items-center gap-3 backdrop-blur px-6 py-4 border-white/5 border-b"
+            >
+              <!-- <img
+                id="lyrics-view-cover"
+                src="https://pub-5cee7735d10d4f61896814b089cfc9a8.r2.dev/assets/tracks/hvl_art/HVL_MCK_Elegie_Track01_N0L4B3L.png"
+                alt="cover"
+                class="rounded w-10 min-w-10 h-10 object-cover"
+              /> -->
+              <div class="min-w-0">
+                <p
+                  id="lyrics-view-title"
+                  class="text-white text-sm text-center truncate"
+                >
+                  Elegie
+                </p>
+                <p
+                  id="lyrics-view-artist"
+                  class="opacity-80 text-[#CDD6F4] text-xs text-center truncate"
+                >
+                  RPT MCK
+                </p>
+              </div>
+            </div>
+
+            <!-- * vùng cuộn riêng, nằm dưới header -->
+            <div
+              id="lyrics-view-scroll"
+              class="pt-[72px] h-full overflow-y-auto custom-scroll"
+            >
+              <div
+                id="lyrics-view-lines"
+                class="flex flex-col justify-center space-y-6 mx-auto px-6 py-10 max-w-[700px] min-h-[300px]"
+              ></div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -721,6 +764,27 @@
         <div class="h-full max-h-full">
           <div>
             <div class="flex justify-center items-center gap-4 w-full">
+              <!-- * lyrics -->
+              <button
+                class="group p-2 rounded-full hover:scale-105 active:scale-95 cursor-pointer lyrics-btn"
+              >
+                <svg
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  xmlns="http://www.w3.org/2000/svg"
+                  data-encore-id="icon"
+                  role="img"
+                  aria-hidden="true"
+                  viewBox="0 0 16 16"
+                  width="16"
+                  height="16"
+                >
+                  <path
+                    d="M13.426 2.574a2.831 2.831 0 0 0-4.797 1.55l3.247 3.247a2.831 2.831 0 0 0 1.55-4.797zM10.5 8.118l-2.619-2.62A63303.13 63303.13 0 0 0 4.74 9.075L2.065 12.12a1.287 1.287 0 0 0 1.816 1.816l3.06-2.688 3.56-3.129zM7.12 4.094a4.331 4.331 0 1 1 4.786 4.786l-3.974 3.493-3.06 2.689a2.787 2.787 0 0 1-3.933-3.933l2.676-3.045 3.505-3.99z"
+                    fill-opacity="1"
+                    fill="#999FB9"
+                  ></path>
+                </svg>
+              </button>
               <!-- * enable shuffle -->
               <button
                 id="shuffle-btn"
@@ -882,7 +946,7 @@
                   <label class="h-fit">
                     <audio
                       id="audio-song"
-                      src="./public/songs/hvl/Elegie_spotdown.org.mp3"
+                      src="/media/hvl/Elegie_spotdown.org.mp3"
                     ></audio>
                     <input
                       id="play-progress"
@@ -910,7 +974,7 @@
     <!-- <script src="./JS/plus.js"></script> -->
     <!-- <script src="./JS/sticky-scroll.js"></script> -->
     <script src="./JS/play-button.js"></script>
-    <!-- <script src="./JS/follow-button.js"></script> -->
+    <script src="./JS/follow-button.js"></script>
     <script src="./JS/add-to-playlist.js"></script>
     <!-- <script src="./JS/see-more.js"></script> -->
     <script src="./JS/carousel.js"></script>
@@ -923,5 +987,7 @@
     <script src="./JS/shuffle-repeat.js"></script>
     <script src="./JS/media-session.js"></script>
     <script src="./JS/next-song.js"></script>
+    <script src="./JS/lyrics-data.js"></script>
+    <script src="./JS/lyrics.js"></script>
   </body>
 </html>
