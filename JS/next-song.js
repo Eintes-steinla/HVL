@@ -94,6 +94,18 @@ function pickRandomIndex(excludeIndex, length) {
 
 function nextSong() {
   const list = window.tracks || [];
+  if (!list.length) return;
+
+  const customQueue = window.customQueue || [];
+
+  // Ưu tiên phát bài trong hàng đợi trước, sau đó xóa nó khỏi hàng đợi
+  if (customQueue.length) {
+    const nextIndex = customQueue.shift();
+    if (typeof window.onQueueChange === "function") window.onQueueChange();
+    loadSong(nextIndex);
+    return;
+  }
+
   if (window.isShuffle && list.length > 1) {
     loadSong(pickRandomIndex(currentIndex, list.length));
   } else {
@@ -127,6 +139,15 @@ document.getElementById("audio-song").addEventListener("ended", () => {
     return;
   }
 
+  // Có bài trong hàng đợi -> phát bài đầu tiên, rồi bỏ khỏi hàng đợi
+  const customQueue = window.customQueue || [];
+  if (customQueue.length) {
+    const nextIndex = customQueue.shift();
+    if (typeof window.onQueueChange === "function") window.onQueueChange();
+    loadSong(nextIndex);
+    return;
+  }
+
   // Đang bật trộn bài -> chọn ngẫu nhiên bài kế tiếp
   if (window.isShuffle) {
     loadSong(pickRandomIndex(currentIndex, list.length));
@@ -136,9 +157,8 @@ document.getElementById("audio-song").addEventListener("ended", () => {
   const isLastTrack = currentIndex >= list.length - 1;
   if (isLastTrack) {
     if (window.repeatMode === "all") {
-      loadSong(0); // quay lại bài đầu danh sách
+      loadSong(0);
     }
-    // repeatMode "off" và đã hết danh sách -> dừng lại, không làm gì thêm
     return;
   }
 

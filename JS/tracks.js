@@ -283,6 +283,24 @@ const tracks = [
 // Cho next-song.js dùng chung mảng này
 window.tracks = tracks;
 
+// Hàng đợi do người dùng tự thêm (lưu index vào mảng tracks, tránh trùng lặp)
+window.customQueue = window.customQueue || [];
+
+function addToQueue(index) {
+  if (!window.customQueue.includes(index)) {
+    window.customQueue.push(index);
+  }
+  if (typeof window.onQueueChange === "function") window.onQueueChange();
+}
+
+function removeFromQueue(index) {
+  window.customQueue = window.customQueue.filter((i) => i !== index);
+  if (typeof window.onQueueChange === "function") window.onQueueChange();
+}
+
+window.addToQueue = addToQueue;
+window.removeFromQueue = removeFromQueue;
+
 // 1.5
 function randomViews() {
   const rand = Math.random();
@@ -389,10 +407,26 @@ function createTrackHTML(track, index) {
 
           <!-- * 3 dots -->
           <div class="hidden sm:block relative track-more">
-            <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" data-encore-id="icon" role="img" aria-hidden="true" class="group relative opacity-0 group-hover:opacity-100 hover:scale-105 active:scale-95 cursor-pointer need-description" viewBox="0 0 24 24" width="22" height="22">
+            <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" data-encore-id="icon" role="img" aria-hidden="true" class="track-more-toggle group relative opacity-0 group-hover:opacity-100 hover:scale-105 active:scale-95 cursor-pointer need-description" viewBox="0 0 24 24" width="22" height="22">
               <path d="M4.5 13.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm15 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm-7.5 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" fill-opacity="1" fill="#fff"></path>
             </svg>
             <span class="hidden z-50 absolute bg-gray-700 opacity-0 mt-[-60px] ml-[-150px] px-[5px] py-[3px] rounded text-white text-sm text-nowrap transition-all translate-y-2 duration-500 ease-in-out transform description">More options for this track</span>
+
+            <!-- * popup: add / remove queue -->
+            <div class="hidden right-0 top-full z-50 absolute bg-[#282828] shadow-xl mt-1 rounded-md w-[230px] overflow-hidden track-more-menu">
+              <button type="button" class="flex items-center gap-3 hover:bg-[#3E3E3E] px-3 py-2 w-full text-left cursor-pointer track-add-queue">
+                <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16" fill="#B3B3B3" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+                  <path d="M16 15H2v-1.5h14zm0-4.5H2V9h14zm-8.034-6A5.5 5.5 0 0 1 7.187 6H13.5a2.5 2.5 0 0 0 0-5H7.966c.159.474.255.978.278 1.5H13.5a1 1 0 1 1 0 2zM2 2V0h1.5v2h2v1.5h-2v2H2v-2H0V2z" fill="#B3B3B3"></path>
+                </svg>
+                <span class="text-white text-sm">Thêm vào hàng đợi</span>
+              </button>
+              <button type="button" class="flex items-center gap-3 hover:bg-[#3E3E3E] px-3 py-2 w-full text-left cursor-pointer track-remove-queue">
+                <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16" fill="#B3B3B3" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+                  <path d="M5.25 3v-.917C5.25.933 6.183 0 7.333 0h1.334c1.15 0 2.083.933 2.083 2.083V3h4.75v1.5h-.972l-1.257 9.544A2.25 2.25 0 0 1 11.041 16H4.96a2.25 2.25 0 0 1-2.23-1.956L1.472 4.5H.5V3zm1.5-.917V3h2.5v-.917a.583.583 0 0 0-.583-.583H7.333a.583.583 0 0 0-.583.583M2.986 4.5l1.23 9.348a.75.75 0 0 0 .744.652h6.08a.75.75 0 0 0 .744-.652L13.015 4.5H2.985z" fill="#B3B3B3"></path>
+                </svg>
+                <span class="text-white text-sm">Xóa khỏi hàng đợi</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -432,6 +466,40 @@ loadDurations();
 
 // 6. Click vào 1 dòng track -> phát bài đó (trừ khi bấm add-to-playlist / 3 chấm)
 playlistContainer.addEventListener("click", (e) => {
+  // * mo/dong popup more-options
+  const moreToggle = e.target.closest(".track-more-toggle");
+  if (moreToggle) {
+    e.stopPropagation();
+    const menu = moreToggle
+      .closest(".track-more")
+      .querySelector(".track-more-menu");
+    document.querySelectorAll(".track-more-menu").forEach((m) => {
+      if (m !== menu) m.classList.add("hidden");
+    });
+    menu.classList.toggle("hidden");
+    return;
+  }
+
+  // * them vao hang doi
+  const addBtn = e.target.closest(".track-add-queue");
+  if (addBtn) {
+    e.stopPropagation();
+    const trackEl = addBtn.closest(".track-main");
+    window.addToQueue(Number(trackEl.dataset.index));
+    addBtn.closest(".track-more-menu").classList.add("hidden");
+    return;
+  }
+
+  // * xoa khoi hang doi
+  const removeBtn = e.target.closest(".track-remove-queue");
+  if (removeBtn) {
+    e.stopPropagation();
+    const trackEl = removeBtn.closest(".track-main");
+    window.removeFromQueue(Number(trackEl.dataset.index));
+    removeBtn.closest(".track-more-menu").classList.add("hidden");
+    return;
+  }
+
   if (e.target.closest(".add-to-playlist") || e.target.closest(".track-more"))
     return;
 
@@ -441,6 +509,15 @@ playlistContainer.addEventListener("click", (e) => {
   const index = Number(track.dataset.index);
   if (typeof window.playTrackAtIndex === "function") {
     window.playTrackAtIndex(index);
+  }
+});
+
+// * dong popup more-options khi click ra ngoai
+document.addEventListener("click", (e) => {
+  if (!e.target.closest(".track-more")) {
+    document
+      .querySelectorAll(".track-more-menu")
+      .forEach((m) => m.classList.add("hidden"));
   }
 });
 
