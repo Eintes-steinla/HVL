@@ -584,6 +584,48 @@
               ></div>
             </div>
           </div>
+          <!-- * queue view (mobile) -->
+          <div
+            id="queue-view"
+            class="hidden z-30 absolute inset-0 overflow-hidden"
+          >
+            <div
+              id="queue-view-header"
+              class="top-0 right-0 left-0 z-20 absolute flex justify-between items-center bg-[#11111B] px-4 py-4"
+            >
+              <h1 class="font-[SpotifyMixUITitleBold] text-md text-white">
+                Queue
+              </h1>
+              <button
+                id="queue-view-close"
+                class="group hover:bg-white/10 p-2 rounded-full cursor-pointer"
+              >
+                <svg
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  xmlns="http://www.w3.org/2000/svg"
+                  data-encore-id="icon"
+                  role="img"
+                  aria-hidden="true"
+                  class="group-active:scale-95 group-hover:scale-105"
+                  viewBox="0 0 16 16"
+                  width="16"
+                  height="16"
+                >
+                  <path
+                    d="M2.47 2.47a.75.75 0 0 1 1.06 0L8 6.94l4.47-4.47a.75.75 0 1 1 1.06 1.06L9.06 8l4.47 4.47a.75.75 0 1 1-1.06 1.06L8 9.06l-4.47 4.47a.75.75 0 0 1-1.06-1.06L6.94 8 2.47 3.53a.75.75 0 0 1 0-1.06Z"
+                    fill-opacity="0.7"
+                    fill="#CDD6F4"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+            <div
+              id="queue-view-scroll"
+              class="bg-[#11111B] pt-[64px] h-full overflow-y-auto custom-scroll"
+            >
+              <div id="queue-view-list" class="px-4 pb-6"></div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -934,7 +976,7 @@
               </button>
               <!-- * queue -->
               <button
-                class="group p-2 rounded-full hover:scale-105 active:scale-95 cursor-pointer"
+                class="group p-2 rounded-full hover:scale-105 active:scale-95 cursor-pointer queue-btn"
               >
                 <svg
                   xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -951,7 +993,6 @@
                     d="M15 15H1v-1.5h14V15zm0-4.5H1V9h14v1.5zm-14-7A2.5 2.5 0 0 1 3.5 1h9a2.5 2.5 0 0 1 0 5h-9A2.5 2.5 0 0 1 1 3.5zm2.5-1a1 1 0 0 0 0 2h9a1 1 0 1 0 0-2h-9z"
                     fill-opacity="1"
                     fill="#999FB9"
-                    class="group-focus:fill-[#1DB954]"
                   ></path>
                 </svg>
               </button>
@@ -1012,5 +1053,6 @@
     <script src="./JS/next-song.js"></script>
     <script src="./JS/lyrics-data.js"></script>
     <script src="./JS/lyrics.js"></script>
+    <script src="./JS/queue.js"></script>
   </body>
 </html>

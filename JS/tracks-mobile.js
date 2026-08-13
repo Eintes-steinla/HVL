@@ -283,6 +283,24 @@ const tracks = [
 // Cho next-song.js dùng chung mảng này
 window.tracks = tracks;
 
+// * Hang doi phat nhac tuy chinh (dung chung voi queue.js) - dung cho mobile
+window.customQueue = window.customQueue || [];
+
+window.addToQueue = function (index) {
+  if (!window.customQueue.includes(index)) {
+    window.customQueue.push(index);
+    if (typeof window.onQueueChange === "function") window.onQueueChange();
+  }
+};
+
+window.removeFromQueue = function (index) {
+  const pos = window.customQueue.indexOf(index);
+  if (pos !== -1) {
+    window.customQueue.splice(pos, 1);
+    if (typeof window.onQueueChange === "function") window.onQueueChange();
+  }
+};
+
 // 1.5
 function randomViews() {
   const rand = Math.random();
@@ -360,27 +378,29 @@ function createTrackHTML(track, index) {
         </div>
       </div>
 
-      <!-- * time + actions -->
+      <!-- * more options (thay cho add to playlist tren mobile) -->
       <div class="flex justify-end items-center h-full">
         <div class="flex items-center gap-2">
-          <!-- * add to playlist -->
-          <div class="relative add-to-playlist py-2 cursor-pointer need-description">
-            <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" data-encore-id="icon" role="img" aria-hidden="true" class="hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out" viewBox="0 0 16 16" width="16" height="16">
-              <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm11.748-1.97a.75.75 0 0 0-1.06-1.06l-4.47 4.47-1.405-1.406a.75.75 0 1 0-1.061 1.06l2.466 2.467 5.53-5.53z" fill="#1ED78B"></path>
-            </svg>
-            <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" data-encore-id="icon" role="img" aria-hidden="true" class="hidden hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out" viewBox="0 0 24 24" width="16" height="16">
-              <path d="M11.999 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm-11 9c0-6.075 4.925-11 11-11s11 4.925 11 11-4.925 11-11 11-11-4.925-11-11z" fill="#CDD6F4"></path>
-              <path d="M17.999 12a1 1 0 0 1-1 1h-4v4a1 1 0 1 1-2 0v-4h-4a1 1 0 1 1 0-2h4V7a1 1 0 1 1 2 0v4h4a1 1 0 0 1 1 1z" fill="#CDD6F4"></path>
-            </svg>
-            <span class="hidden z-50 absolute bg-gray-700 opacity-0 mt-[-55px] ml-[-45px] px-[5px] py-[3px] rounded text-white text-sm text-nowrap transition-all translate-y-2 duration-500 ease-in-out transform description">Add to playlist</span>
-          </div>
-
-          <!-- * 3 dots -->
-          <div class="hidden sm:block relative track-more">
-            <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" data-encore-id="icon" role="img" aria-hidden="true" class="group relative opacity-0 group-hover:opacity-100 hover:scale-105 active:scale-95 cursor-pointer need-description" viewBox="0 0 24 24" width="22" height="22">
+          <div class="relative track-more">
+            <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" data-encore-id="icon" role="img" aria-hidden="true" class="track-more-toggle hover:scale-105 active:scale-95 cursor-pointer" viewBox="0 0 24 24" width="22" height="22">
               <path d="M4.5 13.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm15 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm-7.5 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" fill-opacity="1" fill="#fff"></path>
             </svg>
-            <span class="hidden z-50 absolute bg-gray-700 opacity-0 mt-[-60px] ml-[-150px] px-[5px] py-[3px] rounded text-white text-sm text-nowrap transition-all translate-y-2 duration-500 ease-in-out transform description">More options for this track</span>
+
+            <div class="hidden right-0 top-full z-1 absolute bg-[#282828] shadow-xl mt-1 rounded-md w-[230px] overflow-hidden track-more-menu">
+              <button type="button" class="flex items-center gap-3 hover:bg-[#3E3E3E] px-3 py-2 w-full text-left cursor-pointer track-add-queue-item">
+                <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16" fill="#B3B3B3" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+                  <path d="M16 15H2v-1.5h14zm0-4.5H2V9h14zm-8.034-6A5.5 5.5 0 0 1 7.187 6H13.5a2.5 2.5 0 0 0 0-5H7.966c.159.474.255.978.278 1.5H13.5a1 1 0 1 1 0 2zM2 2V0h1.5v2h2v1.5h-2v2H2v-2H0V2z" fill="#B3B3B3"></path>
+                </svg>
+                <span class="text-white text-sm">Thêm vào hàng đợi</span>
+              </button>
+              <button type="button" class="flex items-center gap-3 hover:bg-[#3E3E3E] px-3 py-2 w-full text-left cursor-pointer track-add-playlist-item">
+                <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 24 24" fill="#B3B3B3" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+                  <path d="M11.999 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm-11 9c0-6.075 4.925-11 11-11s11 4.925 11 11-4.925 11-11 11-11-4.925-11-11z"></path>
+                  <path d="M17.999 12a1 1 0 0 1-1 1h-4v4a1 1 0 1 1-2 0v-4h-4a1 1 0 1 1 0-2h4V7a1 1 0 1 1 2 0v4h4a1 1 0 0 1 1 1z"></path>
+                </svg>
+                <span class="text-white text-sm">Thêm vào danh sách phát</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -418,10 +438,41 @@ function loadDurations() {
 }
 loadDurations();
 
-// 6. Click vào 1 dòng track -> phát bài đó (trừ khi bấm add-to-playlist / 3 chấm)
+// 6. Click vao 1 dong track -> phat bai do, hoac xu ly popup more-options
 playlistContainer.addEventListener("click", (e) => {
-  if (e.target.closest(".add-to-playlist") || e.target.closest(".track-more"))
+  const toggle = e.target.closest(".track-more-toggle");
+  if (toggle) {
+    e.stopPropagation();
+    const menu = toggle
+      .closest(".track-more")
+      .querySelector(".track-more-menu");
+    document.querySelectorAll(".track-more-menu").forEach((m) => {
+      if (m !== menu) m.classList.add("hidden");
+    });
+    menu.classList.toggle("hidden");
     return;
+  }
+
+  const addQueueBtn = e.target.closest(".track-add-queue-item");
+  if (addQueueBtn) {
+    e.stopPropagation();
+    const idx = Number(addQueueBtn.closest(".track-main").dataset.index);
+    if (typeof window.addToQueue === "function") window.addToQueue(idx);
+    addQueueBtn.closest(".track-more-menu").classList.add("hidden");
+    return;
+  }
+
+  const addPlaylistBtn = e.target.closest(".track-add-playlist-item");
+  if (addPlaylistBtn) {
+    e.stopPropagation();
+    const idx = Number(addPlaylistBtn.closest(".track-main").dataset.index);
+    if (typeof window.toggleAddToPlaylist === "function")
+      window.toggleAddToPlaylist(idx);
+    addPlaylistBtn.closest(".track-more-menu").classList.add("hidden");
+    return;
+  }
+
+  if (e.target.closest(".track-more")) return;
 
   const track = e.target.closest(".track-main");
   if (!track) return;
@@ -429,6 +480,15 @@ playlistContainer.addEventListener("click", (e) => {
   const index = Number(track.dataset.index);
   if (typeof window.playTrackAtIndex === "function") {
     window.playTrackAtIndex(index);
+  }
+});
+
+// * dong popup more-options khi click ra ngoai
+document.addEventListener("click", (e) => {
+  if (!e.target.closest(".track-more")) {
+    document
+      .querySelectorAll(".track-more-menu")
+      .forEach((m) => m.classList.add("hidden"));
   }
 });
 

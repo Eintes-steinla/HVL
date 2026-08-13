@@ -1,8 +1,10 @@
 // JS/queue.js
 // Hien thi hang doi phat nhac (Now playing + Next from queue + Next up)
+// Dung chung cho ca desktop (sidebar) va mobile (hien trong #main nhu lyrics)
 
 const queueBtn = document.querySelector(".queue-btn");
-const playingViewNormal = document.getElementById("playing-view-normal");
+const playingViewNormal = document.getElementById("playing-view-normal"); // chi co tren desktop
+const mainContentForQueue = document.getElementById("main"); // dung khi o mobile
 const queueView = document.getElementById("queue-view");
 const queueList = document.getElementById("queue-view-list");
 const queueViewClose = document.getElementById("queue-view-close");
@@ -16,6 +18,16 @@ function getCurrentTrackIndexSafe() {
     : 0;
 }
 
+// * luu cac bai da "Them vao danh sach phat" (demo don gian, dung chung ca 2 layout)
+window.playlistSet = window.playlistSet || new Set();
+window.toggleAddToPlaylist = function (index) {
+  if (window.playlistSet.has(index)) {
+    window.playlistSet.delete(index);
+  } else {
+    window.playlistSet.add(index);
+  }
+};
+
 function trackRowHTML(track, realIndex, { inQueue = false } = {}) {
   return `
     <div data-index="${realIndex}" class="group flex justify-between items-center gap-3 hover:bg-[#282831] px-3 py-2 rounded cursor-pointer queue-item">
@@ -28,7 +40,7 @@ function trackRowHTML(track, realIndex, { inQueue = false } = {}) {
       </div>
 
       <!-- * 3 dots -->
-      <div class="relative opacity-0 group-hover:opacity-100 queue-more">
+      <div class="relative queue-more">
         <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" data-encore-id="icon" role="img" aria-hidden="true" class="queue-more-toggle hover:scale-105 active:scale-95 cursor-pointer" viewBox="0 0 24 24" width="20" height="20">
           <path d="M4.5 13.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm15 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm-7.5 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" fill-opacity="1" fill="#fff"></path>
         </svg>
@@ -50,6 +62,13 @@ function trackRowHTML(track, realIndex, { inQueue = false } = {}) {
                   <span class="text-white text-sm">Thêm vào hàng đợi</span>
                 </button>`
           }
+          <button type="button" class="flex items-center gap-3 hover:bg-[#3E3E3E] px-3 py-2 w-full text-left cursor-pointer queue-add-playlist-item">
+            <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 24 24" fill="#B3B3B3" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+              <path d="M11.999 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm-11 9c0-6.075 4.925-11 11-11s11 4.925 11 11-4.925 11-11 11-11-4.925-11-11z"></path>
+              <path d="M17.999 12a1 1 0 0 1-1 1h-4v4a1 1 0 1 1-2 0v-4h-4a1 1 0 1 1 0-2h4V7a1 1 0 1 1 2 0v4h4a1 1 0 0 1 1 1z"></path>
+            </svg>
+            <span class="text-white text-sm">Thêm vào danh sách phát</span>
+          </button>
         </div>
       </div>
     </div>
@@ -147,10 +166,26 @@ function renderQueue() {
     });
   });
 
-  // * click vao dong -> phat bai do
+  // * them vao danh sach phat
+  queueList.querySelectorAll(".queue-add-playlist-item").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const idx = Number(btn.closest(".queue-item").dataset.index);
+      window.toggleAddToPlaylist(idx);
+      btn.closest(".queue-more-menu").classList.add("hidden");
+    });
+  });
+
+  // * click vao dong -> phat bai do (va tu dong bo khoi hang doi neu dang trong hang doi)
   queueList.querySelectorAll(".queue-item").forEach((el) => {
     el.addEventListener("click", () => {
       const idx = Number(el.dataset.index);
+      const customQueue = window.customQueue || [];
+      const pos = customQueue.indexOf(idx);
+      if (pos !== -1) {
+        customQueue.splice(pos, 1);
+        if (typeof window.onQueueChange === "function") window.onQueueChange();
+      }
       if (typeof window.playTrackAtIndex === "function") {
         window.playTrackAtIndex(idx);
       }
@@ -175,8 +210,20 @@ function syncQueueBtnColor() {
 function toggleQueuePanel(forceState) {
   queuePanelOpen = forceState !== undefined ? forceState : !queuePanelOpen;
 
-  playingViewNormal.classList.toggle("hidden", queuePanelOpen);
-  queueView.classList.toggle("hidden", !queuePanelOpen);
+  if (playingViewNormal) {
+    // * Desktop: sidebar "Now playing" <-> "Queue"
+    playingViewNormal.classList.toggle("hidden", queuePanelOpen);
+  } else if (mainContentForQueue) {
+    // * Mobile: #main <-> Queue toan man hinh (giong lyrics)
+    mainContentForQueue.classList.toggle("hidden", queuePanelOpen);
+
+    // * tranh xung dot voi panel lyrics dang mo
+    if (queuePanelOpen && typeof window.closeLyricsPanel === "function") {
+      window.closeLyricsPanel();
+    }
+  }
+
+  if (queueView) queueView.classList.toggle("hidden", !queuePanelOpen);
 
   syncQueueBtnColor();
 
@@ -184,6 +231,9 @@ function toggleQueuePanel(forceState) {
     renderQueue();
   }
 }
+
+window.closeQueuePanel = () => toggleQueuePanel(false);
+window.isQueuePanelOpen = () => queuePanelOpen;
 
 if (queueBtn) {
   queueBtn.addEventListener("click", () => toggleQueuePanel());
@@ -205,7 +255,7 @@ document.addEventListener("click", (e) => {
   }
 });
 
-// Goi lai khi customQueue thay doi (tu tracks.js)
+// Goi lai khi customQueue thay doi (tu tracks.js / tracks-mobile.js)
 window.onQueueChange = () => {
   if (queuePanelOpen) renderQueue();
 };

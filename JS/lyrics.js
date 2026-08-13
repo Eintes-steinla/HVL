@@ -193,11 +193,26 @@ function toggleLyricsPanel(forceState) {
   lyricsView.classList.toggle("hidden", !lyricsPanelOpen);
   updateLyricsButtonColor();
 
+  // * tranh xung dot voi Queue khi ca 2 cung dung chung #main (mobile)
+  const hasDesktopQueueSidebar = !!document.getElementById(
+    "playing-view-normal",
+  );
+  if (
+    lyricsPanelOpen &&
+    !hasDesktopQueueSidebar &&
+    typeof window.closeQueuePanel === "function"
+  ) {
+    window.closeQueuePanel();
+  }
+
   if (lyricsPanelOpen) {
     renderLyricsForCurrentTrack();
     updateActiveLine();
   }
 }
+
+window.closeLyricsPanel = () => toggleLyricsPanel(false);
+window.isLyricsPanelOpen = () => lyricsPanelOpen;
 
 if (lyricsBtn) {
   lyricsBtn.addEventListener("click", () => toggleLyricsPanel());

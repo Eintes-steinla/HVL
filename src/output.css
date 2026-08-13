@@ -246,6 +246,9 @@
   .z-0 {
     z-index: 0;
   }
+  .z-1 {
+    z-index: 1;
+  }
   .z-10 {
     z-index: 10;
   }
@@ -269,6 +272,9 @@
   }
   .z-\[999\] {
     z-index: 999;
+  }
+  .z-\[9999\] {
+    z-index: 9999;
   }
   .container {
     width: 100%;
@@ -890,6 +896,9 @@
   .bg-\[\#1ED760\] {
     background-color: #1ED760;
   }
+  .bg-\[\#1a1a24\]\/95 {
+    background-color: color-mix(in oklab, #1a1a24 95%, transparent);
+  }
   .bg-\[\#0074E0\] {
     background-color: #0074E0;
   }
@@ -1076,6 +1085,9 @@
   .pt-\[16px\] {
     padding-top: 16px;
   }
+  .pt-\[64px\] {
+    padding-top: 64px;
+  }
   .pt-\[72px\] {
     padding-top: 72px;
   }
@@ -1090,6 +1102,9 @@
   }
   .pb-4 {
     padding-bottom: calc(var(--spacing) * 4);
+  }
+  .pb-6 {
+    padding-bottom: calc(var(--spacing) * 6);
   }
   .pb-14 {
     padding-bottom: calc(var(--spacing) * 14);
@@ -1404,6 +1419,14 @@
     }
     .hover\:bg-white:hover {
       background-color: var(--color-white);
+    }
+    .hover\:bg-white\/10:hover {
+      background-color: color-mix(in srgb, #fff 10%, transparent);
+    }
+    @supports (color: color-mix(in lab, red, red)) {
+      .hover\:bg-white\/10:hover {
+        background-color: color-mix(in oklab, var(--color-white) 10%, transparent);
+      }
     }
     .hover\:bg-white\/\[0\.08\]:hover {
       background-color: color-mix(in srgb, #fff 8%, transparent);
