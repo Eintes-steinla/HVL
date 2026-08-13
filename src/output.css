@@ -1336,6 +1336,21 @@
   .active\:text-white:active {
     color: var(--color-white);
   }
+  @media (width < 40rem) {
+    .max-sm\:block {
+      display: block;
+    }
+  }
+  @media (width >= 100px) {
+    .min-\[100px\]\:block {
+      display: block;
+    }
+  }
+  @media (width >= 400px) {
+    .min-\[400px\]\:block {
+      display: block;
+    }
+  }
   @media (width >= 40rem) {
     .sm\:m-0 {
       margin: 0px;
