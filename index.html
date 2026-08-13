@@ -779,228 +779,274 @@
           <div
             class="h-full max-h-full overflow-x-hidden overflow-y-auto custom-scroll"
           >
-            <!--  *sticky view -->
-            <div class="top-0 z-[49] sticky bg-[#11111B] px-[16px] py-[16px]">
-              <div class="flex justify-between items-center">
-                <div>
-                  <h1
-                    class="font-[SpotifyMixUITitleBold] text-[#CDD6F4] text-md hover:underline cursor-pointer"
-                  >
-                    RPT MCK
-                  </h1>
-                </div>
-                <div>
-                  <div class="flex items-center">
-                    <button
-                      class="group ml-2 p-2 rounded-full cursor-pointer need-description"
-                    >
-                      <svg
-                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                        xmlns="http://www.w3.org/2000/svg"
-                        data-encore-id="icon"
-                        role="img"
-                        aria-hidden="true"
-                        class="group-active:scale-95 group-hover:scale-105"
-                        viewBox="0 0 16 16"
-                        width="16"
-                        height="16"
-                      >
-                        <path
-                          d="M3 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm6.5 0a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM16 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"
-                          fill-opacity="0.7"
-                          fill="#CDD6F4"
-                        ></path>
-                      </svg>
-                      <span
-                        id="playing-view-more-desc"
-                        class="hidden absolute bg-gray-700 opacity-0 mt-[-40px] ml-[-130px] px-[5px] py-[3px] rounded text-white text-sm text-nowrap transition-all translate-y-2 duration-500 ease-in-out transform description"
-                        >More options for Elegie</span
-                      >
-                    </button>
-                    <button
-                      class="group hover:bg-[#292932] ml-2 p-2 rounded-full cursor-pointer need-description"
-                    >
-                      <svg
-                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                        xmlns="http://www.w3.org/2000/svg"
-                        data-encore-id="icon"
-                        role="img"
-                        aria-hidden="true"
-                        class="group-active:scale-95 group-hover:scale-105"
-                        viewBox="0 0 16 16"
-                        width="16"
-                        height="16"
-                      >
-                        <path
-                          d="M2.47 2.47a.75.75 0 0 1 1.06 0L8 6.94l4.47-4.47a.75.75 0 1 1 1.06 1.06L9.06 8l4.47 4.47a.75.75 0 1 1-1.06 1.06L8 9.06l-4.47 4.47a.75.75 0 0 1-1.06-1.06L6.94 8 2.47 3.53a.75.75 0 0 1 0-1.06Z"
-                          fill-opacity="0.7"
-                          fill="#CDD6F4"
-                        ></path>
-                      </svg>
-
-                      <span
-                        class="hidden absolute bg-gray-700 opacity-0 mt-[-40px] ml-[-23px] px-[5px] py-[3px] rounded text-white text-sm text-nowrap transition-all translate-y-2 duration-500 ease-in-out transform description"
-                        >Close</span
-                      >
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- * Elegie -->
-            <div class="space-y-4 px-[16px] pb-[16px]">
-              <!-- * img -->
-              <div>
-                <img
-                  id="playing-view-img"
-                  src="https://pub-5cee7735d10d4f61896814b089cfc9a8.r2.dev/assets/tracks/hvl_art/HVL_MCK_Elegie_Track01_N0L4B3L.png"
-                  alt="Elegie"
-                  class="rounded-lg w-full"
-                />
-              </div>
-              <!-- * des img -->
-              <div class="flex justify-between items-center">
-                <div class="flex flex-col min-w-0">
-                  <a
-                    href="#"
-                    id="playing-view-title"
-                    class="block font-[SpotifyMixUITitleBold] text-white text-2xl hover:underline text-nowrap"
-                    >Elegie</a
-                  >
-                  <a
-                    href="#"
-                    id="playing-view-artist"
-                    class="text-[#A7A7A7] hover:text-white hover:underline truncate uppercase leading-none cursor-pointer"
-                  >
-                    RPT MCK
-                  </a>
-                </div>
-                <!-- * svg -->
-                <div class="flex items-center gap-3">
-                  <div class="ml-3 cursor-pointer">
-                    <svg
-                      xmlns:xlink="http://www.w3.org/1999/xlink"
-                      xmlns="http://www.w3.org/2000/svg"
-                      data-encore-id="icon"
-                      role="img"
-                      aria-hidden="true"
-                      class="group hover:scale-105 active:scale-95"
-                      viewBox="0 0 16 16"
-                      width="16"
-                      height="16"
-                    >
-                      <path
-                        d="M1 5.75A.75.75 0 0 1 1.75 5H4v1.5H2.5v8h11v-8H12V5h2.25a.75.75 0 0 1 .75.75v9.5a.75.75 0 0 1-.75.75H1.75a.75.75 0 0 1-.75-.75v-9.5z"
-                        fill-opacity="1"
-                        fill="#CDD6F4"
-                        class="group-hover:fill-white"
-                      ></path>
-                      <path
-                        d="M8 9.576a.75.75 0 0 0 .75-.75V2.903l1.454 1.454a.75.75 0 0 0 1.06-1.06L8 .03 4.735 3.296a.75.75 0 0 0 1.06 1.061L7.25 2.903v5.923c0 .414.336.75.75.75z"
-                        fill-opacity="1"
-                        fill="#CDD6F4"
-                        class="group-hover:fill-white"
-                      ></path>
-                    </svg>
-                  </div>
-                  <!-- * add to playlist -->
-                  <div
-                    class="relative add-to-playlist py-2 cursor-pointer need-description"
-                  >
-                    <svg
-                      xmlns:xlink="http://www.w3.org/1999/xlink"
-                      xmlns="http://www.w3.org/2000/svg"
-                      data-encore-id="icon"
-                      role="img"
-                      aria-hidden="true"
-                      class="hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out"
-                      viewBox="0 0 16 16"
-                      width="16"
-                      height="16"
-                    >
-                      <path
-                        d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm11.748-1.97a.75.75 0 0 0-1.06-1.06l-4.47 4.47-1.405-1.406a.75.75 0 1 0-1.061 1.06l2.466 2.467 5.53-5.53z"
-                        fill="#1ED78B"
-                      ></path>
-                    </svg>
-                    <svg
-                      xmlns:xlink="http://www.w3.org/1999/xlink"
-                      xmlns="http://www.w3.org/2000/svg"
-                      data-encore-id="icon"
-                      role="img"
-                      aria-hidden="true"
-                      class="hidden hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out"
-                      viewBox="0 0 24 24"
-                      width="16"
-                      height="16"
-                    >
-                      <path
-                        d="M11.999 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm-11 9c0-6.075 4.925-11 11-11s11 4.925 11 11-4.925 11-11 11-11-4.925-11-11z"
-                        fill="#CDD6F4"
-                      ></path>
-                      <path
-                        d="M17.999 12a1 1 0 0 1-1 1h-4v4a1 1 0 1 1-2 0v-4h-4a1 1 0 1 1 0-2h4V7a1 1 0 1 1 2 0v4h4a1 1 0 0 1 1 1z"
-                        fill="#CDD6F4"
-                      ></path>
-                    </svg>
-                    <span
-                      class="hidden z-50 absolute bg-gray-700 opacity-0 mt-[-55px] ml-[-80px] px-[5px] py-[3px] rounded text-white text-sm text-nowrap transition-all translate-y-2 duration-500 ease-in-out transform description"
-                      >Add to playlist</span
-                    >
-                  </div>
-                </div>
-              </div>
-              <!-- * credits -->
-              <div class="bg-[#1E1E2E] p-4 rounded-lg">
-                <div class="space-y-3">
-                  <!-- * credits -->
-                  <div class="flex justify-between items-center">
-                    <div class="font-[SpotifyMixUIBold] text-[#CDD6F4] text-md">
-                      Credits
-                    </div>
-                    <button
-                      class="hover:scale-105 active:scale-95 cursor-pointer"
-                    >
-                      <span
-                        class="font-[SpotifyMixUIBold] text-[#a7a7a7] hover:text-[#cdd6f4] active:text-[#a7a7a7] text-sm hover:underline"
-                        >Show all</span
-                      >
-                    </button>
-                  </div>
-                  <!-- * follow -->
+            <div id="playing-view-normal">
+              <!--  *sticky view -->
+              <div class="top-0 z-[49] sticky bg-[#11111B] px-[16px] py-[16px]">
+                <div class="flex justify-between items-center">
                   <div>
-                    <div class="flex justify-between items-center">
-                      <div class="flex flex-col">
-                        <span class="text-white hover:underline cursor-pointer"
-                          >RPT MCK</span
-                        >
-                        <span class="text-[#a7a7a7] text-sm">Main Artist</span>
-                      </div>
+                    <h1
+                      class="font-[SpotifyMixUITitleBold] text-[#CDD6F4] text-md hover:underline cursor-pointer"
+                    >
+                      RPT MCK
+                    </h1>
+                  </div>
+                  <div>
+                    <div class="flex items-center">
                       <button
-                        id="follow-button-credits"
-                        class="px-4 py-1 border-[#A7A7A7] border-1 hover:border-white rounded-full hover:scale-105 active:scale-95 cursor-pointer"
+                        class="group ml-2 p-2 rounded-full cursor-pointer need-description"
                       >
+                        <svg
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          xmlns="http://www.w3.org/2000/svg"
+                          data-encore-id="icon"
+                          role="img"
+                          aria-hidden="true"
+                          class="group-active:scale-95 group-hover:scale-105"
+                          viewBox="0 0 16 16"
+                          width="16"
+                          height="16"
+                        >
+                          <path
+                            d="M3 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm6.5 0a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM16 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"
+                            fill-opacity="0.7"
+                            fill="#CDD6F4"
+                          ></path>
+                        </svg>
                         <span
-                          class="font-[SpotifyMixUIBold] text-[#CDD6F4] text-xs"
-                          >Unfollow</span
+                          id="playing-view-more-desc"
+                          class="hidden absolute bg-gray-700 opacity-0 mt-[-40px] ml-[-130px] px-[5px] py-[3px] rounded text-white text-sm text-nowrap transition-all translate-y-2 duration-500 ease-in-out transform description"
+                          >More options for Elegie</span
+                        >
+                      </button>
+                      <button
+                        class="group hover:bg-[#292932] ml-2 p-2 rounded-full cursor-pointer need-description"
+                      >
+                        <svg
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          xmlns="http://www.w3.org/2000/svg"
+                          data-encore-id="icon"
+                          role="img"
+                          aria-hidden="true"
+                          class="group-active:scale-95 group-hover:scale-105"
+                          viewBox="0 0 16 16"
+                          width="16"
+                          height="16"
+                        >
+                          <path
+                            d="M2.47 2.47a.75.75 0 0 1 1.06 0L8 6.94l4.47-4.47a.75.75 0 1 1 1.06 1.06L9.06 8l4.47 4.47a.75.75 0 1 1-1.06 1.06L8 9.06l-4.47 4.47a.75.75 0 0 1-1.06-1.06L6.94 8 2.47 3.53a.75.75 0 0 1 0-1.06Z"
+                            fill-opacity="0.7"
+                            fill="#CDD6F4"
+                          ></path>
+                        </svg>
+
+                        <span
+                          class="hidden absolute bg-gray-700 opacity-0 mt-[-40px] ml-[-23px] px-[5px] py-[3px] rounded text-white text-sm text-nowrap transition-all translate-y-2 duration-500 ease-in-out transform description"
+                          >Close</span
                         >
                       </button>
                     </div>
                   </div>
-                  <div>
-                    <div class="text-[#CDD6F4]">maiki</div>
-                    <div class="text-[#a7a7a7] text-sm">Producer</div>
+                </div>
+              </div>
+              <!-- * Elegie -->
+              <div class="space-y-4 px-[16px] pb-[16px]">
+                <!-- * img -->
+                <div>
+                  <img
+                    id="playing-view-img"
+                    src="https://pub-5cee7735d10d4f61896814b089cfc9a8.r2.dev/assets/tracks/hvl_art/HVL_MCK_Elegie_Track01_N0L4B3L.png"
+                    alt="Elegie"
+                    class="rounded-lg w-full"
+                  />
+                </div>
+                <!-- * des img -->
+                <div class="flex justify-between items-center">
+                  <div class="flex flex-col min-w-0">
+                    <a
+                      href="#"
+                      id="playing-view-title"
+                      class="block font-[SpotifyMixUITitleBold] text-white text-2xl hover:underline text-nowrap"
+                      >Elegie</a
+                    >
+                    <a
+                      href="#"
+                      id="playing-view-artist"
+                      class="text-[#A7A7A7] hover:text-white hover:underline truncate uppercase leading-none cursor-pointer"
+                    >
+                      RPT MCK
+                    </a>
                   </div>
-                  <div>
-                    <div class="text-[#CDD6F4]">fujibynight</div>
-                    <div class="text-[#a7a7a7] text-sm">Producer</div>
+                  <!-- * svg -->
+                  <div class="flex items-center gap-3">
+                    <div class="ml-3 cursor-pointer">
+                      <svg
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        xmlns="http://www.w3.org/2000/svg"
+                        data-encore-id="icon"
+                        role="img"
+                        aria-hidden="true"
+                        class="group hover:scale-105 active:scale-95"
+                        viewBox="0 0 16 16"
+                        width="16"
+                        height="16"
+                      >
+                        <path
+                          d="M1 5.75A.75.75 0 0 1 1.75 5H4v1.5H2.5v8h11v-8H12V5h2.25a.75.75 0 0 1 .75.75v9.5a.75.75 0 0 1-.75.75H1.75a.75.75 0 0 1-.75-.75v-9.5z"
+                          fill-opacity="1"
+                          fill="#CDD6F4"
+                          class="group-hover:fill-white"
+                        ></path>
+                        <path
+                          d="M8 9.576a.75.75 0 0 0 .75-.75V2.903l1.454 1.454a.75.75 0 0 0 1.06-1.06L8 .03 4.735 3.296a.75.75 0 0 0 1.06 1.061L7.25 2.903v5.923c0 .414.336.75.75.75z"
+                          fill-opacity="1"
+                          fill="#CDD6F4"
+                          class="group-hover:fill-white"
+                        ></path>
+                      </svg>
+                    </div>
+                    <!-- * add to playlist -->
+                    <div
+                      class="relative add-to-playlist py-2 cursor-pointer need-description"
+                    >
+                      <svg
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        xmlns="http://www.w3.org/2000/svg"
+                        data-encore-id="icon"
+                        role="img"
+                        aria-hidden="true"
+                        class="hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out"
+                        viewBox="0 0 16 16"
+                        width="16"
+                        height="16"
+                      >
+                        <path
+                          d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm11.748-1.97a.75.75 0 0 0-1.06-1.06l-4.47 4.47-1.405-1.406a.75.75 0 1 0-1.061 1.06l2.466 2.467 5.53-5.53z"
+                          fill="#1ED78B"
+                        ></path>
+                      </svg>
+                      <svg
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        xmlns="http://www.w3.org/2000/svg"
+                        data-encore-id="icon"
+                        role="img"
+                        aria-hidden="true"
+                        class="hidden hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out"
+                        viewBox="0 0 24 24"
+                        width="16"
+                        height="16"
+                      >
+                        <path
+                          d="M11.999 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm-11 9c0-6.075 4.925-11 11-11s11 4.925 11 11-4.925 11-11 11-11-4.925-11-11z"
+                          fill="#CDD6F4"
+                        ></path>
+                        <path
+                          d="M17.999 12a1 1 0 0 1-1 1h-4v4a1 1 0 1 1-2 0v-4h-4a1 1 0 1 1 0-2h4V7a1 1 0 1 1 2 0v4h4a1 1 0 0 1 1 1z"
+                          fill="#CDD6F4"
+                        ></path>
+                      </svg>
+                      <span
+                        class="hidden z-50 absolute bg-gray-700 opacity-0 mt-[-55px] ml-[-80px] px-[5px] py-[3px] rounded text-white text-sm text-nowrap transition-all translate-y-2 duration-500 ease-in-out transform description"
+                        >Add to playlist</span
+                      >
+                    </div>
                   </div>
-                  <div>
-                    <div class="text-[#CDD6F4]">DEKU</div>
-                    <div class="text-[#a7a7a7] text-sm">cốt đơ</div>
+                </div>
+                <!-- * credits -->
+                <div class="bg-[#1E1E2E] p-4 rounded-lg">
+                  <div class="space-y-3">
+                    <!-- * credits -->
+                    <div class="flex justify-between items-center">
+                      <div
+                        class="font-[SpotifyMixUIBold] text-[#CDD6F4] text-md"
+                      >
+                        Credits
+                      </div>
+                      <button
+                        class="hover:scale-105 active:scale-95 cursor-pointer"
+                      >
+                        <span
+                          class="font-[SpotifyMixUIBold] text-[#a7a7a7] hover:text-[#cdd6f4] active:text-[#a7a7a7] text-sm hover:underline"
+                          >Show all</span
+                        >
+                      </button>
+                    </div>
+                    <!-- * follow -->
+                    <div>
+                      <div class="flex justify-between items-center">
+                        <div class="flex flex-col">
+                          <span
+                            class="text-white hover:underline cursor-pointer"
+                            >RPT MCK</span
+                          >
+                          <span class="text-[#a7a7a7] text-sm"
+                            >Main Artist</span
+                          >
+                        </div>
+                        <button
+                          id="follow-button-credits"
+                          class="px-4 py-1 border-[#A7A7A7] border-1 hover:border-white rounded-full hover:scale-105 active:scale-95 cursor-pointer"
+                        >
+                          <span
+                            class="font-[SpotifyMixUIBold] text-[#CDD6F4] text-xs"
+                            >Unfollow</span
+                          >
+                        </button>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="text-[#CDD6F4]">maiki</div>
+                      <div class="text-[#a7a7a7] text-sm">Producer</div>
+                    </div>
+                    <div>
+                      <div class="text-[#CDD6F4]">fujibynight</div>
+                      <div class="text-[#a7a7a7] text-sm">Producer</div>
+                    </div>
+                    <div>
+                      <div class="text-[#CDD6F4]">DEKU</div>
+                      <div class="text-[#a7a7a7] text-sm">cốt đơ</div>
+                    </div>
                   </div>
                 </div>
               </div>
+            </div>
+
+            <!-- * queue view (hien trong playing view, thay the noi dung now playing/credits) -->
+            <div id="queue-view" class="hidden">
+              <div
+                class="top-0 z-[49] sticky flex justify-between items-center bg-[#11111B] px-[16px] py-[16px]"
+              >
+                <h1 class="font-[SpotifyMixUITitleBold] text-md text-white">
+                  Queue
+                </h1>
+                <button
+                  id="queue-view-close"
+                  class="group hover:bg-[#292932] ml-2 p-2 rounded-full cursor-pointer need-description"
+                >
+                  <svg
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xmlns="http://www.w3.org/2000/svg"
+                    data-encore-id="icon"
+                    role="img"
+                    aria-hidden="true"
+                    class="group-active:scale-95 group-hover:scale-105"
+                    viewBox="0 0 16 16"
+                    width="16"
+                    height="16"
+                  >
+                    <path
+                      d="M2.47 2.47a.75.75 0 0 1 1.06 0L8 6.94l4.47-4.47a.75.75 0 1 1 1.06 1.06L9.06 8l4.47 4.47a.75.75 0 1 1-1.06 1.06L8 9.06l-4.47 4.47a.75.75 0 0 1-1.06-1.06L6.94 8 2.47 3.53a.75.75 0 0 1 0-1.06Z"
+                      fill-opacity="0.7"
+                      fill="#CDD6F4"
+                    ></path>
+                  </svg>
+
+                  <span
+                    class="hidden absolute bg-gray-700 opacity-0 mt-[-40px] ml-[-23px] px-[5px] py-[3px] rounded text-white text-sm text-nowrap transition-all translate-y-2 duration-500 ease-in-out transform description"
+                    >Close</span
+                  >
+                </button>
+              </div>
+              <div id="queue-view-list" class="px-[16px] pb-[16px]"></div>
             </div>
           </div>
         </div>
@@ -1510,7 +1556,7 @@
             </button>
             <!-- * queue -->
             <button
-              class="group relative p-2 rounded-full hover:scale-105 active:scale-95 cursor-pointer need-description"
+              class="group relative p-2 rounded-full hover:scale-105 active:scale-95 cursor-pointer need-description queue-btn"
             >
               <svg
                 xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -1527,7 +1573,6 @@
                   d="M15 15H1v-1.5h14V15zm0-4.5H1V9h14v1.5zm-14-7A2.5 2.5 0 0 1 3.5 1h9a2.5 2.5 0 0 1 0 5h-9A2.5 2.5 0 0 1 1 3.5zm2.5-1a1 1 0 0 0 0 2h9a1 1 0 1 0 0-2h-9z"
                   fill-opacity="1"
                   fill="#BCBCC1"
-                  class="group-focus:fill-[#1DB954]"
                 ></path>
               </svg>
               <span
@@ -1695,5 +1740,6 @@
     <script src="./JS/mini-player.js"></script>
     <script src="./JS/lyrics-data.js"></script>
     <script src="./JS/lyrics.js"></script>
+    <script src="./JS/queue.js"></script>
   </body>
 </html>
