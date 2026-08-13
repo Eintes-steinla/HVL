@@ -31,13 +31,19 @@ const COLOR_SAMPLE_SIZE = 40;
 // * cache mau chu dao theo URL anh - tranh tinh lai khi quay lai bai da phat
 const dominantColorCache = new Map();
 
+// * Mau mac dinh khi khong doc duoc mau anh (vi du bi chan CORS tu R2) - dang
+//   "r, g, b" de ghep truc tiep vao rgba(...); dong bo voi DEFAULT_BG_COLOR trong
+//   lyrics.js (#1E1E2E) de trai nghiem nhat quan giua 2 noi.
+const DEFAULT_BG_COLOR = "30, 30, 46";
+
 function isPiPSupported() {
   return "documentPictureInPicture" in window;
 }
 
 // * doc pixel cua anh (da resize xuong COLOR_SAMPLE_SIZE) va tra ve mau trung binh
 //   dang "r, g, b" (khong bao "rgb(...)" de con ghep vao rgba() khi can do trong suot).
-//   Anh cung origin (R2_BASE = "/media") nen khong dinh loi CORS khi getImageData.
+//   Neu anh khac origin va bucket khong bat CORS, viec doc pixel se that bai ->
+//   fallback ve DEFAULT_BG_COLOR thay vi tra null (tranh mat han mau nen).
 function extractDominantColor(imgSrc) {
   if (dominantColorCache.has(imgSrc)) {
     return Promise.resolve(dominantColorCache.get(imgSrc));
@@ -72,8 +78,8 @@ function extractDominantColor(imgSrc) {
           count++;
         }
         if (count === 0) {
-          dominantColorCache.set(imgSrc, null);
-          resolve(null);
+          dominantColorCache.set(imgSrc, DEFAULT_BG_COLOR);
+          resolve(DEFAULT_BG_COLOR);
           return;
         }
         r = Math.round(r / count);
@@ -83,14 +89,15 @@ function extractDominantColor(imgSrc) {
         dominantColorCache.set(imgSrc, color);
         resolve(color);
       } catch (err) {
+        // Anh bi chan CORS (tainted canvas) -> dung mau mac dinh, giong lyrics.js
         console.warn("Khong doc duoc mau chu dao cua anh:", err);
-        dominantColorCache.set(imgSrc, null);
-        resolve(null);
+        dominantColorCache.set(imgSrc, DEFAULT_BG_COLOR);
+        resolve(DEFAULT_BG_COLOR);
       }
     };
     img.onerror = () => {
-      dominantColorCache.set(imgSrc, null);
-      resolve(null);
+      dominantColorCache.set(imgSrc, DEFAULT_BG_COLOR);
+      resolve(DEFAULT_BG_COLOR);
     };
     img.src = imgSrc;
   });
@@ -350,16 +357,14 @@ async function openMiniPlayer() {
   resizeObserver.observe(squareWrap);
 
   // * ap dung mau nen chu dao cho khung anh (letterbox). Rieng #mp-info luon giu
-  //   mau den mac dinh, khong doi theo mau chu dao cua anh.
+  //   mau den mac dinh, khong doi theo mau chu dao cua anh. extractDominantColor
+  //   luon tra ve mot chuoi "r, g, b" hop le (that bai -> DEFAULT_BG_COLOR) nen o
+  //   day khong can kiem tra falsy nua.
   function applyDominantBackground(imgSrc, requestToken) {
     extractDominantColor(imgSrc).then((rgb) => {
       // * neu trong luc cho anh khac da duoc chon (doi bai lien tuc) thi bo qua
       //   ket qua cu, tranh mau nen "tre" mot nhip so voi bai dang phat.
       if (requestToken !== mpBgRequestToken) return;
-      if (!rgb) {
-        squareWrap.style.backgroundColor = "";
-        return;
-      }
       // * lam toi mau chu dao mot chut (thay vi dung nguyen) de chu/icon trang
       //   tren nen van de doc, giong cach Spotify/Apple Music lam.
       squareWrap.style.backgroundColor = `rgba(${rgb}, 0.55)`;
