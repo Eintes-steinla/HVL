@@ -41,8 +41,8 @@ const tracks = [
   },
   {
     stt: 5,
-    title: "Baby",
-    artist: "RPT MCK (feat. marzuz)",
+    title: "Baby (feat. marzuz)",
+    artist: "RPT MCK, marzuz",
     img: R2_BASE + "/assets/tracks/hvl_art/HVL_MCK_Baby_Track05_N0L4B3L.png",
     audio: R2_BASE + "/hvl/Baby_feat_marzuz_spotdown.org.mp3",
     duration: "0:00",
@@ -59,8 +59,8 @@ const tracks = [
   },
   {
     stt: 7,
-    title: "Mắt Môi Tay Chân",
-    artist: "RPT MCK (feat. Tage)",
+    title: "Mắt Môi Tay Chân (feat. Tage)",
+    artist: "RPT MCK, Tage",
     img:
       R2_BASE +
       "/assets/tracks/hvl_art/HVL_MCK_Mat_Moi_Tay_Chan_Track07_N0L4B3L.png",
@@ -116,8 +116,8 @@ const tracks = [
   },
   {
     stt: 13,
-    title: "Nếu Như Ta Chẳng Còn",
-    artist: "RPT MCK (feat. A$AP Ướt Mi)",
+    title: "Nếu Như Ta Chẳng Còn (feat. A$AP Ướt Mi)",
+    artist: "RPT MCK, A$AP Ướt Mi",
     img:
       R2_BASE +
       "/assets/tracks/hvl_art/HVL_MCK_Neu_Nhu_Ta_Chang_Con_Track13_N0L4B3L.png",
@@ -137,8 +137,8 @@ const tracks = [
   },
   {
     stt: 15,
-    title: "Slippery",
-    artist: "RPT MCK (feat. Tùng Dương)",
+    title: "Slippery (feat. Tùng Dương)",
+    artist: "RPT MCK, Tùng Dương",
     img:
       R2_BASE + "/assets/tracks/hvl_art/HVL_MCK_Slippery_Track15_N0L4B3L.png",
     audio: R2_BASE + "/hvl/Slippery_feat_Tung_Duong_spotdown.org.mp3",
@@ -181,8 +181,8 @@ const tracks = [
   },
   {
     stt: 20,
-    title: "Xa Xôi",
-    artist: "RPT MCK (feat. Obito)",
+    title: "Xa Xôi (feat. Obito)",
+    artist: "RPT MCK, Obito",
     img: R2_BASE + "/assets/tracks/hvl_art/HVL_MCK_Xa_Xoi_Track20_N0L4B3L.png",
     audio: R2_BASE + "/hvl/Xa_Xoi_feat_Obito_spotdown.org.mp3",
     duration: "0:00",
@@ -227,8 +227,8 @@ const tracks = [
   },
   {
     stt: 25,
-    title: "Envy",
-    artist: "RPT MCK (feat. Thành Draw)",
+    title: "Envy (feat. THANHDRAW)",
+    artist: "RPT MCK, THANHDRAW",
     img: R2_BASE + "/assets/tracks/hvl_art/HVL_MCK_Envy_Track25_N0L4B3L.png",
     audio: R2_BASE + "/hvl/Envy_feat_Thanh_Draw_spotdown.org.mp3",
     duration: "0:00",
@@ -253,8 +253,8 @@ const tracks = [
   },
   {
     stt: 28,
-    title: "Huh",
-    artist: "RPT MCK (feat. RPT Orijinn & Thành Draw)",
+    title: "Huh (feat. RPT Orijinn & THANHDRAW)",
+    artist: "RPT MCK, RPT Orijinn, THANHDRAW",
     img: R2_BASE + "/assets/tracks/hvl_art/HVL_MCK_Huh_Track28_N0L4B3L.png",
     audio: R2_BASE + "/hvl/Huh_feat_RPT_Orijinn_Thanh_Draw)_spotdown.org.mp3",
     duration: "0:00",
