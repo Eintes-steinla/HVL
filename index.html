@@ -770,6 +770,23 @@
               class="flex flex-col justify-center space-y-6 mx-auto px-6 py-10 max-w-[700px] min-h-[300px]"
             ></div>
           </div>
+          <!-- * mv view (hien trong main, thay the noi dung trang nghe si) -->
+          <div
+            id="mv-view"
+            class="hidden z-[999] absolute inset-0 flex justify-center items-center bg-black overflow-y-auto custom-scroll"
+          >
+            <video
+              id="mv-video"
+              class="hidden w-full h-full object-contain"
+              controls
+              playsinline
+            ></video>
+            <div id="mv-no-video" class="hidden text-center">
+              <p class="font-[SpotifyMixUITitleBold] text-white text-2xl">
+                Hmm. No official music video for this one.
+              </p>
+            </div>
+          </div>
         </div>
 
         <!-- ? playing view -->
@@ -1499,7 +1516,7 @@
           <div class="flex justify-end items-center w-full h-full">
             <!-- * playing view -->
             <button
-              class="group relative p-2 rounded-full hover:scale-105 active:scale-95 cursor-pointer need-description"
+              class="group relative p-2 rounded-full hover:scale-105 active:scale-95 cursor-pointer mv-btn need-description"
             >
               <svg
                 xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -1512,15 +1529,10 @@
                 width="16"
                 height="16"
               >
-                <path
-                  d="M11.196 8 6 5v6l5.196-3z"
-                  fill="#1DB954"
-                  class="group-focus:fill-[#BCBCC1]"
-                ></path>
+                <path d="M11.196 8 6 5v6l5.196-3z" fill="#BCBCC1"></path>
                 <path
                   d="M15.002 1.75A1.75 1.75 0 0 0 13.252 0h-10.5a1.75 1.75 0 0 0-1.75 1.75v12.5c0 .966.783 1.75 1.75 1.75h10.5a1.75 1.75 0 0 0 1.75-1.75V1.75zm-1.75-.25a.25.25 0 0 1 .25.25v12.5a.25.25 0 0 1-.25.25h-10.5a.25.25 0 0 1-.25-.25V1.75a.25.25 0 0 1 .25-.25h10.5z"
-                  fill="#1DB954"
-                  class="group-focus:fill-[#BCBCC1]"
+                  fill="#BCBCC1"
                 ></path>
               </svg>
               <span
@@ -1741,5 +1753,7 @@
     <script src="./JS/lyrics-data.js"></script>
     <script src="./JS/lyrics.js"></script>
     <script src="./JS/queue.js"></script>
+    <script src="./JS/mv-data.js"></script>
+    <script src="./JS/mv.js"></script>
   </body>
 </html>

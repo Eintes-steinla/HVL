@@ -193,6 +193,11 @@ function toggleLyricsPanel(forceState) {
   lyricsView.classList.toggle("hidden", !lyricsPanelOpen);
   updateLyricsButtonColor();
 
+  // * Đóng MV nếu đang mở (giống cách MV đóng Lyrics)
+  if (lyricsPanelOpen && typeof window.closeMvPanel === "function") {
+    window.closeMvPanel();
+  }
+
   // * tranh xung dot voi Queue khi ca 2 cung dung chung #main (mobile)
   const hasDesktopQueueSidebar = !!document.getElementById(
     "playing-view-normal",
