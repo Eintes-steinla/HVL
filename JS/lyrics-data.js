@@ -112,7 +112,7 @@ window.lyricsDatabase = {
     { time: 166.62, text: "Nàng nhắc anh là đã lâu anh vẫn chưa được về nhà" },
     { time: 169.61, text: "Gió thu, déjà vu, tưởng thấy em ở gần nhà" },
     { time: 172.65, text: "Vắng hoe, chỉ còn mỗi anh, cigar và rượu vang" },
-    { time: 175.44, text: "Giá như em ở đây, như lúc xưa chạy sà vào" },
+    { time: 175.44, text: "Giá như em ở đây, như lúc xưa, anh sẽ sà vào" },
     { time: 177.98, text: "Anh phóng lên, tay vít ga, ngược gió thu, vraaa" },
   ],
   "Wtf Bby I'm Lit": [

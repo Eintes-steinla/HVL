@@ -336,6 +336,13 @@ function formatTime(seconds) {
 
 // 3. Hàm chuyển đổi 1 đối tượng track thành chuỗi HTML
 function createTrackHTML(track, index) {
+  const hasMv = !!(window.mvDatabase && window.mvDatabase[track.title]);
+  const mvIconHTML = hasMv
+    ? `<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" data-encore-id="icon" role="img" aria-hidden="true" class="shrink-0" viewBox="0 0 16 16" width="14" height="14">
+        <path d="M11.196 8 6 5v6l5.196-3z" fill="#BCBCC1"></path>
+        <path d="M15.002 1.75A1.75 1.75 0 0 0 13.252 0h-10.5a1.75 1.75 0 0 0-1.75 1.75v12.5c0 .966.783 1.75 1.75 1.75h10.5a1.75 1.75 0 0 0 1.75-1.75V1.75zm-1.75-.25a.25.25 0 0 1 .25.25v12.5a.25.25 0 0 1-.25.25h-10.5a.25.25 0 0 1-.25-.25V1.75a.25.25 0 0 1 .25-.25h10.5z" fill="#BCBCC1"></path>
+      </svg>`
+    : "";
   return `
     <!-- * track ${track.stt} -->
     <li
@@ -374,7 +381,14 @@ function createTrackHTML(track, index) {
         </div>
         <div class="min-w-0">
           <span class="block text-md text-white track-title hover:underline text-nowrap overflow-hidden text-ellipsis hover:cursor-pointer">${track.title}</span>
-          ${track.artist ? `<span class="block text-sm text-[#989FB9] text-nowrap overflow-hidden text-ellipsis">${track.artist}</span>` : ""}
+          ${
+            track.artist
+              ? `<span class="flex items-center gap-1 text-sm text-[#989FB9]">
+                  ${mvIconHTML}
+                  <span class="text-nowrap overflow-hidden text-ellipsis">${track.artist}</span>
+                </span>`
+              : ""
+          }
         </div>
       </div>
 
