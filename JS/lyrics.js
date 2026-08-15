@@ -186,6 +186,20 @@ function updateLyricsButtonColor() {
   }
 }
 
+// * an/hien sticky-header-mobile dua tren trang thai lyrics + queue
+function syncStickyHeaderMobileVisibility() {
+  const stickyHeaderMobile = document.getElementById("sticky-header-mobile");
+  if (!stickyHeaderMobile) return;
+
+  const queueOpen =
+    typeof window.isQueuePanelOpen === "function"
+      ? window.isQueuePanelOpen()
+      : false;
+
+  stickyHeaderMobile.classList.toggle("hidden", lyricsPanelOpen || queueOpen);
+}
+window.syncStickyHeaderMobileVisibility = syncStickyHeaderMobileVisibility;
+
 function toggleLyricsPanel(forceState) {
   lyricsPanelOpen = forceState !== undefined ? forceState : !lyricsPanelOpen;
 
@@ -214,6 +228,8 @@ function toggleLyricsPanel(forceState) {
     renderLyricsForCurrentTrack();
     updateActiveLine();
   }
+
+  syncStickyHeaderMobileVisibility();
 }
 
 window.closeLyricsPanel = () => toggleLyricsPanel(false);

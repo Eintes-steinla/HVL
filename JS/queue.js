@@ -207,6 +207,19 @@ function syncQueueBtnColor() {
   });
 }
 
+// * an/hien sticky-header-mobile dua tren trang thai queue + lyrics
+function syncStickyHeaderMobileVisibilityFromQueue() {
+  const stickyHeaderMobile = document.getElementById("sticky-header-mobile");
+  if (!stickyHeaderMobile) return;
+
+  const lyricsOpen =
+    typeof window.isLyricsPanelOpen === "function"
+      ? window.isLyricsPanelOpen()
+      : false;
+
+  stickyHeaderMobile.classList.toggle("hidden", queuePanelOpen || lyricsOpen);
+}
+
 function toggleQueuePanel(forceState) {
   queuePanelOpen = forceState !== undefined ? forceState : !queuePanelOpen;
 
@@ -229,6 +242,11 @@ function toggleQueuePanel(forceState) {
 
   if (queuePanelOpen) {
     renderQueue();
+  }
+
+  // * chi can dieu chinh sticky-header-mobile khi dang o layout mobile (khong co sidebar desktop)
+  if (!playingViewNormal) {
+    syncStickyHeaderMobileVisibilityFromQueue();
   }
 }
 
