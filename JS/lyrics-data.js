@@ -1239,7 +1239,7 @@ window.lyricsDatabase = {
     { time: 104.24, text: "Cuộc sống bên ngoài, yuh, họ thấy anh phiền" },
     { time: 107.14, text: "Anh không muốn bước ra ngoài kia" },
     { time: 109.53, text: "Phải quên đi giông bão, cùng mấy vại bia" },
-    { time: 112.37, text: "Và giữa tâm trí, chỉ có em và anh" },
+    { time: 112.37, text: "Và sâu trong tâm trí, chỉ có em và anh" },
     { time: 114.98, text: "Vậy sao em quay đi? Tại sao em quay đi?" },
     { time: 117.6, text: "Thì thôi ta chia đôi" },
     { time: 120.14, text: "Anh cũng không muốn OD" },

@@ -377,7 +377,7 @@ function createTrackHTML(track, index) {
       <!-- * img + title -->
       <div class="flex justify-start items-center gap-2 h-full min-w-0">
         <div class="w-[40px] min-w-[40px] h-[40px]">
-          <img src="${track.img}" alt="${track.title}" class="rounded" />
+          <img src="${track.img}" alt="${track.title}" class="rounded" loading="lazy" decoding="async"/>
         </div>
         <div class="min-w-0">
           <span class="block text-md text-white track-title hover:underline text-nowrap overflow-hidden text-ellipsis hover:cursor-pointer">${track.title}</span>
@@ -454,29 +454,49 @@ playlistContainer.innerHTML = tracks
   .map((track, i) => createTrackHTML(track, i))
   .join("");
 
-// 5. Dò thời lượng thật của từng file mp3 (chỉ tải metadata, không tải cả bài)
-function loadDurations() {
-  tracks.forEach((track, i) => {
-    const probe = new Audio();
-    probe.preload = "metadata";
-    probe.src = track.audio;
-    probe.addEventListener(
-      "loadedmetadata",
-      () => {
-        track.duration = formatTime(probe.duration);
-        const timeEl = document.querySelector(
-          `.track-main[data-index="${i}"] .track-time`,
-        );
-        if (timeEl) timeEl.textContent = track.duration;
-      },
-      { once: true },
-    );
-    probe.addEventListener("error", () => {
-      console.warn("Không tải được thời lượng cho:", track.title, track.audio);
-    });
+// 5. Chỉ dò thời lượng cho những track ĐANG hiển thị trên màn hình (lazy),
+// thay vì tải metadata của cả 30 file audio ngay khi load trang.
+function loadDurationForTrack(track, i) {
+  const probe = new Audio();
+  probe.preload = "metadata";
+  probe.src = track.audio; // chỉ chạy khi hàm này thực sự được gọi
+  probe.addEventListener(
+    "loadedmetadata",
+    () => {
+      track.duration = formatTime(probe.duration);
+      const timeEl = document.querySelector(
+        `.track-main[data-index="${i}"] .track-time`,
+      );
+      if (timeEl) timeEl.textContent = track.duration;
+    },
+    { once: true },
+  );
+  probe.addEventListener("error", () => {
+    console.warn("Không tải được thời lượng cho:", track.title, track.audio);
   });
 }
-loadDurations();
+
+function setupLazyDurations() {
+  const loadedIndexes = new Set();
+  const rows = document.querySelectorAll(".track-main");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const idx = Number(entry.target.dataset.index);
+        if (loadedIndexes.has(idx)) return;
+        loadedIndexes.add(idx);
+        loadDurationForTrack(tracks[idx], idx);
+        observer.unobserve(entry.target); // chỉ cần tải 1 lần cho mỗi track
+      });
+    },
+    { root: null, rootMargin: "150px", threshold: 0.01 },
+  );
+
+  rows.forEach((row) => observer.observe(row));
+}
+setupLazyDurations();
 
 // 6. Click vào 1 dòng track -> phát bài đó (trừ khi bấm add-to-playlist / 3 chấm)
 playlistContainer.addEventListener("click", (e) => {
