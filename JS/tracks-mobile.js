@@ -9,7 +9,7 @@ const tracks = [
     artist: "RPT MCK",
     img: R2_BASE + "/assets/tracks/hvl_art/HVL_MCK_Elegie_Track01_N0L4B3L.png",
     audio: R2_BASE + "/hvl/Elegie_spotdown.org.mp3",
-    duration: "0:00",
+    duration: "1:27",
   },
   {
     stt: 2,
@@ -17,7 +17,7 @@ const tracks = [
     artist: "RPT MCK",
     img: R2_BASE + "/assets/tracks/hvl_art/HVL_MCK_IDK_Track02_N0L4B3L.png",
     audio: R2_BASE + "/hvl/IDK_spotdown.org.mp3",
-    duration: "0:00",
+    duration: "3:16",
   },
   {
     stt: 3,
@@ -27,7 +27,7 @@ const tracks = [
       R2_BASE +
       "/assets/tracks/hvl_art/HVL_MCK_Wtf_Bby_Im_Lit_Track03_N0L4B3L.png",
     audio: R2_BASE + "/hvl/Wtf_Bby_Im_Lit_spotdown.org.mp3",
-    duration: "0:00",
+    duration: "2:46",
   },
   {
     stt: 4,
@@ -37,7 +37,7 @@ const tracks = [
       R2_BASE +
       "/assets/tracks/hvl_art/HVL_MCK_Anh_Khong_Muon_No_De_Dang_Track04_N0L4B3L.png",
     audio: R2_BASE + "/hvl/Anh_Khong_Muon_No_De_Dang_spotdown.org.mp3",
-    duration: "0:00",
+    duration: "2:45",
   },
   {
     stt: 5,
@@ -45,7 +45,7 @@ const tracks = [
     artist: "RPT MCK, marzuz",
     img: R2_BASE + "/assets/tracks/hvl_art/HVL_MCK_Baby_Track05_N0L4B3L.png",
     audio: R2_BASE + "/hvl/Baby_feat_marzuz_spotdown.org.mp3",
-    duration: "0:00",
+    duration: "2:53",
   },
   {
     stt: 6,
@@ -55,7 +55,7 @@ const tracks = [
       R2_BASE +
       "/assets/tracks/hvl_art/HVL_MCK_Yeu_Anh_Giet_Anh_Track06_N0L4B3L.png",
     audio: R2_BASE + "/hvl/Yeu_Anh_Giet_Anh_spotdown.org.mp3",
-    duration: "0:00",
+    duration: "2:45",
   },
   {
     stt: 7,
@@ -65,7 +65,7 @@ const tracks = [
       R2_BASE +
       "/assets/tracks/hvl_art/HVL_MCK_Mat_Moi_Tay_Chan_Track07_N0L4B3L.png",
     audio: R2_BASE + "/hvl/Mat_Moi_Tay_Chan_feat_Tage_spotdown.org.mp3",
-    duration: "0:00",
+    duration: "3:12",
   },
   {
     stt: 8,
@@ -75,7 +75,7 @@ const tracks = [
       R2_BASE +
       "/assets/tracks/hvl_art/HVL_MCK_Dao_Cua_Anh_Vua_Track08_N0L4B3L.png",
     audio: R2_BASE + "/hvl/Dao_Cua_Anh_Vua_spotdown.org.mp3",
-    duration: "0:00",
+    duration: "2:04",
   },
   {
     stt: 9,
@@ -85,7 +85,7 @@ const tracks = [
       R2_BASE +
       "/assets/tracks/hvl_art/HVL_MCK_La_Gi_Cua_Nhau_Track09_N0L4B3L.png",
     audio: R2_BASE + "/hvl/La_Gi_Cua_Nhau_spotdown.org.mp3",
-    duration: "0:00",
+    duration: "2:22",
   },
   {
     stt: 10,
@@ -95,7 +95,7 @@ const tracks = [
       R2_BASE +
       "/assets/tracks/hvl_art/HVL_MCK_Night_In_Prague_Track10_N0L4B3L.png",
     audio: R2_BASE + "/hvl/Night_In_Prague_spotdown.org.mp3",
-    duration: "0:00",
+    duration: "3:33",
   },
   {
     stt: 11,
@@ -104,7 +104,7 @@ const tracks = [
     img:
       R2_BASE + "/assets/tracks/hvl_art/HVL_MCK_Mot_Cai_Om_Track11_N0L4B3L.png",
     audio: R2_BASE + "/hvl/Mot_Cai_Om_spotdown.org.mp3",
-    duration: "0:00",
+    duration: "3:21",
   },
   {
     stt: 12,
@@ -112,7 +112,7 @@ const tracks = [
     artist: "RPT MCK",
     img: R2_BASE + "/assets/tracks/hvl_art/HVL_MCK_Liem_Track12_N0L4B3L.png",
     audio: R2_BASE + "/hvl/Liem_spotdown.org.mp3",
-    duration: "0:00",
+    duration: "3:53",
   },
   {
     stt: 13,
@@ -123,7 +123,7 @@ const tracks = [
       "/assets/tracks/hvl_art/HVL_MCK_Neu_Nhu_Ta_Chang_Con_Track13_N0L4B3L.png",
     audio:
       R2_BASE + "/hvl/Neu_Nhu_Ta_Chang_Con_feat_ ASAP_Uot_Mi_spotdown.org.mp3",
-    duration: "0:00",
+    duration: "5:17",
   },
   {
     stt: 14,
@@ -133,7 +133,7 @@ const tracks = [
       R2_BASE +
       "/assets/tracks/hvl_art/HVL_MCK_Ai_Moi_La_Ke_Xau_Xa_Track14_N0L4B3L.png",
     audio: R2_BASE + "/hvl/Ai_Moi_La_Ke_Xau_Xa_spotdown.org.mp3",
-    duration: "0:00",
+    duration: "3:11",
   },
   {
     stt: 15,
@@ -142,7 +142,7 @@ const tracks = [
     img:
       R2_BASE + "/assets/tracks/hvl_art/HVL_MCK_Slippery_Track15_N0L4B3L.png",
     audio: R2_BASE + "/hvl/Slippery_feat_Tung_Duong_spotdown.org.mp3",
-    duration: "0:00",
+    duration: "3:35",
   },
   {
     stt: 16,
@@ -151,7 +151,7 @@ const tracks = [
     img:
       R2_BASE + "/assets/tracks/hvl_art/HVL_MCK_Intenpol_Track16_N0L4B3L.png",
     audio: R2_BASE + "/hvl/Intenpol_spotdown.org.mp3",
-    duration: "0:00",
+    duration: "0:53",
   },
   {
     stt: 17,
@@ -159,7 +159,7 @@ const tracks = [
     artist: "RPT MCK",
     img: R2_BASE + "/assets/tracks/hvl_art/HVL_MCK_Tay_Thi_Track17_N0L4B3L.png",
     audio: R2_BASE + "/hvl/Tay_Thi_spotdown.org.mp3",
-    duration: "0:00",
+    duration: "1:44",
   },
   {
     stt: 18,
@@ -168,7 +168,7 @@ const tracks = [
     img:
       R2_BASE + "/assets/tracks/hvl_art/HVL_MCK_Hut_Va_Hut_Track18_N0L4B3L.png",
     audio: R2_BASE + "/hvl/Hut_va_Hut_spotdown.org.mp3",
-    duration: "0:00",
+    duration: "2:14",
   },
   {
     stt: 19,
@@ -177,7 +177,7 @@ const tracks = [
     img:
       R2_BASE + "/assets/tracks/hvl_art/HVL_MCK_Dua_Chua_Track19_N0L4B3L.png",
     audio: R2_BASE + "/hvl/Dua_Chua_spotdown.org.mp3",
-    duration: "0:00",
+    duration: "3:02",
   },
   {
     stt: 20,
@@ -185,7 +185,7 @@ const tracks = [
     artist: "RPT MCK, Obito",
     img: R2_BASE + "/assets/tracks/hvl_art/HVL_MCK_Xa_Xoi_Track20_N0L4B3L.png",
     audio: R2_BASE + "/hvl/Xa_Xoi_feat_Obito_spotdown.org.mp3",
-    duration: "0:00",
+    duration: "3:37",
   },
   {
     stt: 21,
@@ -193,7 +193,7 @@ const tracks = [
     artist: "RPT MCK",
     img: R2_BASE + "/assets/tracks/hvl_art/HVL_MCK_Che_Phu_Track21_N0L4B3L.png",
     audio: R2_BASE + "/hvl/Che_Phu_spotdown.org.mp3",
-    duration: "0:00",
+    duration: "2:35",
   },
   {
     stt: 22,
@@ -203,7 +203,7 @@ const tracks = [
       R2_BASE +
       "/assets/tracks/hvl_art/HVL_MCK_Oanh_M_Thuoc_Track22_N0L4B3L.png",
     audio: R2_BASE + "/hvl/Oanh_M_bang_Thuoc_spotdown.org.mp3",
-    duration: "0:00",
+    duration: "3:24",
   },
   {
     stt: 23,
@@ -213,7 +213,7 @@ const tracks = [
       R2_BASE +
       "/assets/tracks/hvl_art/HVL_MCK_Ghet_Xog_Lai_Thik_Track23_N0L4B3L.png",
     audio: R2_BASE + "/hvl/Ghet_Xog_Lai_Thik_spotdown.org.mp3",
-    duration: "0:00",
+    duration: "1:53",
   },
   {
     stt: 24,
@@ -223,7 +223,7 @@ const tracks = [
       R2_BASE +
       "/assets/tracks/hvl_art/HVL_MCK_Nhin_Ke_Thu_Cua_Tao_Track24_N0L4B3L.png",
     audio: R2_BASE + "/hvl/Nhin_Ke_Thu_Cua_Tao_spotdown.org.mp3",
-    duration: "0:00",
+    duration: "3:54",
   },
   {
     stt: 25,
@@ -231,7 +231,7 @@ const tracks = [
     artist: "RPT MCK, THANHDRAW",
     img: R2_BASE + "/assets/tracks/hvl_art/HVL_MCK_Envy_Track25_N0L4B3L.png",
     audio: R2_BASE + "/hvl/Envy_feat_Thanh_Draw_spotdown.org.mp3",
-    duration: "0:00",
+    duration: "3:55",
   },
   {
     stt: 26,
@@ -239,7 +239,7 @@ const tracks = [
     artist: "RPT MCK",
     img: R2_BASE + "/assets/tracks/hvl_art/HVL_MCK_Cam_On_Track26_N0L4B3L.png",
     audio: R2_BASE + "/hvl/Cam_On_spotdown.org.mp3",
-    duration: "0:00",
+    duration: "2:39",
   },
   {
     stt: 27,
@@ -249,7 +249,7 @@ const tracks = [
       R2_BASE +
       "/assets/tracks/hvl_art/HVL_MCK_Khong_Can_Lo_Cho_Tao_Track27_N0L4B3L.png",
     audio: R2_BASE + "/hvl/Khong_Can_Lo_Cho_Tao_spotdown.org.mp3",
-    duration: "0:00",
+    duration: "2:36",
   },
   {
     stt: 28,
@@ -257,7 +257,7 @@ const tracks = [
     artist: "RPT MCK, RPT Orijinn, THANHDRAW",
     img: R2_BASE + "/assets/tracks/hvl_art/HVL_MCK_Huh_Track28_N0L4B3L.png",
     audio: R2_BASE + "/hvl/Huh_feat_RPT_Orijinn_Thanh_Draw)_spotdown.org.mp3",
-    duration: "0:00",
+    duration: "4:11",
   },
   {
     stt: 29,
@@ -267,7 +267,7 @@ const tracks = [
       R2_BASE +
       "/assets/tracks/hvl_art/HVL_MCK_Nguyen_Van_Muoi_Track29_N0L4B3L.png",
     audio: R2_BASE + "/hvl/Nguyen_Van_Muoi_spotdown.org.mp3",
-    duration: "0:00",
+    duration: "4:02",
   },
   {
     stt: 30,
@@ -276,7 +276,7 @@ const tracks = [
     img:
       R2_BASE + "/assets/tracks/hvl_art/HVL_MCK_Thit_Lon_Track30_N0L4B3L.png",
     audio: R2_BASE + "/hvl/Thit_Lon_spotdown.org.mp3",
-    duration: "0:00",
+    duration: "3:48",
   },
 ];
 
@@ -414,49 +414,25 @@ playlistContainer.innerHTML = tracks
   .map((track, i) => createTrackHTML(track, i))
   .join("");
 
-// 5. Chỉ dò thời lượng cho những track ĐANG hiển thị trên màn hình (lazy),
-// thay vì tải metadata của cả 30 file audio ngay khi load trang.
-function loadDurationForTrack(track, i) {
-  const probe = new Audio();
-  probe.preload = "metadata";
-  probe.src = track.audio; // chỉ chạy khi hàm này thực sự được gọi
-  probe.addEventListener(
-    "loadedmetadata",
-    () => {
-      track.duration = formatTime(probe.duration);
-      const timeEl = document.querySelector(
-        `.track-main[data-index="${i}"] .track-time`,
-      );
-      if (timeEl) timeEl.textContent = track.duration;
-    },
-    { once: true },
-  );
-  probe.addEventListener("error", () => {
-    console.warn("Không tải được thời lượng cho:", track.title, track.audio);
+// 5. KHÔNG tải trước bất kỳ file audio nào để lấy duration.
+// Duration chỉ được cập nhật từ audio THẬT khi người dùng bấm nghe
+// (audio#audio-song đã được gán src bởi playTrackAtIndex ở file khác).
+const audioElForDuration = document.getElementById("audio-song");
+if (audioElForDuration) {
+  audioElForDuration.addEventListener("loadedmetadata", () => {
+    const index =
+      typeof window.getCurrentTrackIndex === "function"
+        ? window.getCurrentTrackIndex()
+        : null;
+    if (index === null || !tracks[index]) return;
+
+    tracks[index].duration = formatTime(audioElForDuration.duration);
+    const timeEl = document.querySelector(
+      `.track-main[data-index="${index}"] .track-time`,
+    );
+    if (timeEl) timeEl.textContent = tracks[index].duration;
   });
 }
-
-function setupLazyDurations() {
-  const loadedIndexes = new Set();
-  const rows = document.querySelectorAll(".track-main");
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        const idx = Number(entry.target.dataset.index);
-        if (loadedIndexes.has(idx)) return;
-        loadedIndexes.add(idx);
-        loadDurationForTrack(tracks[idx], idx);
-        observer.unobserve(entry.target); // chỉ cần tải 1 lần cho mỗi track
-      });
-    },
-    { root: null, rootMargin: "150px", threshold: 0.01 },
-  );
-
-  rows.forEach((row) => observer.observe(row));
-}
-setupLazyDurations();
 
 // 6. Click vao 1 dong track -> phat bai do, hoac xu ly popup more-options
 playlistContainer.addEventListener("click", (e) => {
