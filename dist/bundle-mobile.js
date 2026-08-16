@@ -59,6 +59,7 @@ document.addEventListener("pointerout", (e) => {
   }, 500);
 });
 
+
 /* ---- play-button.js ---- */
 // play-button-bg (click để check/uncheck)
 document.addEventListener("click", (e) => {
@@ -98,6 +99,7 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
+
 /* ---- follow-button.js ---- */
 const followButton = document.getElementById("follow-button");
 if (followButton) {
@@ -123,6 +125,7 @@ if (followButtonCredits) {
     span.textContent = span.textContent === "Unfollow" ? "Follow" : "Unfollow";
   });
 }
+
 
 /* ---- add-to-playlist.js ---- */
 // ========== 1. Add to playlist (click) ==========
@@ -264,6 +267,7 @@ function movePrev() {
   updateCarousel();
 }
 
+
 /* ---- x-about.js ---- */
 const about = document.getElementById("about");
 const aboutView = document.getElementById("about-view");
@@ -303,6 +307,7 @@ document.addEventListener("click", (e) => {
   }
 });
 
+
 /* ---- hide-about.js ---- */
 function checkHeight() {
   const element = document.getElementById("hideAbout");
@@ -315,6 +320,7 @@ function checkHeight() {
 
 window.addEventListener("resize", checkHeight);
 window.addEventListener("load", checkHeight);
+
 
 /* ---- play-progress.js ---- */
 const audio = document.getElementById("audio-song");
@@ -440,6 +446,7 @@ document.addEventListener("mouseup", function () {
 // Đặt màu nền ban đầu
 updateProgressBar();
 
+
 /* ---- marquee.js ---- */
 /**
  * Biến 1 phần tử chứa text tĩnh thành marquee NẾU text bị tràn khung chứa.
@@ -494,6 +501,7 @@ function setupMarquee(el, text, { always = false } = {}) {
     if (always) el.classList.add("marquee-always");
   });
 }
+
 
 /* ---- tracks-mobile.js ---- */
 // 1. Danh sách dữ liệu các bài hát
@@ -1053,6 +1061,7 @@ function highlightPlayingTrack(index) {
 }
 window.highlightPlayingTrack = highlightPlayingTrack;
 
+
 /* ---- shuffle-repeat.js ---- */
 (function () {
   const shuffleBtn = document.getElementById("shuffle-btn");
@@ -1123,6 +1132,7 @@ window.highlightPlayingTrack = highlightPlayingTrack;
   updateShuffleUI();
   updateRepeatUI();
 })();
+
 
 /* ---- media-session.js ---- */
 (function () {
@@ -1207,6 +1217,7 @@ window.highlightPlayingTrack = highlightPlayingTrack;
     }
   });
 })();
+
 
 /* ---- next-song.js ---- */
 let currentIndex = 0;
@@ -1377,6 +1388,7 @@ document.getElementById("audio-song").addEventListener("ended", () => {
 });
 
 // loadSong(0, false);
+
 
 /* ---- lyrics-data.js ---- */
 // JS/lyrics-data.js
@@ -3733,34 +3745,34 @@ window.lyricsDatabase = {
     { time: 128.66, text: "(Đĩ, đĩ, đĩ) Mày xấu vãi cả lồn" },
     { time: 131.95, text: "(Đĩ, đĩ, đĩ) Fuck, do that" },
     { time: 132.78, text: "(Đĩ, đĩ, đĩ) Fuck" },
-    { time: 133.39, text: "(Đĩ, đĩ, đĩ) Fuck" },
-    { time: 133.52, text: "(Đĩ, đĩ, đĩ) Mày xấu vãi cả lồn" },
+    { time: 132.78, text: "(Đĩ, đĩ, đĩ) Fuck" },
+    { time: 132.78, text: "(Đĩ, đĩ, đĩ) Mày xấu vãi cả lồn" },
+    { time: 133.52, text: "Take off that shit, xem mày như nào?" },
     { time: 136.88, text: "Take off that shit, xem mày như nào?" },
-    { time: 140.13, text: "Take off that shit, xem mày như nào?" },
-    { time: 141.78, text: "Put down that shit, xem mày như nào?" },
-    { time: 146.65, text: "Take off that shit, xem mày như nào?" },
-    { time: 148.33, text: "Put down that shit, xem mày như nào?" },
-    { time: 149.98, text: "Huh, yeah, yeah, sao đây?" },
-    { time: 151.27, text: "Quay đi quay lại đã làm sao đây?" },
-    { time: 154.96, text: "Tao đang ăn sáng đã phải callin'" },
-    { time: 156.17, text: "Đến đây nói chuyện, khuyên mày mau lên" },
-    { time: 158.25, text: "Thiên thần sa lầy" },
+    { time: 140.13, text: "Put down that shit, xem mày như nào?" },
+    { time: 141.78, text: "Take off that shit, xem mày như nào?" },
+    { time: 146.65, text: "Put down that shit, xem mày như nào?" },
+    { time: 148.33, text: "Huh, yeah, yeah, sao đây?" },
+    { time: 149.98, text: "Quay đi quay lại đã làm sao đây?" },
+    { time: 151.27, text: "Tao đang ăn sáng đã phải callin'" },
+    { time: 151.27, text: "Đến đây nói chuyện, khuyên mày mau lên" },
+    { time: 154.96, text: "Thiên thần sa lầy" },
     {
-      time: 159.46,
+      time: 156.17,
       text: "Muốn tao chứng kiến cảnh tượng này tiếp tục bao lần",
     },
-    { time: 161.42, text: "Mỗi lần mày sống thay mặt bao lần" },
-    { time: 162.79, text: "Thích thì cứ nói không phải ganh tị, tao phần" },
-    { time: 164.43, text: "Suốt ngày đòi gang, gang, gang" },
-    { time: 165.95, text: "Không có thông điệp rồi lại bảo chơi cho thật vui" },
-    { time: 167.74, text: "Kiếm tiền đầy túi nhớ dành cho mình đường lui" },
-    { time: 169.28, text: "Bắt mày giấu đầu hở đuôi" },
-    { time: 170.93, text: "Cạn tình cạn nghĩa thì lí nào mà chả xuôi" },
-    { time: 172.32, text: "Xắn tay áo lên, nghĩ cho cùng cũng phải thôi" },
-    { time: 175.34, text: "Nằm gai nếm mật nên ong nào tao chả nuôi" },
-    { time: 175.7, text: "Nên cứ ghét tiếp đi, yah" },
-    { time: 177.48, text: "Swagged out (Woah, swag), swag" },
-    { time: 178.77, text: "Huh" },
+    { time: 158.25, text: "Mỗi lần mày sống thay mặt bao lần" },
+    { time: 159.46, text: "Thích thì cứ nói không phải ganh tị, tao phần" },
+    { time: 161.42, text: "Suốt ngày đòi gang, gang, gang" },
+    { time: 162.79, text: "Không có thông điệp rồi lại bảo chơi cho thật vui" },
+    { time: 164.43, text: "Kiếm tiền đầy túi nhớ dành cho mình đường lui" },
+    { time: 165.95, text: "Bắt mày giấu đầu hở đuôi" },
+    { time: 167.74, text: "Cạn tình cạn nghĩa thì lí nào mà chả xuôi" },
+    { time: 169.28, text: "Xắn tay áo lên, nghĩ cho cùng cũng phải thôi" },
+    { time: 170.93, text: "Nằm gai nếm mật nên ong nào tao chả nuôi" },
+    { time: 172.32, text: "Nên cứ ghét tiếp đi, yah" },
+    { time: 175.34, text: "Swagged out (Woah, swag), swag" },
+    { time: 177.48, text: "Huh" },
     { time: 179.42, text: "Take off my shit cho mày ghét luôn" },
     { time: 182.03, text: "Swagged out" },
     { time: 182.82, text: "Nhịn mày lần này gọi là xong" },
@@ -4371,6 +4383,7 @@ window.lyricsDatabase = {
   ],
 };
 
+
 /* ---- lyrics.js ---- */
 // JS/lyrics.js
 // Hien thi va dong bo lyric ngay trong khu vuc #main, nen lay mau chu dao tu anh bai hat
@@ -4617,6 +4630,7 @@ lyricsAudioEl.addEventListener("timeupdate", updateActiveLine);
 lyricsAudioEl.addEventListener("loadedmetadata", () => {
   if (lyricsPanelOpen) renderLyricsForCurrentTrack();
 });
+
 
 /* ---- queue.js ---- */
 // JS/queue.js
