@@ -408,11 +408,32 @@ function createTrackHTML(track, index) {
   `;
 }
 
-// 4. Render danh sách ra giao diện
+// 4. Render danh sách ra giao diện — chỉ hiện 5 bài đầu, phần còn lại
+// chỉ thực sự render (và do đó chỉ thực sự tải ảnh) khi bấm "See more".
 const playlistContainer = document.getElementById("playlist");
-playlistContainer.innerHTML = tracks
-  .map((track, i) => createTrackHTML(track, i))
-  .join("");
+const INITIAL_COUNT = 5;
+let seeMoreExpanded = false;
+
+function renderPlaylist(expanded) {
+  const list = expanded ? tracks : tracks.slice(0, INITIAL_COUNT);
+  playlistContainer.innerHTML = list
+    .map((track, i) => createTrackHTML(track, i))
+    .join("");
+}
+
+renderPlaylist(false); // lần đầu: chỉ 5 bài -> chỉ 5 request ảnh
+
+const seeMoreBtn = document.getElementById("see-more");
+if (seeMoreBtn) {
+  const seeMoreLabel = seeMoreBtn.querySelector("span");
+  seeMoreBtn.addEventListener("click", () => {
+    seeMoreExpanded = !seeMoreExpanded;
+    renderPlaylist(seeMoreExpanded);
+    if (seeMoreLabel) {
+      seeMoreLabel.textContent = seeMoreExpanded ? "See less" : "See more";
+    }
+  });
+}
 
 // 5. KHÔNG tải trước bất kỳ file audio nào để lấy duration.
 // Duration chỉ được cập nhật từ audio THẬT khi người dùng bấm nghe

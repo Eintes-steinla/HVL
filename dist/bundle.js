@@ -59,7 +59,6 @@ document.addEventListener("pointerout", (e) => {
   }, 500);
 });
 
-
 /* ---- sticky-scroll.js ---- */
 const stickyHeader = document.getElementById("sticky-header");
 const main = document.getElementById("main");
@@ -73,7 +72,6 @@ main.addEventListener("scroll", () => {
     stickyHeader.classList.add("opacity-100");
   }
 });
-
 
 /* ---- play-button.js ---- */
 // play-button-bg (click để check/uncheck)
@@ -114,7 +112,6 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
-
 /* ---- follow-button.js ---- */
 const followButton = document.getElementById("follow-button");
 if (followButton) {
@@ -140,7 +137,6 @@ if (followButtonCredits) {
     span.textContent = span.textContent === "Unfollow" ? "Follow" : "Unfollow";
   });
 }
-
 
 /* ---- add-to-playlist.js ---- */
 // ========== 1. Add to playlist (click) ==========
@@ -245,7 +241,6 @@ document.getElementById("full-screen").addEventListener("click", function () {
   }
 });
 
-
 /* ---- carousel.js ---- */
 const carousel = document.getElementById("carousel");
 const slides = document.querySelectorAll("#carousel > div");
@@ -305,7 +300,6 @@ function movePrev() {
   updateCarousel();
 }
 
-
 /* ---- x-about.js ---- */
 const about = document.getElementById("about");
 const aboutView = document.getElementById("about-view");
@@ -345,7 +339,6 @@ document.addEventListener("click", (e) => {
   }
 });
 
-
 /* ---- hide-about.js ---- */
 function checkHeight() {
   const element = document.getElementById("hideAbout");
@@ -358,7 +351,6 @@ function checkHeight() {
 
 window.addEventListener("resize", checkHeight);
 window.addEventListener("load", checkHeight);
-
 
 /* ---- play-progress.js ---- */
 const audio = document.getElementById("audio-song");
@@ -484,7 +476,6 @@ document.addEventListener("mouseup", function () {
 // Đặt màu nền ban đầu
 updateProgressBar();
 
-
 /* ---- volume.js ---- */
 const audioSong = document.getElementById("audio-song"); // Thẻ audioSong
 const volumeSlider = document.getElementById("volume"); // Thanh điều chỉnh âm lượng
@@ -594,7 +585,6 @@ document.addEventListener("mouseup", function () {
 // Đặt màu nền ban đầu
 updateVolumeSlider();
 
-
 /* ---- marquee.js ---- */
 /**
  * Biến 1 phần tử chứa text tĩnh thành marquee NẾU text bị tràn khung chứa.
@@ -650,7 +640,6 @@ function setupMarquee(el, text, { always = false } = {}) {
   });
 }
 
-
 /* ---- mv-data.js ---- */
 // JS/mv-data.js
 // Anh xa ten bai hat (title trong tracks.js) -> ten file MV tren R2
@@ -664,7 +653,6 @@ window.mvDatabase = {
   "Oanh M = Thuoc": "22-OANH-M-THUOC-MCK-MV.mp4",
   "Nhìn Kẻ Thù Của Tao": "24-NHIN-KE-THU-CUA-TAO-MCK-MV.mp4",
 };
-
 
 /* ---- tracks.js ---- */
 // 1. Danh sách dữ liệu các bài hát
@@ -1117,11 +1105,32 @@ function createTrackHTML(track, index) {
   `;
 }
 
-// 4. Render danh sách ra giao diện
+// 4. Render danh sách ra giao diện — chỉ hiện 5 bài đầu, phần còn lại
+// chỉ thực sự render (và do đó chỉ thực sự tải ảnh) khi bấm "See more".
 const playlistContainer = document.getElementById("playlist");
-playlistContainer.innerHTML = tracks
-  .map((track, i) => createTrackHTML(track, i))
-  .join("");
+const INITIAL_COUNT = 5;
+let seeMoreExpanded = false;
+
+function renderPlaylist(expanded) {
+  const list = expanded ? tracks : tracks.slice(0, INITIAL_COUNT);
+  playlistContainer.innerHTML = list
+    .map((track, i) => createTrackHTML(track, i))
+    .join("");
+}
+
+renderPlaylist(false); // lần đầu: chỉ 5 bài -> chỉ 5 request ảnh
+
+const seeMoreBtn = document.getElementById("see-more");
+if (seeMoreBtn) {
+  const seeMoreLabel = seeMoreBtn.querySelector("span");
+  seeMoreBtn.addEventListener("click", () => {
+    seeMoreExpanded = !seeMoreExpanded;
+    renderPlaylist(seeMoreExpanded);
+    if (seeMoreLabel) {
+      seeMoreLabel.textContent = seeMoreExpanded ? "See less" : "See more";
+    }
+  });
+}
 
 // 5. KHÔNG tải trước bất kỳ file audio nào để lấy duration.
 // Duration chỉ được cập nhật từ audio THẬT khi người dùng bấm nghe
@@ -1219,7 +1228,6 @@ function highlightPlayingTrack(index) {
 }
 window.highlightPlayingTrack = highlightPlayingTrack;
 
-
 /* ---- shuffle-repeat.js ---- */
 (function () {
   const shuffleBtn = document.getElementById("shuffle-btn");
@@ -1290,7 +1298,6 @@ window.highlightPlayingTrack = highlightPlayingTrack;
   updateShuffleUI();
   updateRepeatUI();
 })();
-
 
 /* ---- next-song.js ---- */
 let currentIndex = 0;
@@ -1461,7 +1468,6 @@ document.getElementById("audio-song").addEventListener("ended", () => {
 });
 
 // loadSong(0, false);
-
 
 /* ---- mini-player.js ---- */
 // JS/mini-player.js
@@ -2043,7 +2049,6 @@ async function openMiniPlayer() {
 if (miniPlayerBtn) {
   miniPlayerBtn.addEventListener("click", openMiniPlayer);
 }
-
 
 /* ---- lyrics-data.js ---- */
 // JS/lyrics-data.js
@@ -5198,7 +5203,6 @@ window.lyricsDatabase = {
   ],
 };
 
-
 /* ---- lyrics.js ---- */
 // JS/lyrics.js
 // Hien thi va dong bo lyric ngay trong khu vuc #main, nen lay mau chu dao tu anh bai hat
@@ -5445,7 +5449,6 @@ lyricsAudioEl.addEventListener("timeupdate", updateActiveLine);
 lyricsAudioEl.addEventListener("loadedmetadata", () => {
   if (lyricsPanelOpen) renderLyricsForCurrentTrack();
 });
-
 
 /* ---- queue.js ---- */
 // JS/queue.js
@@ -5727,7 +5730,6 @@ document.addEventListener("click", (e) => {
 window.onQueueChange = () => {
   if (queuePanelOpen) renderQueue();
 };
-
 
 /* ---- mv.js ---- */
 // JS/mv.js
