@@ -1728,7 +1728,7 @@ window.lyricsDatabase = {
       time: 145.06,
       text: "Anh em gọi nhau collab nhảy qua nhà (Gì nữa?), hút cỏ nhập, goo-goo-goo-ga-ga (Hah)",
     },
-    { time: 148.63, text: "Quá là uyển, flow và bеat như cá và biển" },
+    { time: 148.63, text: "Quá là uyển, flow và beat như cá và biển" },
     {
       time: 151.07,
       text: "Sáng dậy thức tỉnh như Johnny Trí Não, tự thấy vẻ đẹp này quá là tuyển",
